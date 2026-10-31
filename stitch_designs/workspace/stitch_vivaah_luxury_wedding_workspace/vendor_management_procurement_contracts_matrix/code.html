@@ -1,0 +1,1049 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"secondary-container":"#fddaae","inverse-surface":"#2c322d","error":"#ba1a1a","surface":"#f5fbf3","surface-variant":"#dee4dd","primary-fixed":"#f3dde8","secondary-fixed":"#ffddb3","surface-dim":"#d6dcd4","secondary":"#745a37","surface-container-low":"#eff5ee","on-surface-variant":"#4c4549","on-error":"#ffffff","surface-tint":"#6a5a63","on-secondary-fixed":"#291800","error-container":"#ffdad6","on-tertiary-fixed":"#2e1318","on-secondary-fixed-variant":"#5a4322","on-tertiary":"#ffffff","surface-container-highest":"#dee4dd","on-primary-fixed":"#241820","primary-container":"#241820","surface-bright":"#f5fbf3","outline-variant":"#cfc3c8","primary-fixed-dim":"#d6c1cc","tertiary":"#000000","on-surface":"#171d19","on-secondary-container":"#785e3b","on-primary-fixed-variant":"#51424c","inverse-on-surface":"#edf2eb","on-primary":"#ffffff","tertiary-fixed-dim":"#eabac1","outline":"#7e7579","on-background":"#171d19","on-tertiary-fixed-variant":"#603d43","on-error-container":"#93000a","tertiary-fixed":"#ffd9de","tertiary-container":"#2e1318","inverse-primary":"#d6c1cc","surface-container":"#eaefe8","surface-container-lowest":"#ffffff","on-tertiary-container":"#a3797f","on-secondary":"#ffffff","primary":"#010001","secondary-fixed-dim":"#e3c196","background":"#f5fbf3","surface-container-high":"#e4eae2","on-primary-container":"#917f89"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","space-md":"0.75rem","space-xs":"0.25rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin":"1.5rem","margin-lg":"2rem","space-lg":"1.25rem"},"fontFamily":{"label-md":["Manrope"],"tabular-nums":["Manrope"],"display-lg":["EB Garamond"],"body-md":["Manrope"],"title-md":["Manrope"],"headline-lg":["EB Garamond"],"body-lg":["Manrope"],"headline-md":["EB Garamond"],"label-sm":["Manrope"],"headline-sm":["EB Garamond"],"display-md":["EB Garamond"],"body-sm":["Manrope"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"title-md":["15px",{"lineHeight":"22px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"tabular-nums":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["26px",{"lineHeight":"34px","letterSpacing":"0em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"500"}],"display-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Vivaah Monogram Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X6iMhZ4l9YyLCIwXH5E2W-xRAgrA1wQuSItRluH-nYCz4Si1K2T2qJOTPtXqK58Ndy14PQ2JZADxhCQWh5Ysb7kFBxvP4o_nJ1n-l9v3x1tXW62RkudcE5KU4MslPmnsM-0BHCllBbWq1b6zzMOsRXoJtTAdJaFZwP0FOaGIS-Xbm7bT93rFcKunMVYboE6z1xGzUqZCMklmgJmxMX5zawZqwJqtUd3xyzDT6Caas"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-wider uppercase text-on-surface">VIVAAH</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Haute Atelier</span></div></div><button class="flex items-center justify-center w-7 h-7 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-widest">Agency Workspace</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary font-title-md shadow-[0_1px_3px_rgba(36,24,32,0.04)]"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-md text-body-md">Overview</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="enquiries-and-clients" href="#"><span class="font-body-md text-body-md">Enquiries &amp; Clients</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">18</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="wedding-projects" href="#"><span class="font-body-md text-body-md">Wedding Projects</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface tabular-nums">12</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="planning-and-tasks" href="#"><span class="font-body-md text-body-md">Planning &amp; Tasks</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-error-container text-on-error-container tabular-nums">9</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="calendar" href="#"><span class="font-body-md text-body-md">Calendar</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm rounded-lg transition-colors bg-primary-container text-on-primary font-title-md shadow-[0_1px_3px_rgba(36,24,32,0.04)]" data-path="vendor-management" href="#"><span class="font-body-md text-body-md">Vendor Management</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">28</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="quotations" href="#"><span class="font-body-md text-body-md">Quotations</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="guest-management" href="#"><span class="font-body-md text-body-md">Guest Management</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface tabular-nums">42</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="event-operations" href="#"><span class="font-body-md text-body-md">Event Operations</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-payments" href="#"><span class="font-body-md text-body-md">Finance &amp; Payments</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="documents-and-agreements" href="#"><span class="font-body-md text-body-md">Documents &amp; Agreements</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ideas-and-moodboards" href="#"><span class="font-body-md text-body-md">Ideas &amp; Moodboards</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-and-analytics" href="#"><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="team-management" href="#"><span class="font-body-md text-body-md">Team Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="font-body-md text-body-md">Settings</span></a></nav></div></div><div class="p-space-md"><div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Concierge Desk</span><span class="font-body-sm text-body-sm text-on-surface">Udaipur · London · Como</span></div></div><span class="material-symbols-outlined text-secondary text-[18px]">verified</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs font-label-md text-label-md"><span class="text-on-surface-variant uppercase tracking-wider">AGENCY WORKSPACE</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">WEDDING PROJECTS</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">Aarav &amp; Meera (Jaipur)</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface font-title-md uppercase tracking-wider">VENDOR MANAGEMENT &amp; PROCUREMENT CONTRACTS</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="w-96 h-9 pl-10 pr-12 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Search vendors, contracts, RFPs, deliverables..." type="text"/><div class="absolute right-space-sm flex items-center px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">⌘K</div></div></div><div class="flex items-center gap-space-md"><button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm flex items-center gap-space-xs hover:bg-on-tertiary-fixed transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>Add Vendor Contract</span></button><div class="h-5 w-px bg-surface-container-highest"></div><button class="flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">calendar_month</span></button><button class="relative flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-md pl-space-sm"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcUcUsXxFCdJYCNKfselJ9Xrw4DkT81QE946NSOS59F_nm3G1PKkisf4c6G7Sveqg0P4PZWqkFIaTHoHT7z6nX4j5zBBX0cjoWEGNwPbLxtSdhgnJDYsQaCQR8hcsp1l-v--cUYucY3bWmaVQFuV3TyHNZ1oWrh7Ig4woT_2k28zCWvoVqafOnA0ZcTMNQnhixwKf6fHOPHfR9g8Et27ePDJg2XzTYKWjAr064M4"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col text-left"><span class="font-title-md text-body-md text-on-surface leading-tight">Pooja Singhania</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Managing Director</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- Sub-Header / Project Status Ribbon -->
+<div class="px-margin-lg py-space-sm bg-surface-container-low flex flex-wrap items-center justify-between gap-y-space-xs text-on-surface">
+<div class="flex items-center gap-space-sm flex-wrap">
+<span class="inline-flex items-center gap-1.5 px-2 py-0.5 rounded bg-primary-container text-on-primary font-label-sm text-label-sm tracking-widest uppercase">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span> Active Project
+      </span>
+<span class="font-tabular-nums text-tabular-nums font-semibold tracking-wider text-secondary">
+        VIV-JPR-2026-08
+      </span>
+<span class="text-outline-variant">•</span>
+<span class="font-body-md text-body-md text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px] text-secondary">location_on</span>
+        The Leela Palace, Jaipur (Grand Sheesh Mahal &amp; Lily Pond Courtyard)
+      </span>
+<span class="text-outline-variant">•</span>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error bg-error-container/40 px-2 py-0.5 rounded">
+        T-Minus 42 Days
+      </span>
+</div>
+<div class="flex items-center gap-space-md">
+<span class="font-headline-sm text-headline-sm text-on-surface italic">Aarav Singhania &amp; Meera Kapur</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase tracking-wider">High Net-Worth Royal Atelier</span>
+</div>
+</div>
+<div class="p-margin-lg space-y-space-lg">
+<!-- Header Title & Master Control Actions -->
+<div class="flex flex-col xl:flex-row xl:items-end justify-between gap-space-md">
+<div>
+<div class="flex items-center gap-2 mb-1">
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-secondary">Procurement &amp; Partner Orchestration</span>
+<span class="w-1 h-1 rounded-full bg-secondary"></span>
+<span class="font-label-sm text-label-sm tracking-wider uppercase text-on-surface-variant">Escrow Tranche Governance</span>
+</div>
+<h1 class="font-display-md text-display-md text-on-surface tracking-tight">Vendor Management &amp; Procurement Matrix</h1>
+<p class="font-body-lg text-body-lg text-on-surface-variant max-w-4xl mt-1">
+          Multi-category luxury vendor contracts, escrow disbursements, deliverable milestones, compliance NOCs, and real-time SLA scorecard.
+        </p>
+</div>
+<!-- Action Cluster -->
+<div class="flex flex-wrap items-center gap-space-sm">
+<button class="h-9 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-title-md text-body-sm shadow-sm hover:bg-surface-container transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-secondary">download</span>
+<span>Export Audit (PDF/CSV)</span>
+</button>
+<button class="h-9 px-space-md rounded-lg bg-surface-container-lowest text-on-surface font-title-md text-body-sm shadow-sm hover:bg-surface-container transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[17px] text-secondary">assignment_add</span>
+<span>Issue Work Order</span>
+</button>
+<button class="h-9 px-space-lg rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm shadow-md hover:bg-tertiary-container transition-all flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>Onboard New Vendor</span>
+</button>
+</div>
+</div>
+<!-- 6 Luxury Metric KPI Cards -->
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-gutter">
+<!-- Card 1 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Contracted Partners</span>
+<span class="p-1 rounded-md bg-secondary-container/40 text-on-secondary-container material-symbols-outlined text-[16px]">handshake</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-display-md text-display-md text-on-surface font-headline-md">18</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">/ 22</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">82% Finalized</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-tabular-nums text-[10px]">4 in Review</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-1 rounded-full" style="width: 82%"></div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Total Procurement</span>
+<span class="p-1 rounded-md bg-surface-container text-on-surface material-symbols-outlined text-[16px]">account_balance_wallet</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-tabular-nums">
+          ₹2,14,50,000
+        </div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Escrow: ₹2.40 Cr</span>
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">89.3% Value</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-primary-container h-1 rounded-full" style="width: 89.3%"></div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Disbursed Advances</span>
+<span class="p-1 rounded-md bg-secondary-container/40 text-on-secondary-container material-symbols-outlined text-[16px]">verified_user</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-on-surface font-tabular-nums">
+          ₹1,48,00,000
+        </div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">69% Released</span>
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">RTGS Escrow</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-1 rounded-full" style="width: 69%"></div>
+</div>
+</div>
+<!-- Card 4 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-error">Milestones Due (14D)</span>
+<span class="p-1 rounded-md bg-error-container text-on-error-container material-symbols-outlined text-[16px]">schedule</span>
+</div>
+<div class="font-headline-lg text-headline-lg text-error font-tabular-nums">
+          ₹38,20,000
+        </div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-error tracking-wide uppercase">5 Tranches Pending</span>
+<span class="px-1.5 py-0.2 rounded bg-error-container text-on-error-container font-tabular-nums text-[10px]">Action Req.</span>
+</div>
+<div class="w-full bg-error-container h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-error h-1 rounded-full" style="width: 60%"></div>
+</div>
+</div>
+<!-- Card 5 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Compliance &amp; NOCs</span>
+<span class="p-1 rounded-md bg-surface-container-high text-on-surface material-symbols-outlined text-[16px]">policy</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-lg text-headline-lg text-on-surface">100%</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant font-medium">(18/18)</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Fire, Noise, Police</span>
+<span class="font-tabular-nums text-label-sm text-secondary font-semibold">Fully Vetted</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-1 rounded-full" style="width: 100%"></div>
+</div>
+</div>
+<!-- Card 6 -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm hover:shadow-md transition-shadow relative overflow-hidden group">
+<div class="flex items-center justify-between mb-1">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Vendor SLA Score</span>
+<span class="p-1 rounded-md bg-secondary-container/30 text-secondary material-symbols-outlined text-[16px]">grade</span>
+</div>
+<div class="flex items-baseline gap-1.5">
+<span class="font-headline-lg text-headline-lg text-on-surface font-tabular-nums">4.92</span>
+<span class="font-headline-sm text-headline-sm text-on-surface-variant">/ 5.0</span>
+</div>
+<div class="mt-2 flex items-center justify-between text-body-sm">
+<span class="font-label-sm text-label-sm text-secondary tracking-wide uppercase">Tier A+ Atelier</span>
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">0 Breaches</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1 rounded-full mt-2 overflow-hidden">
+<div class="bg-secondary h-1 rounded-full" style="width: 98%"></div>
+</div>
+</div>
+</div>
+<!-- Main Operational Workspace Grid (Left 8 Cols, Right 4 Cols on 12-col layout) -->
+<div class="grid grid-cols-1 xl:grid-cols-12 gap-gutter-lg">
+<!-- LEFT SECTION: Master Procurement Matrix (8 Columns) -->
+<div class="xl:col-span-8 flex flex-col gap-space-lg min-w-0">
+<!-- Filter Tabs & Real-time Search Toolbar -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex flex-col lg:flex-row items-stretch lg:items-center justify-between gap-space-sm">
+<div class="relative flex-1">
+<span class="material-symbols-outlined absolute left-3 top-2.5 text-on-surface-variant text-[18px]">search</span>
+<input class="w-full h-9 pl-9 pr-4 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none focus:bg-surface transition-colors" placeholder="Search vendors by name, contract ID, scope keyword, or representative..." type="text"/>
+</div>
+<div class="flex items-center gap-space-sm self-end lg:self-auto">
+<!-- Category dropdown -->
+<div class="relative">
+<select class="h-9 pl-3 pr-8 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-sm appearance-none focus:outline-none cursor-pointer">
+<option>All Specializations (All 8)</option>
+<option>Décor &amp; Floral Architecture</option>
+<option>Royal Banquets &amp; Mixology</option>
+<option>Sound, Intelligent AV &amp; Staging</option>
+<option>Celebrity &amp; Sufi Entertainment</option>
+<option>Heritage Cinema &amp; Archival Photography</option>
+<option>Royal Transfers &amp; Vintage Fleet</option>
+</select>
+<span class="material-symbols-outlined absolute right-2.5 top-2.5 text-on-surface-variant text-[16px] pointer-events-none">expand_more</span>
+</div>
+<!-- View mode toggle -->
+<div class="flex items-center rounded-lg bg-surface-container-high p-0.5 text-on-surface-variant">
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface font-title-md text-body-sm shadow-xs flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">table_rows</span>
+<span class="hidden sm:inline">Ledger</span>
+</button>
+<button class="px-2.5 py-1 rounded text-on-surface-variant hover:text-on-surface font-title-md text-body-sm flex items-center gap-1">
+<span class="material-symbols-outlined text-[15px]">grid_view</span>
+<span class="hidden sm:inline">Cards</span>
+</button>
+</div>
+</div>
+</div>
+<!-- Quick Specialization Chips -->
+<div class="flex items-center gap-1.5 overflow-x-auto pb-1 text-nowrap">
+<button class="px-2.5 py-1 rounded-full bg-primary-container text-on-primary font-label-md text-label-sm uppercase tracking-wider">
+              All Vendors (18)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Décor &amp; Florals (3)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Banquets &amp; F&amp;B (4)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Production &amp; AV (3)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Live Artists (4)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Cinema &amp; Photo (2)
+            </button>
+<button class="px-2.5 py-1 rounded-full bg-surface-container hover:bg-surface-container-high text-on-surface-variant font-label-md text-label-sm uppercase tracking-wider transition-colors">
+              Royal Logistics (2)
+            </button>
+</div>
+</div>
+<!-- Master Contracts Matrix Ledger Table -->
+<div class="rounded-xl bg-surface-container-lowest shadow-sm overflow-hidden flex flex-col">
+<div class="px-space-lg py-space-md flex items-center justify-between bg-surface-container-low/50">
+<div class="flex items-center gap-2">
+<span class="font-headline-sm text-headline-sm text-on-surface">Contract Procurement Registry</span>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-tabular-nums">6 Active Tranches Displayed</span>
+</div>
+<div class="flex items-center gap-space-sm text-on-surface-variant font-body-sm">
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-secondary"></span> Escrow Locked</span>
+<span class="flex items-center gap-1"><span class="w-2 h-2 rounded-full bg-error"></span> Tranche Due</span>
+</div>
+</div>
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse">
+<thead>
+<tr class="bg-surface-container-low text-on-surface-variant font-label-sm text-label-sm tracking-wider uppercase h-9">
+<th class="px-space-md font-semibold">Atelier Partner / Lead</th>
+<th class="px-space-md font-semibold">Contract Ref &amp; Scope</th>
+<th class="px-space-md font-semibold text-right">Contract Value</th>
+<th class="px-space-md font-semibold">Disbursement &amp; Escrow</th>
+<th class="px-space-md font-semibold">Key Deliverable Milestone</th>
+<th class="px-space-md font-semibold">NOC Compliance</th>
+<th class="px-space-md font-semibold text-center">SLA</th>
+<th class="px-space-md font-semibold text-right">Actions</th>
+</tr>
+</thead>
+<tbody class="text-body-sm font-body-md divide-y divide-surface-container">
+<!-- Row 1: Atelier Interflora -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        AI
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Atelier Interflora &amp; Scenography</span>
+<span class="text-on-surface-variant text-[11px]">Marc Dupont &amp; Avantika Roy (Paris / BOM)</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">Décor &amp; Floral Architecture</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-01</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">Sheesh Mahal Ceiling Rigging &amp; Floating Lotus Lilypond</span>
+<span class="text-[11px] text-on-surface-variant mt-1">SLA Annexure IV: Zero-wilt Guarantee</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹58,50,000</div>
+<span class="text-[11px] text-on-surface-variant">Tax inclusive (18% GST)</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">60% Disbursed</span>
+<span class="text-on-surface-variant">₹35.00L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 60%"></div>
+<div class="bg-error h-full" style="width: 20%"></div>
+<div class="bg-outline-variant/40 h-full" style="width: 20%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-error font-semibold">Tranche 2: ₹11.70L (05 Dec)</span>
+<span class="px-1 rounded bg-secondary-container/40 text-on-secondary-container">Escrow Locked</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>3D Floral Mockups Approved</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: Fresh Dutch Orchid Batch Air-Waybill</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        ₹5 Cr PLI Active
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container/30 text-secondary font-label-sm text-[10px] uppercase">
+                        Heritage Zero-Nail Bond
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      99.4%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A+</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-error hover:text-on-error-container" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 2: Grand Royal Epicurean Banquets -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        GR
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Grand Royal Epicurean Banquets</span>
+<span class="text-on-surface-variant text-[11px]">Chef Sanjeev Kapur &amp; Maître D' Alistair</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">Royal Culinary &amp; Mixology</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-02</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">4-Day Gastronomic Curation &amp; Bespoke Silverware Service</span>
+<span class="text-[11px] text-on-surface-variant mt-1">Customised Jaipur Royal Thali Protocol</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹48,00,000</div>
+<span class="text-[11px] text-on-surface-variant">650 Pax Guaranteed</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">58% Disbursed</span>
+<span class="text-on-surface-variant">₹28.00L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 58%"></div>
+<div class="bg-error h-full" style="width: 21%"></div>
+<div class="bg-outline-variant/40 h-full" style="width: 21%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-error font-semibold">Tranche 2: ₹10.00L (01 Dec)</span>
+<span class="px-1 rounded bg-secondary-container/40 text-on-secondary-container">Action Due</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>7-Course Vedic Tasting Signed</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: Sommelier Wine Pairing Consignment</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        FSSAI Palace Grade A+
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-secondary-container/30 text-secondary font-label-sm text-[10px] uppercase">
+                        HACCP Bio-Audit Valid
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      98.8%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A+</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-error hover:text-on-error-container" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 3: Acoustic Soundscapes Mumbai -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        AS
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Acoustic Soundscapes Mumbai</span>
+<span class="text-on-surface-variant text-[11px]">Rohan Merchant (Head of Audio/Rig)</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">Sound, Intelligent AV &amp; 4K LED</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-03</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">L-Acoustics K2 Rigging &amp; Transparent Curved LED Mesh</span>
+<span class="text-[11px] text-on-surface-variant mt-1">Dual Generator Synchronizer Protocol</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹18,50,000</div>
+<span class="text-[11px] text-on-surface-variant">Setup &amp; Tech Crew incl.</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">54% Disbursed</span>
+<span class="text-on-surface-variant">₹10.00L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 54%"></div>
+<div class="bg-error h-full" style="width: 24%"></div>
+<div class="bg-outline-variant/40 h-full" style="width: 22%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-error font-semibold">Tranche 2: ₹4.50L (10 Dec)</span>
+<span class="px-1 rounded bg-surface-container text-on-surface-variant">Escrow Staged</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Wireless Frequency Clearance Cleared</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: 75 dB Leela Curfew Calibration Run</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        DGCA Wireless Certified
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Earthing Load Cleared
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      97.2%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-error hover:text-on-error-container" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 4: Nizami Bandhu & Harshdeep Kaur Ensembles -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        NB
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Nizami Bandhu &amp; Harshdeep Kaur</span>
+<span class="text-on-surface-variant text-[11px]">Aftab Nizami (Lead Artist Manager)</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">Celebrity &amp; Sufi Entertainment</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-04</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">Sangeet Royal Qawwali Night &amp; Live Sufi Mehfil (3 Hrs)</span>
+<span class="text-[11px] text-on-surface-variant mt-1">16-Piece Acoustic Ensemble &amp; Choral Vocalists</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹26,00,000</div>
+<span class="text-[11px] text-on-surface-variant">Rider &amp; Chauffeur separate</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">77% Disbursed</span>
+<span class="text-on-surface-variant">₹20.00L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 77%"></div>
+<div class="bg-secondary h-full" style="width: 23%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-secondary font-semibold">Final Tranche: ₹6.00L (Soundcheck)</span>
+<span class="px-1 rounded bg-secondary-container/40 text-on-secondary-container">Guaranteed</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Hospitality Rider &amp; Flights Confirmed</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: Song Repertoire Sing-Off with Singhania Family</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Exclusivity Executed
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Jaipur City Police NOC
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      96.5%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 5: Stories by Joseph Radhik -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        JR
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Stories by Joseph Radhik</span>
+<span class="text-on-surface-variant text-[11px]">Joseph Radhik &amp; Rhea (Lead Directors)</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">8K Heritage Cinema &amp; Archival Photo</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-05</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">Master Archival Cine-Film, 4K Same-Day Teaser, 14 Photographers</span>
+<span class="text-[11px] text-on-surface-variant mt-1">Leica Prime Lenses &amp; Hasselblad Medium Format</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹11,00,000</div>
+<span class="text-[11px] text-on-surface-variant">Deliverables in Italian Calfskin</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">59% Disbursed</span>
+<span class="text-on-surface-variant">₹6.50L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 59%"></div>
+<div class="bg-error h-full" style="width: 23%"></div>
+<div class="bg-outline-variant/40 h-full" style="width: 18%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-error font-semibold">Tranche 2: ₹2.50L (15 Dec)</span>
+<span class="px-1 rounded bg-secondary-container/40 text-on-secondary-container">Escrow Ready</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Call Sheet (14 Shooters) Locked</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: Couple Portrait Moodboard Selection</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        DGCA Red Zone Clear
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Raw Footage NDA Signed
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      99.1%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A+</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+<!-- Row 6: Jaipur Heritage Royal Fleet & Vintage Motors -->
+<tr class="hover:bg-surface-container-low/40 transition-colors">
+<td class="px-space-md py-space-md align-top">
+<div class="flex items-start gap-space-sm">
+<div class="w-9 h-9 rounded-lg bg-primary-container text-secondary-fixed flex items-center justify-center font-headline-sm text-headline-sm font-semibold shrink-0">
+                        JH
+                      </div>
+<div class="flex flex-col min-w-0">
+<span class="font-title-md text-body-md font-semibold text-on-surface truncate">Jaipur Royal Fleet &amp; Vintage Motors</span>
+<span class="text-on-surface-variant text-[11px]">Ranvijay Singh (Fleet Marshal)</span>
+<span class="text-secondary text-[11px] font-label-sm uppercase tracking-wider mt-0.5">Royal Transfers &amp; Baraat Cavalcade</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col">
+<span class="font-tabular-nums text-label-sm text-on-surface-variant font-semibold">#CNT-2026-DEC-06</span>
+<span class="text-on-surface text-body-sm font-medium mt-0.5">3x 1938 Rolls-Royce Wraith + 18x Maybach S-Class Shuttles</span>
+<span class="text-[11px] text-on-surface-variant mt-1">2x Imperial Decorated Baraat Tuskers (Ceremonial Cleared)</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-right font-tabular-nums">
+<div class="font-headline-sm text-headline-sm text-on-surface font-semibold">₹6,80,000</div>
+<span class="text-[11px] text-on-surface-variant">Includes Dedicated Chauffeurs</span>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 w-44">
+<div class="flex justify-between items-center text-[11px] font-tabular-nums">
+<span class="font-medium text-secondary">58% Disbursed</span>
+<span class="text-on-surface-variant">₹4.00L Paid</span>
+</div>
+<div class="w-full bg-surface-container-highest h-1.5 rounded-full overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 58%"></div>
+<div class="bg-error h-full" style="width: 22%"></div>
+<div class="bg-outline-variant/40 h-full" style="width: 20%"></div>
+</div>
+<div class="flex items-center justify-between text-[10px] text-on-surface-variant">
+<span class="text-error font-semibold">Tranche 2: ₹1.50L (12 Dec)</span>
+<span class="px-1 rounded bg-secondary-container/40 text-on-secondary-container">Escrow Ready</span>
+</div>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1">
+<div class="inline-flex items-center gap-1 text-[11px] text-secondary font-medium">
+<span class="material-symbols-outlined text-[14px]">check_circle</span>
+<span>Veterinary Fitness Cert Passed</span>
+</div>
+<span class="text-[11px] text-on-surface-variant">Next: Route Reconnaissance with Jaipur Police</span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top">
+<div class="flex flex-col gap-1 items-start">
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Animal Welfare NOC
+                      </span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-[10px] uppercase">
+                        Heritage Corridor Pass
+                      </span>
+</div>
+</td>
+<td class="px-space-md py-space-md align-top text-center">
+<span class="inline-block px-1.5 py-0.5 rounded bg-secondary-container/40 text-on-secondary-container font-label-sm text-label-sm font-semibold">
+                      95.0%
+                    </span>
+<span class="block text-[10px] text-on-surface-variant mt-0.5">Tier A</span>
+</td>
+<td class="px-space-md py-space-md align-top text-right">
+<div class="flex items-center justify-end gap-1">
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant hover:text-on-surface" title="View Contract PDF">
+<span class="material-symbols-outlined text-[18px]">description</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Authorize Milestone Payout">
+<span class="material-symbols-outlined text-[18px]">payments</span>
+</button>
+<button class="p-1 rounded hover:bg-surface-container text-on-surface-variant" title="Options">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</div>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer Pagination & Ledger Summary -->
+<div class="px-space-md py-space-sm bg-surface-container-low flex flex-col sm:flex-row items-center justify-between gap-space-sm font-body-sm text-on-surface-variant">
+<div class="flex items-center gap-space-sm">
+<span class="font-tabular-nums">Showing 6 of 18 Registered Partners</span>
+<span class="text-outline-variant">•</span>
+<span class="font-semibold text-on-surface">Total Retainage Balance: ₹28,30,000 (Post-Event Release)</span>
+</div>
+<div class="flex items-center gap-1 font-label-sm text-label-sm">
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface-variant shadow-xs">Previous</button>
+<button class="px-2.5 py-1 rounded bg-primary-container text-on-primary">1</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container">2</button>
+<button class="px-2.5 py-1 rounded bg-surface-container-lowest text-on-surface-variant hover:bg-surface-container">3</button>
+<button class="px-2 py-1 rounded bg-surface-container-lowest text-on-surface-variant shadow-xs">Next</button>
+</div>
+</div>
+</div>
+<!-- Live Visual Verification: On-Site Mockup Proofs & Scenography Checks -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">photo_library</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Verified Atelier Deliverable Proofs</h2>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase tracking-wider">Signed Digital Approvals</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter">
+<!-- Mockup Card 1 -->
+<div class="rounded-lg bg-surface-container-low overflow-hidden group flex flex-col">
+<div class="relative h-36 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Opulent Indian luxury wedding floral chandelier installation inside a regal Rajasthan marble palace with warm candlelight and intricate marigold and pale blush rose floral cascading arches." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCz39PCmpTp7_YWzCypSZCTATPQSdCbTkQ8itf2jcqSHWTnCOde6NggxlTm23lmhdCy7yQKZq5Ny-Kk3SQW9wYVoD_hDZgZYScrgAiI9gSwVvZNxrxGipgw0-atWV9b4q8lQFE-3HCSfYr93FIv4nGmugrTXnnHglQLvl9RkJsjAgt0OfMNUHrsYzLgAetrMFBnt4--ni1dDPO2su-rZdrnVov91FyBZ2Zai5iQRYk"/>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-[10px] uppercase backdrop-blur-xs">Atelier Interflora</span>
+<span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-tabular-nums text-[10px] font-semibold">Approved 12 Nov</span>
+</div>
+<div class="p-space-sm flex flex-col gap-0.5">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Sheesh Mahal Central Dome Floral Mockup</span>
+<span class="text-[11px] text-on-surface-variant">Load Test: 450kg suspended weight verified by Leela Engineers.</span>
+</div>
+</div>
+<!-- Mockup Card 2 -->
+<div class="rounded-lg bg-surface-container-low overflow-hidden group flex flex-col">
+<div class="relative h-36 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-end fine dining Vedic imperial banquet table setting with antique silver thalis, crystal wine goblets, royal saffron floral garnishes and custom monogrammed parchment menus in Jaipur palace." src="https://lh3.googleusercontent.com/aida-public/AB6AXuByaQf59xKK7hWToFovaAFT_K8GrU8VIHJxO_eF_Obm4dFKRGYO2EobhYv1ZJDVcS0hZYQVd9XAigrquxuldzq7b0Wjwx-6gDrk1-TIzzBHgXNd1xBrbItmeG2e7opzepn18WnwUKHKvD29Bv_hbXpy5RDUNnAZlLWNhh8nwyq7xbg-Mm_5gC_7_O3Nd6LqfCbSLZRydptNgVWgr9-yNya0O8O3vw42Q2lA1vjSy0I"/>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-[10px] uppercase backdrop-blur-xs">Grand Royal Banquets</span>
+<span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-tabular-nums text-[10px] font-semibold">Signed 14 Nov</span>
+</div>
+<div class="p-space-sm flex flex-col gap-0.5">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Imperial Royal Thali Plating Protocol</span>
+<span class="text-[11px] text-on-surface-variant">Allergens certified; 24k edible gold leaf sourced from Udaipur guild.</span>
+</div>
+</div>
+<!-- Mockup Card 3 -->
+<div class="rounded-lg bg-surface-container-low overflow-hidden group flex flex-col">
+<div class="relative h-36 w-full overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Pristine vintage 1930s open-top Rolls Royce classic bridal motorcar adorned with white tuberoses and jasmine garlanding standing before an illuminated amber stone Jaipur royal palace courtyard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB7RyQglfePnhNFKhseFDyvqDfhl_oYXkooX6N98VQhEw84qwD0__7Y1ej1TALrZURw8u6eHUexf0vM-hKmYKvamMzLDWJXjvJ8KzfTRzxHtqKmpXypEO3OLk-j1Nu8BrNUmelwH8IjxS_mB3-g96zgqa8fbk0OVJ8RkMcNnyKIemyPJxz6Rdc1CBN_azThM-gjVYWcSGDv1d8VveM4YQ8iCKTY-yZWdeB-O5eO2SE"/>
+<span class="absolute top-2 left-2 px-1.5 py-0.5 rounded bg-primary-container/80 text-on-primary font-label-sm text-[10px] uppercase backdrop-blur-xs">Royal Vintage Fleet</span>
+<span class="absolute bottom-2 right-2 px-1.5 py-0.5 rounded bg-surface-container-lowest/90 text-on-surface font-tabular-nums text-[10px] font-semibold">Vetted 18 Nov</span>
+</div>
+<div class="p-space-sm flex flex-col gap-0.5">
+<span class="font-title-md text-body-sm text-on-surface font-semibold">Baraat Cavalcade 1938 Rolls-Royce &amp; Escort</span>
+<span class="text-[11px] text-on-surface-variant">Polished, mechanical overhaul complete, Jaipur RTO vintage plate clear.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT SECTION: Intelligence & Operational Panels (4 Columns) -->
+<div class="xl:col-span-4 flex flex-col gap-space-lg min-w-0">
+<!-- Panel 1: Approaching Milestone Payouts (Next 14 Days) -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-error text-[20px]">notification_important</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Urgent Milestone Disbursements</h2>
+</div>
+<span class="px-2 py-0.5 rounded-full bg-error-container text-on-error-container font-label-sm text-label-sm font-semibold">
+              3 Pending Sign-Off
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+            Managing Director authorization required for escrow wire release. All accounts verified against Bank Beneficiary Registry.
+          </p>
+<div class="space-y-space-sm">
+<!-- Voucher 1 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div>
+<div class="font-title-md text-body-md font-semibold text-on-surface">Grand Royal Epicurean Tranche 2</div>
+<span class="text-[11px] text-on-surface-variant">Pre-Event Ingredient Lock &amp; Silverware Deposit</span>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-error font-semibold font-tabular-nums">₹10,00,000</div>
+<span class="text-[10px] text-error font-medium">Due: 01 Dec (T-3 Days)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span> HDFC Escrow Ready
+                </span>
+<button class="h-7 px-space-md rounded bg-primary-container text-on-primary font-title-md text-[11px] hover:bg-tertiary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">send</span> Authorize Wire
+                </button>
+</div>
+</div>
+<!-- Voucher 2 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div>
+<div class="font-title-md text-body-md font-semibold text-on-surface">Atelier Interflora Tranche 2</div>
+<span class="text-[11px] text-on-surface-variant">Dutch Floral Auction Import &amp; Freight Remittance</span>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-error font-semibold font-tabular-nums">₹11,70,000</div>
+<span class="text-[10px] text-on-surface-variant font-medium">Due: 05 Dec (T-7 Days)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span> Standard Chartered Escrow
+                </span>
+<button class="h-7 px-space-md rounded bg-surface-container-highest text-on-surface font-title-md text-[11px] hover:bg-surface-variant transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">approval</span> Review Invoice
+                </button>
+</div>
+</div>
+<!-- Voucher 3 -->
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-2">
+<div class="flex items-start justify-between">
+<div>
+<div class="font-title-md text-body-md font-semibold text-on-surface">Nizami Bandhu Flight &amp; Stay Advance</div>
+<span class="text-[11px] text-on-surface-variant">Charter Flight Delhi-Jaipur &amp; Leela Suite Booking</span>
+</div>
+<div class="text-right">
+<div class="font-headline-sm text-headline-sm text-error font-semibold font-tabular-nums">₹6,00,000</div>
+<span class="text-[10px] text-error font-medium">Due: 02 Dec (T-4 Days)</span>
+</div>
+</div>
+<div class="flex items-center justify-between pt-1">
+<span class="font-label-sm text-label-sm text-secondary uppercase flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">lock</span> Direct NEFT Ready
+                </span>
+<button class="h-7 px-space-md rounded bg-primary-container text-on-primary font-title-md text-[11px] hover:bg-tertiary-container transition-colors flex items-center gap-1">
+<span class="material-symbols-outlined text-[14px]">send</span> Authorize Wire
+                </button>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel 2: Contract Compliance & Statutory NOC Status -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Statutory Compliance &amp; NOC Tracker</h2>
+</div>
+<span class="font-tabular-nums text-label-sm text-secondary font-bold">5 / 5 Cleared</span>
+</div>
+<!-- Compliance Progress Gauge & Breakdown -->
+<div class="space-y-space-sm font-body-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">local_fire_department</span>
+<div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">Rajasthan Fire Safety NOC</div>
+<div class="text-[11px] text-on-surface-variant">All cold-spark pyrotechnics &amp; fabric treated</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold">
+                Certified
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">foundation</span>
+<div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">Heritage Zero-Nail Bond</div>
+<div class="text-[11px] text-on-surface-variant">Signed &amp; sealed by Leela Palace Chief Engineer</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold">
+                Executed
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">volume_off</span>
+<div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">High-Decibel Sound Curfew Indemnity</div>
+<div class="text-[11px] text-on-surface-variant">Jaipur DSP clearance for indoor ballroom until 03:00 AM</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold">
+                Approved
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">flight</span>
+<div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">DGCA Drone Airspace License</div>
+<div class="text-[11px] text-on-surface-variant">Callsign: DGCA-JP-9942 (Day &amp; Night Cinematography)</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold">
+                Licensed
+              </span>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[18px]">shield</span>
+<div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">Public Liability Insurance (PLI)</div>
+<div class="text-[11px] text-on-surface-variant">₹10.00 Cr Aggregate Umbrella Coverage Active</div>
+</div>
+</div>
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-[10px] uppercase font-bold">
+                18/18 Active
+              </span>
+</div>
+</div>
+</div>
+<!-- Panel 3: Live RFP & Procurement Tender Desk -->
+<div class="p-space-md rounded-xl bg-surface-container-lowest shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">gavel</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface">Live RFP &amp; Tenders Desk</h2>
+</div>
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm font-tabular-nums">2 Open RFPs</span>
+</div>
+<div class="space-y-space-sm">
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary">RFP-JPR-09 • Pyrotechnics</span>
+<span class="font-tabular-nums text-[11px] text-on-surface-variant">3 Bids In</span>
+</div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">
+                Bespoke Royal Fireworks &amp; 300-Drone Light Show
+              </div>
+<div class="text-[11px] text-on-surface-variant">
+                Bidders: BotLab Dynamics, PyroCraft Jaipur, Tamasha FX London. Budget estimate: ₹14,50,000.
+              </div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-error font-medium">Bidding Closes in 48h</span>
+<button class="text-secondary font-title-md text-[11px] hover:underline flex items-center gap-0.5">
+                  Compare Quotations <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+</div>
+<div class="p-space-sm rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-[10px] uppercase tracking-wider text-secondary">RFP-JPR-10 • Wedding Favors</span>
+<span class="font-tabular-nums text-[11px] text-secondary font-semibold">Finalist Selected</span>
+</div>
+<div class="font-title-md text-body-sm font-semibold text-on-surface">
+                Jaipur Blue Pottery Monogrammed Trinket Trays (500 Units)
+              </div>
+<div class="text-[11px] text-on-surface-variant">
+                Artisan guild negotiated at ₹8,20,000. Sample inspection passed by Client Pooja Singhania.
+              </div>
+<div class="flex items-center justify-between pt-1">
+<span class="text-[11px] text-secondary font-medium">Contract Drafting Phase</span>
+<button class="text-secondary font-title-md text-[11px] hover:underline flex items-center gap-0.5">
+                  Review Term Sheet <span class="material-symbols-outlined text-[13px]">arrow_forward</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+<!-- Panel 4: Emergency Contingency Protocols -->
+<div class="p-space-md rounded-xl bg-primary-container text-on-primary shadow-sm flex flex-col gap-space-sm relative overflow-hidden">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary-fixed text-[20px]">sos</span>
+<span class="font-headline-sm text-headline-sm text-secondary-fixed">Contingency Standby Protocols</span>
+</div>
+<span class="px-2 py-0.5 rounded bg-on-primary/10 font-label-sm text-[10px] uppercase tracking-wider text-on-primary">
+              24/7 Hotlink
+            </span>
+</div>
+<p class="font-body-sm text-body-sm text-on-primary-container leading-relaxed">
+            Pre-contracted backup vendors on 3-hour mobilization standby across Jaipur &amp; Delhi NCR:
+          </p>
+<div class="space-y-1.5 pt-1 text-[12px] font-body-sm text-on-primary">
+<div class="flex items-center justify-between p-1.5 rounded bg-on-primary/5">
+<span>Backup Power: 2x 250 kVA Cummins Silent Gensets</span>
+<span class="text-secondary-fixed font-semibold">Ready on site</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-on-primary/5">
+<span>Reserve Florals: Pushkar Rose &amp; Marigold Wholesalers</span>
+<span class="text-secondary-fixed font-semibold">2h Notice</span>
+</div>
+<div class="flex items-center justify-between p-1.5 rounded bg-on-primary/5">
+<span>Standby Sound Engineer &amp; Console: Sound.com</span>
+<span class="text-secondary-fixed font-semibold">On Call</span>
+</div>
+</div>
+<button class="mt-2 w-full h-8 rounded-lg bg-secondary-fixed text-on-secondary-fixed font-title-md text-[12px] hover:bg-secondary-fixed-dim transition-colors flex items-center justify-center gap-1">
+<span class="material-symbols-outlined text-[15px]">call</span>
+<span>Initiate Emergency Vendor Hot-Swap</span>
+</button>
+</div>
+</div>
+</div>
+</div>
+</div></main></div></body></html>

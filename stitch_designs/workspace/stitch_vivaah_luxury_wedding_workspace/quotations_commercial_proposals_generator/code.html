@@ -1,0 +1,817 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"on-primary-fixed":"#241820","surface-container":"#eaefe8","inverse-primary":"#d6c1cc","on-surface-variant":"#4c4549","outline-variant":"#cfc3c8","background":"#f5fbf3","surface-dim":"#d6dcd4","surface-bright":"#f5fbf3","secondary-fixed-dim":"#e3c196","tertiary-fixed-dim":"#eabac1","on-error-container":"#93000a","on-error":"#ffffff","on-tertiary-fixed":"#2e1318","secondary-container":"#fddaae","on-surface":"#171d19","outline":"#7e7579","surface-tint":"#6a5a63","inverse-surface":"#2c322d","on-tertiary-container":"#a3797f","on-secondary-fixed-variant":"#5a4322","error-container":"#ffdad6","secondary":"#745a37","surface":"#f5fbf3","on-secondary":"#ffffff","on-tertiary":"#ffffff","tertiary-fixed":"#ffd9de","on-tertiary-fixed-variant":"#603d43","error":"#ba1a1a","primary":"#010001","on-background":"#171d19","on-primary-fixed-variant":"#51424c","tertiary-container":"#2e1318","surface-container-high":"#e4eae2","on-secondary-container":"#785e3b","surface-container-low":"#eff5ee","primary-container":"#241820","tertiary":"#000000","inverse-on-surface":"#edf2eb","on-primary":"#ffffff","surface-variant":"#dee4dd","on-secondary-fixed":"#291800","surface-container-lowest":"#ffffff","surface-container-highest":"#dee4dd","primary-fixed":"#f3dde8","on-primary-container":"#917f89","secondary-fixed":"#ffddb3","primary-fixed-dim":"#d6c1cc"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"gutter":"1rem","space-md":"0.75rem","margin-lg":"2rem","space-lg":"1.25rem","margin":"1.5rem","gutter-lg":"1.5rem","space-xl":"2rem","space-sm":"0.5rem","space-xs":"0.25rem"},"fontFamily":{"body-lg":["Manrope"],"headline-lg":["EB Garamond"],"title-md":["Manrope"],"display-lg":["EB Garamond"],"label-sm":["Manrope"],"body-sm":["Manrope"],"body-md":["Manrope"],"headline-sm":["EB Garamond"],"display-md":["EB Garamond"],"label-md":["Manrope"],"headline-md":["EB Garamond"],"tabular-nums":["Manrope"]},"fontSize":{"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}],"headline-lg":["26px",{"lineHeight":"34px","letterSpacing":"0em","fontWeight":"500"}],"title-md":["15px",{"lineHeight":"22px","letterSpacing":"0.01em","fontWeight":"600"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"display-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.005em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"500"}],"tabular-nums":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(36,24,32,0.04)] border-r border-outline-variant/30 z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-margin flex items-center justify-between border-b border-outline-variant/20"><div class="flex items-center gap-space-md"><img alt="Vivaah Monogram Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X6iMhZ4l9YyLCIwXH5E2W-xRAgrA1wQuSItRluH-nYCz4Si1K2T2qJOTPtXqK58Ndy14PQ2JZADxhCQWh5Ysb7kFBxvP4o_nJ1n-l9v3x1tXW62RkudcE5KU4MslPmnsM-0BHCllBbWq1b6zzMOsRXoJtTAdJaFZwP0FOaGIS-Xbm7bT93rFcKunMVYboE6z1xGzUqZCMklmgJmxMX5zawZqwJqtUd3xyzDT6Caas"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-wider uppercase text-on-surface">VIVAAH</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Haute Atelier</span></div></div><button class="flex items-center justify-center w-7 h-7 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-widest">Agency Workspace</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary font-title-md shadow-[0_1px_3px_rgba(36,24,32,0.08)]"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-md text-body-md">Overview</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="enquiries-and-clients" href="#"><span class="font-body-md text-body-md">Enquiries &amp; Clients</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">18</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="wedding-projects" href="#"><span class="font-body-md text-body-md">Wedding Projects</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface tabular-nums">12</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="planning-and-tasks" href="#"><span class="font-body-md text-body-md">Planning &amp; Tasks</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-error-container text-on-error-container tabular-nums">9</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="calendar" href="#"><span class="font-body-md text-body-md">Calendar</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="vendor-management" href="#"><span class="font-body-md text-body-md">Vendor Management</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">28</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="quotations-and-commercial-proposals" href="#"><span class="font-body-md text-body-md">Quotations &amp; Commercial Proposals</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">5 Drafts</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="guest-management" href="#"><span class="font-body-md text-body-md">Guest Management</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface tabular-nums">42</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="event-operations" href="#"><span class="font-body-md text-body-md">Event Operations</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-tertiary-fixed text-on-tertiary-fixed uppercase font-semibold">Live</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-payments" href="#"><span class="font-body-md text-body-md">Finance &amp; Payments</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="documents-and-agreements" href="#"><span class="font-body-md text-body-md">Documents &amp; Agreements</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ideas-and-moodboards" href="#"><span class="font-body-md text-body-md">Ideas &amp; Moodboards</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-and-analytics" href="#"><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="team-management" href="#"><span class="font-body-md text-body-md">Team Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="font-body-md text-body-md">Settings</span></a></nav></div></div><div class="p-space-md border-t border-outline-variant/20"><div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Concierge Desk</span><span class="font-body-sm text-body-sm text-on-surface">Udaipur · London · Como</span></div></div><span class="material-symbols-outlined text-secondary text-[18px]">verified</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl border-b border-outline-variant/25 shadow-[0_1px_8px_rgba(36,24,32,0.03)] z-40 flex items-center justify-between px-margin-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs font-label-md text-label-md"><span class="text-on-surface-variant uppercase tracking-wider">AGENCY WORKSPACE</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">WEDDING PROJECTS</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">AARAV &amp; MEERA (JAIPUR)</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface font-title-md uppercase tracking-wider">QUOTATIONS &amp; COMMERCIAL PROPOSALS</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="w-80 h-9 pl-10 pr-12 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant border border-outline-variant/30 focus:outline-none focus:border-primary-container focus:bg-surface-container-lowest transition-colors" placeholder="Search proposals, lines, line-items..." type="text"/><div class="absolute right-space-sm flex items-center px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">⌘K</div></div></div><div class="flex items-center gap-space-md"><button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm flex items-center gap-space-xs hover:bg-on-tertiary-fixed border border-secondary transition-colors shadow-sm"><span class="material-symbols-outlined text-[18px]">add</span><span>+ Create Proposal</span></button><div class="h-5 w-px bg-surface-container-highest"></div><button class="flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">calendar_month</span></button><button class="relative flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-md pl-space-sm"><div class="relative"><img alt="Pooja Singhania" class="w-8 h-8 rounded-full object-cover ring-1 ring-secondary/40" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcUcUsXxFCdJYCNKfselJ9Xrw4DkT81QE946NSOS59F_nm3G1PKkisf4c6G7Sveqg0P4PZWqkFIaTHoHT7z6nX4j5zBBX0cjoWEGNwPbLxtSdhgnJDYsQaCQR8hcsp1l-v--cUYucY3bWmaVQFuV3TyHNZ1oWrh7Ig4woT_2k28zCWvoVqafOnA0ZcTMNQnhixwKf6fHOPHfR9g8Et27ePDJg2XzTYKWjAr064M4"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col text-left"><span class="font-title-md text-body-md text-on-surface leading-tight">Pooja Singhania</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Managing Director</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- SUB-HEADER & METADATA BAR -->
+<section class="bg-surface-container-lowest px-margin-lg py-space-md shadow-sm">
+<div class="flex flex-col xl:flex-row xl:items-center justify-between gap-space-md">
+<!-- Left: Identity & Revision Status -->
+<div class="flex flex-col gap-1">
+<div class="flex flex-wrap items-center gap-space-xs">
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase tracking-widest font-semibold">
+            Revision V3.2 • High Net-Worth Royal Atelier Tier
+          </span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> Client Review Pending (Sent Nov 14, 2026)
+          </span>
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider font-tabular-nums">
+            Ref: PROP-2026-JPR-V3
+          </span>
+</div>
+<div class="flex flex-wrap items-baseline gap-x-space-md gap-y-0.5">
+<h1 class="font-headline-md text-headline-md text-primary-container tracking-tight">
+            The Imperial Royal Pavilion &amp; Palatial Extravaganza
+          </h1>
+<div class="flex items-center gap-space-xs text-on-surface-variant font-body-sm text-body-sm">
+<span>Aarav Singhania &amp; Meera Kapur</span>
+<span>•</span>
+<span>The Leela Palace, Jaipur</span>
+<span>•</span>
+<span>Target: <strong class="text-on-surface font-title-md">₹2.50 Cr</strong></span>
+<span>•</span>
+<span>Target Margin: <strong class="text-secondary font-title-md">26.5%</strong></span>
+</div>
+</div>
+</div>
+<!-- Right: Primary Proposal Actions -->
+<div class="flex flex-wrap items-center gap-space-xs">
+<button class="h-8 px-space-md rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-title-md text-body-sm flex items-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary">picture_as_pdf</span>
+<span>Bespoke Gold Foil Lookbook</span>
+</button>
+<button class="h-8 px-space-md rounded-lg bg-surface-container-low text-on-surface hover:bg-surface-container font-title-md text-body-sm flex items-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px] text-primary-container">slideshow</span>
+<span>Presentation Mode</span>
+</button>
+<button class="h-8 px-space-md rounded-lg bg-primary-container text-on-primary hover:bg-on-tertiary-fixed font-title-md text-body-sm flex items-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">draw</span>
+<span>Send for DocuSign</span>
+</button>
+</div>
+</div>
+</section>
+<!-- 6 EXECUTIVE FINANCIAL KPI METRIC CARDS -->
+<section class="px-margin-lg py-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between relative overflow-hidden">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Gross Proposal Value</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">account_balance_wallet</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-primary-container leading-none font-headline-lg">₹2,48,50,000</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Incl. 18% GST (₹2.10 Cr Net)</div>
+</div>
+<div class="text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">check_circle</span>
+          Within target limit (₹2.50 Cr)
+        </div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Est. Direct Cost</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">inventory_2</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-primary leading-none font-headline-lg">₹1,61,25,000</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Vendor Pass-Through Baseline</div>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span> 18 Certified Luxury Vendors
+        </div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between relative">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Agency Gross Margin</span>
+<span class="material-symbols-outlined text-[16px] text-secondary">trending_up</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-primary-container leading-none font-headline-lg">₹49,34,322</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">23.43% Blended Markup Yield</div>
+</div>
+<div class="text-secondary font-label-sm text-label-sm font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[13px]">north_east</span>
+          +1.43% vs Minimum Baseline
+        </div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Agency Fee</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">hotel_class</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-primary leading-none font-headline-lg">₹18,00,000</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">Fixed Royal Atelier Curation</div>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1">
+<span>72 Direct Show Production Hrs</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span>Milestone Tranches</span>
+<span class="material-symbols-outlined text-[16px] text-on-surface-variant">schedule</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-primary leading-none font-headline-lg">4 Escrow Phases</span>
+<div class="font-label-sm text-label-sm text-on-surface-variant mt-1">20% / 30% / 40% / 10%</div>
+</div>
+<div class="text-on-surface-variant font-label-sm text-label-sm flex items-center gap-1 font-tabular-nums">
+<span>T-90 Advance: ₹49.70L</span>
+</div>
+</div>
+<!-- KPI 6 -->
+<div class="bg-primary-container text-on-primary p-space-md rounded-lg shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-secondary-fixed font-label-sm text-label-sm uppercase tracking-wider">
+<span>Deal Health &amp; Win Prob</span>
+<span class="material-symbols-outlined text-[16px] text-secondary-fixed">workspace_premium</span>
+</div>
+<div class="my-space-xs">
+<span class="font-display-md text-display-md text-secondary-fixed leading-none font-headline-lg">92%</span>
+<div class="font-label-sm text-label-sm text-outline-variant mt-1">High Confidence Level</div>
+</div>
+<div class="text-primary-fixed font-label-sm text-label-sm flex items-center gap-1">
+<span>Awaiting Patriarch Sign-off</span>
+</div>
+</div>
+</div>
+</section>
+<!-- INTERACTIVE TAB NAVIGATION -->
+<section class="px-margin-lg">
+<div class="flex items-center gap-space-xs overflow-x-auto pb-space-xs bg-surface-container-low p-1.5 rounded-lg">
+<button class="px-space-md py-space-xs rounded font-title-md text-body-sm bg-surface-container-lowest text-primary-container shadow-sm flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px] text-secondary">view_list</span>
+<span>Line-Item Commercial Builder</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary-container text-on-secondary-container font-label-sm text-label-sm tabular-nums">7 Categories</span>
+</button>
+<button class="px-space-md py-space-xs rounded font-body-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px]">pie_chart</span>
+<span>Margin &amp; Sensitivity Analytics</span>
+</button>
+<button class="px-space-md py-space-xs rounded font-body-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px]">layers</span>
+<span>Tiered Option Comparison</span>
+<span class="px-1.5 py-0.2 rounded bg-surface-container text-on-surface-variant font-label-sm text-label-sm">3 Tiers</span>
+</button>
+<button class="px-space-md py-space-xs rounded font-body-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px]">payments</span>
+<span>Payment Schedule &amp; Milestone Tranches</span>
+</button>
+<button class="px-space-md py-space-xs rounded font-body-md text-body-sm text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors flex items-center gap-2 whitespace-nowrap">
+<span class="material-symbols-outlined text-[16px]">auto_stories</span>
+<span>Client View / Lookbook Preview</span>
+</button>
+</div>
+</section>
+<!-- MAIN SPLIT WORKSPACE -->
+<section class="px-margin-lg py-space-lg">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-space-lg items-start">
+<!-- LEFT / CENTRAL MAIN AREA (APPROX 68% -> 8 of 12 columns) -->
+<div class="lg:col-span-8 flex flex-col gap-space-lg">
+<!-- Category Pill Scroller & Fast Financial Summary -->
+<div class="bg-surface-container-lowest p-space-md rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-widest font-semibold">Scope Architecture</span>
+<span class="font-body-sm text-body-sm text-secondary font-tabular-nums">Curated Portfolio: ₹2,48,50,000 Total Gross</span>
+</div>
+<div class="flex flex-wrap items-center gap-1.5">
+<button class="px-space-md py-1 rounded-full bg-primary-container text-on-primary font-title-md text-body-sm flex items-center gap-1.5 shadow-sm">
+<span>All Scopes</span>
+<span class="px-1.5 py-0.2 rounded-full bg-secondary text-on-secondary font-label-sm text-label-sm font-tabular-nums">₹2.48 Cr</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>Scenography &amp; Florals</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹68.0L</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>Royal Banqueting</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹52.0L</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>Entertainment &amp; Artistes</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹36.0L</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>Venue &amp; Hospitality</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹42.5L</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>AV &amp; Kinetic Rigging</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹28.0L</span>
+</button>
+<button class="px-space-md py-1 rounded-full bg-surface-container text-on-surface hover:bg-surface-container-high font-body-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span>Royal VIP Fleet</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">₹22.0L</span>
+</button>
+</div>
+</div>
+<!-- Dynamic Line-Item Commercial Table / Cost Builder -->
+<div class="bg-surface-container-lowest rounded-lg shadow-sm overflow-hidden">
+<div class="px-space-lg py-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[20px]">architecture</span>
+<div>
+<h2 class="font-headline-sm text-headline-sm text-primary-container">Atelier Line-Item Commercial Register</h2>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live pass-through cost &amp; margin recalculation engine</p>
+</div>
+</div>
+<div class="flex items-center gap-space-xs">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Fast Presets:</span>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm hover:bg-secondary-container transition-colors">+15%</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm hover:bg-secondary-container transition-colors">+20%</button>
+<button class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm font-semibold">+22%</button>
+<button class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm hover:bg-secondary-container transition-colors">+25%</button>
+</div>
+</div>
+<!-- Table Container -->
+<div class="overflow-x-auto">
+<table class="w-full text-left font-body-md text-body-md">
+<thead>
+<tr class="bg-surface-container text-on-surface font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-space-sm px-space-md">Specification &amp; Partner</th>
+<th class="py-space-sm px-space-xs text-center">Unit/Scope</th>
+<th class="py-space-sm px-space-sm text-right">Direct Cost</th>
+<th class="py-space-sm px-space-xs text-center">Markup</th>
+<th class="py-space-sm px-space-sm text-right">Quoted Price</th>
+<th class="py-space-sm px-space-sm text-right">Margin (₹)</th>
+<th class="py-space-sm px-space-xs text-center">Action</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high/40 text-on-surface font-tabular-nums">
+<!-- Row 1: Scenography -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">SCENOGRAPHY</span>
+<span class="font-title-md text-body-md text-primary-container">Grand Sheesh Mahal 10,000 Crystal String Rigging</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Atelier Interflora</strong> • French Lily Floral Canopy &amp; Beveled Glass Facets</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    1 Master Set
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹38,50,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">22.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹46,97,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹8,47,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 2: Floating Mandap -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">SCENOGRAPHY</span>
+<span class="font-title-md text-body-md text-primary-container">Floating Lotus Lilypond Mandap on Hydraulic Pontoon</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Interflora &amp; Marine Structural Eng</strong> • 24k Hand-beaten Gold Foil Accents</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    Pontoon 48x48
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹16,00,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">25.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹20,00,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹4,00,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 3: Nizami Bandhu -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">ARTISTES</span>
+<span class="font-title-md text-body-md text-primary-container">Nizami Bandhu Acoustic Sufi Night &amp; Ensemble</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Direct Artiste Management</strong> • 3.5 Hrs Performance + VIP Greenroom Rider</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    Full Troupe
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹18,00,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">20.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹21,60,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹3,60,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 4: Drone Show -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">KINETIC TECH</span>
+<span class="font-title-md text-body-md text-primary-container">300-Drone Synchronized Light Show over Lake</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">BotLab Dynamics</strong> • Bespoke Monogram &amp; Heritage Peacocks</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    300 Units
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹10,50,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">18.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹12,39,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹1,89,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 5: Banquets -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm font-semibold">BANQUETING</span>
+<span class="font-title-md text-body-md text-primary-container">Imperial Rajasthani &amp; Continental Gastronomy</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Grand Royal Banquets</strong> • 4 Days • 650 Pax • Edible Gold Leaf Service</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    650 Pax
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹41,00,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">15.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹47,15,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹6,15,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 6: Production Rigging -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">PRODUCTION</span>
+<span class="font-title-md text-body-md text-primary-container">L-Acoustics K2 Rigging System &amp; Curved LED Mesh</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Acoustic Soundscapes</strong> • Zero-Nail Palatial Trussing System</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    Turnkey Arena
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹14,20,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">22.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹17,32,400
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹3,12,400
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+<!-- Row 7: Royal Fleet -->
+<tr class="hover:bg-surface-container-low transition-colors">
+<td class="py-space-md px-space-md">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="px-1.5 py-0.2 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm font-semibold">VIP FLEET</span>
+<span class="font-title-md text-body-md text-primary-container">3x 1938 Vintage Rolls-Royce &amp; 18x Maybach S-Class</span>
+</div>
+<span class="text-on-surface-variant font-body-sm text-body-sm mt-0.5">Partner: <strong class="text-secondary">Jaipur Royal Fleet Logistics</strong> • White-Glove Chauffeur Shuttles</span>
+</div>
+</td>
+<td class="py-space-md px-space-xs text-center font-body-sm text-body-sm text-on-surface-variant">
+                    21 Vehicles
+                  </td>
+<td class="py-space-md px-space-sm text-right font-medium">
+                    ₹5,50,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<span class="px-2 py-0.5 rounded bg-surface-container font-label-sm text-label-sm text-secondary font-bold">20.0%</span>
+</td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-md text-primary-container">
+                    ₹6,60,000
+                  </td>
+<td class="py-space-md px-space-sm text-right font-title-md text-body-sm text-secondary">
+                    +₹1,10,000
+                  </td>
+<td class="py-space-md px-space-xs text-center">
+<button class="p-1 rounded text-on-surface-variant hover:text-on-surface hover:bg-surface-container transition-colors">
+<span class="material-symbols-outlined text-[18px]">more_vert</span>
+</button>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Quick Add Scope Bar -->
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md">
+<button class="px-space-md py-space-xs rounded-lg bg-surface-container-lowest text-primary-container font-title-md text-body-sm flex items-center gap-1.5 hover:bg-surface-container shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary">add_circle</span>
+<span>+ Add Custom Scope Line Item</span>
+</button>
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<span>Selected Pass-Through: <strong class="text-primary-container font-medium font-tabular-nums">₹1,43,70,000</strong></span>
+<span>•</span>
+<span>Accumulated Margin: <strong class="text-secondary font-bold font-tabular-nums">₹28,33,400</strong></span>
+</div>
+</div>
+</div>
+<!-- Visual Lookbook Preview Mosaic (Editorial Luxury) -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<div class="relative rounded-lg overflow-hidden h-48 group shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Opulent Indian wedding palace ballroom at The Leela Palace Jaipur with thousands of crystal chandeliers, cascading blush roses, warm candlelight, and architectural marble arches in deep plum and champagne gold ambient tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAymEdf9FpQpMqlVgPqGaXs0c65nVzn5jUMuxMcJeTLFZN2PC--O2dTxbTpslVR60916ayoVZ-MTCEUeAWcEcitZnFY5e5p9eVywIhOD6l1RqttW0XJB-VPfFmZ923liLsaIlvtbNB1FtBcUM1GqPpXd7uaHa6-LkpnNFioh8px_0vlfKLiFeo3MAt-0CW76ZZ7i1RmeBabXWodi2eB1_rFHiCuJu1NN7uFGqx5pvg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest font-semibold">Scenography Render</span>
+<span class="font-headline-sm text-headline-sm">Crystal Sheesh Mahal Pavilion</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-48 group shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Floating royal mandap situated on a serene palace lake at night, illuminated by soft golden fairy lights, floating lotus flowers, and hydraulic reflective gold foil platform under starry sky." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGma7kTiT_BXx3Fvr59ILYEUo986jiAWWVN13SjxihxvUudtuWFIv169NQeR2iuaZmhFyGqexHfLRpTEKhu7L2Q_N66zuDqF0hJ2Tmwbv5_KBL1cV5-mQEdJA56l3dB798N52giIIWav-7wCCXjiP5DYmK0yWTuFlC_SUOpFSffbx_VCqevEHOXKFTJUkeGvg9FtfKvTIRAiH74pY1KMj4MShr5OZ5IK0xucNCr2Y"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest font-semibold">Lake Rigging Plan</span>
+<span class="font-headline-sm text-headline-sm">Hydraulic Floating Lotus Mandap</span>
+</div>
+</div>
+<div class="relative rounded-lg overflow-hidden h-48 group shadow-sm">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="High-end royal banqueting table setting with vintage silver cloches, 24k edible gold leaf dessert display, vintage floral centerpieces, crystal stemware, and embossed calligraphic menu cards in Jaipur palace courtyard." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDrsG_746mPWriu1qToqOio_uPyfp3HLCVuZNzrkBTWRFniMuKZNAwGrmkHtXGm_tfNMJfPmBJBvgMre-Q5efQ94KoNcnMjM5orPfByPOU_BVz6WbS9Xo0JG9T-b5sbPodYGJmAOiFJQzaVpvVRcDKJeJ3dD_zZhLseCcpkYIFYg_ZxL9Zx-UgL7Rt3Y_MKwvkHCl663WqYo_R3dynv2N-RylSFxnXuS8zKa51MNnI"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent p-space-md flex flex-col justify-end text-on-primary">
+<span class="font-label-sm text-label-sm text-secondary-fixed uppercase tracking-widest font-semibold">Gastronomy Deck</span>
+<span class="font-headline-sm text-headline-sm">Imperial Silverware Experience</span>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT-HAND ANALYTICAL & PROPOSAL INTELLIGENCE SIDEBAR (APPROX 32% -> 4 of 12 columns) -->
+<div class="lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1. Real-Time Margin & Profitability Gauge -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">donut_large</span>
+<span class="font-title-md text-title-md text-primary-container">Margin &amp; Profit Yield</span>
+</div>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-fixed-variant font-label-sm text-label-sm uppercase font-bold">Optimal Yield</span>
+</div>
+<!-- Micro Visual Chart Progress -->
+<div class="flex flex-col gap-1.5 mt-space-xs">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Cost Architecture Breakdown</span>
+<span class="text-primary-container font-semibold font-tabular-nums">100% (₹2.48 Cr)</span>
+</div>
+<div class="w-full h-3 rounded-full bg-surface-container-high overflow-hidden flex">
+<div class="h-full bg-outline-variant" style="width: 64.9%;" title="Vendor Pass-Through: 64.9%"></div>
+<div class="h-full bg-secondary" style="width: 19.8%;" title="Agency Margin: 19.8%"></div>
+<div class="h-full bg-primary-container" style="width: 7.2%;" title="Atelier Fee: 7.2%"></div>
+<div class="h-full bg-secondary-fixed-dim" style="width: 8.1%;" title="Statutory GST: 8.1%"></div>
+</div>
+<div class="grid grid-cols-2 gap-2 mt-2 font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-outline-variant"></span>
+<span>Vendor Pass-Through (64.9%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary"></span>
+<span>Gross Margin (19.8%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-primary-container"></span>
+<span>Agency Fee (7.2%)</span>
+</div>
+<div class="flex items-center gap-1.5">
+<span class="w-2.5 h-2.5 rounded-sm bg-secondary-fixed-dim"></span>
+<span>Statutory GST (8.1%)</span>
+</div>
+</div>
+</div>
+<!-- Indicator Box -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1">
+<div class="flex items-center justify-between">
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-semibold">Margin Tolerance</span>
+<span class="font-title-md text-body-md text-secondary font-bold font-tabular-nums">23.43% Actual</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+              Exceeds 22.0% baseline threshold by <strong class="text-on-surface">+1.43%</strong>. Target budget yield secured with healthy agency cushion.
+            </p>
+</div>
+</div>
+<!-- 2. Multi-Tier Package Comparison Switcher -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">stars</span>
+<span class="font-title-md text-title-md text-primary-container">Tiered Package Selection</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Client Options</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<!-- Tier 1 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between cursor-pointer">
+<div class="flex flex-col">
+<span class="font-title-md text-body-md text-on-surface">The Grand Heritage Package</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Standard decor &amp; 150 drones • 21.0% Margin</span>
+</div>
+<div class="text-right">
+<div class="font-title-md text-body-md font-tabular-nums">₹1.85 Cr</div>
+<button class="font-label-sm text-label-sm text-secondary uppercase hover:underline">Select</button>
+</div>
+</div>
+<!-- Tier 2 (Active Recommended) -->
+<div class="p-space-md rounded-lg bg-primary-container text-on-primary shadow-sm flex items-center justify-between relative overflow-hidden">
+<div class="flex flex-col">
+<div class="flex items-center gap-1.5">
+<span class="font-title-md text-body-md text-secondary-fixed">The Imperial Royal Pavilion</span>
+<span class="px-1.5 py-0.2 rounded bg-secondary-fixed text-on-secondary-fixed font-label-sm text-label-sm font-semibold">Active</span>
+</div>
+<span class="font-body-sm text-body-sm text-outline-variant">Hydraulic mandap + Nizami + 300 drones • 23.4% Margin</span>
+</div>
+<div class="text-right">
+<div class="font-display-md text-headline-sm text-secondary-fixed font-tabular-nums">₹2.48 Cr</div>
+<span class="font-label-sm text-label-sm text-secondary-fixed font-semibold uppercase">Recommended</span>
+</div>
+</div>
+<!-- Tier 3 -->
+<div class="p-space-md rounded-lg bg-surface-container-low hover:bg-surface-container transition-colors flex items-center justify-between cursor-pointer">
+<div class="flex flex-col">
+<span class="font-title-md text-body-md text-on-surface">The Sovereign Maharajah Reserve</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Helicopter petal drop + 500 drones • 25.8% Margin</span>
+</div>
+<div class="text-right">
+<div class="font-title-md text-body-md font-tabular-nums">₹3.15 Cr</div>
+<button class="font-label-sm text-label-sm text-secondary uppercase hover:underline">Select</button>
+</div>
+</div>
+</div>
+</div>
+<!-- 3. Tax & Commercial Schedule Summary -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-primary-container">Commercial Summary</span>
+<span class="material-symbols-outlined text-secondary text-[18px]">receipt_long</span>
+</div>
+<div class="flex flex-col gap-space-xs font-body-sm text-body-sm font-tabular-nums text-on-surface-variant">
+<div class="flex justify-between py-1">
+<span>Net Pass-Through &amp; Execution</span>
+<span class="text-on-surface font-medium">₹1,92,59,322</span>
+</div>
+<div class="flex justify-between py-1">
+<span>Agency Retainer / Curation Fee</span>
+<span class="text-on-surface font-medium">₹18,00,000</span>
+</div>
+<div class="flex justify-between py-1 font-semibold text-primary-container">
+<span>Taxable Value</span>
+<span>₹2,10,59,322</span>
+</div>
+<div class="flex justify-between py-1">
+<span>CGST (9.0%)</span>
+<span>₹18,95,339</span>
+</div>
+<div class="flex justify-between py-1">
+<span>SGST (9.0%)</span>
+<span>₹18,95,339</span>
+</div>
+<div class="p-space-md rounded-lg bg-secondary-container/40 text-on-secondary-fixed-variant flex items-center justify-between mt-space-xs">
+<span class="font-title-md text-body-md uppercase">Total Client Pay-out</span>
+<span class="font-display-md text-headline-md font-bold text-primary-container">₹2,48,50,000</span>
+</div>
+<div class="flex justify-between text-on-surface-variant font-label-sm text-label-sm pt-1">
+<span>Tranche 1 Escrow (20% Advance):</span>
+<strong class="text-secondary font-title-md">₹49,70,000</strong>
+</div>
+</div>
+</div>
+<!-- 4. Negotiation & Discount Simulation Sandbox -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-xs">
+<span class="material-symbols-outlined text-secondary text-[20px]">tune</span>
+<span class="font-title-md text-title-md text-primary-container">Discount Sandbox</span>
+</div>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Scenario Modeler</span>
+</div>
+<div class="flex flex-col gap-space-sm">
+<div class="flex justify-between items-center text-body-sm font-body-sm">
+<span class="text-on-surface-variant">Simulate Client Haircut:</span>
+<span class="font-title-md text-body-md text-primary-container font-tabular-nums" id="discount-pct-label">3.0% Discount</span>
+</div>
+<!-- Discount Step Pills -->
+<div class="grid grid-cols-4 gap-1 text-center font-label-sm text-label-sm font-semibold">
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="setDiscount(0)">0%</button>
+<button class="py-1 rounded bg-secondary-container text-on-secondary-fixed-variant font-bold transition-colors" onclick="setDiscount(3)">3%</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="setDiscount(5)">5%</button>
+<button class="py-1 rounded bg-surface-container text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="setDiscount(7)">7%</button>
+</div>
+<!-- Dynamic Scenario Outcome -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col gap-1.5" id="discount-result-box">
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Client Savings:</span>
+<span class="font-medium text-primary-container font-tabular-nums">₹7,45,500</span>
+</div>
+<div class="flex justify-between font-label-sm text-label-sm">
+<span class="text-on-surface-variant">Yielded Agency Margin:</span>
+<span class="font-bold text-secondary font-tabular-nums">21.84% (Within Safe Zone)</span>
+</div>
+<div class="text-on-surface-variant font-body-sm text-body-sm pt-1">
+<strong class="text-primary-container">Counter-Offer Advice:</strong> Offer complimentary drone choreography upgrades rather than hard price cut.
+              </div>
+</div>
+</div>
+</div>
+<!-- 5. Proposal Version History & Audit Trail -->
+<div class="bg-surface-container-lowest p-space-lg rounded-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<span class="font-title-md text-title-md text-primary-container">Revision Audit Trail</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant">Immutable Log</span>
+</div>
+<div class="flex flex-col gap-space-md relative pl-4 before:content-[''] before:absolute before:left-1 before:top-2 before:bottom-2 before:w-0.5 before:bg-surface-container-high">
+<!-- V3.2 -->
+<div class="flex flex-col relative before:content-[''] before:absolute before:-left-4 before:top-1.5 before:w-2 before:h-2 before:rounded-full before:bg-secondary">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="font-bold text-primary-container">V3.2 • Today (11:20 AM)</span>
+<span class="text-on-surface-variant">Pooja Singhania</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Adjusted Leela Banqueting pax count to 650 with gold leaf curation.</span>
+</div>
+<!-- V3.1 -->
+<div class="flex flex-col relative before:content-[''] before:absolute before:-left-4 before:top-1.5 before:w-2 before:h-2 before:rounded-full before:bg-surface-container-highest">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="font-medium text-on-surface">V3.1 • Nov 12, 2026</span>
+<span class="text-on-surface-variant">Pooja Singhania</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Integrated Nizami Bandhu Sufi night acoustic rider &amp; hospitality.</span>
+</div>
+<!-- V2.0 -->
+<div class="flex flex-col relative before:content-[''] before:absolute before:-left-4 before:top-1.5 before:w-2 before:h-2 before:rounded-full before:bg-surface-container-highest">
+<div class="flex items-center justify-between font-label-sm text-label-sm">
+<span class="font-medium text-on-surface">V2.0 • Nov 08, 2026</span>
+<span class="text-on-surface-variant">Rajesh Singhania</span>
+</div>
+<span class="font-body-sm text-body-sm text-on-surface-variant mt-0.5">Initial royal deck presented to patriarch for palace clearance.</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- BOTTOM STATUS & ACTION BAR -->
+<section class="bg-surface-container-lowest px-margin-lg py-space-md shadow-md mt-space-lg">
+<div class="flex flex-col sm:flex-row items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md text-on-surface-variant font-body-sm text-body-sm">
+<div class="flex items-center gap-1.5">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<span class="font-tabular-nums font-label-sm text-label-sm uppercase tracking-wider text-primary-container font-semibold">
+            PROP-2026-JPR-V3.2
+          </span>
+</div>
+<span>•</span>
+<span>Linked to Escrow Registry</span>
+<span>•</span>
+<span class="text-on-surface-variant font-tabular-nums">Auto-saved 2 mins ago</span>
+</div>
+<div class="flex items-center gap-space-md">
+<button class="h-9 px-space-md rounded-lg bg-surface-container text-on-surface hover:bg-surface-container-high font-title-md text-body-sm flex items-center gap-1.5 transition-colors">
+<span class="material-symbols-outlined text-[18px]">visibility</span>
+<span>Preview Client Deck</span>
+</button>
+<button class="h-9 px-space-lg rounded-lg bg-primary-container text-on-primary hover:bg-on-tertiary-fixed font-title-md text-body-sm flex items-center gap-1.5 shadow-sm transition-colors">
+<span class="material-symbols-outlined text-[18px] text-secondary-fixed">lock</span>
+<span>Lock &amp; Generate Commercial Contract</span>
+</button>
+</div>
+</div>
+</section>
+<!-- MICRO-INTERACTIONS SCRIPT -->
+<script>
+    function setDiscount(pct) {
+      const label = document.getElementById('discount-pct-label');
+      const box = document.getElementById('discount-result-box');
+      if (!label || !box) return;
+
+      label.innerText = pct + '.0% Discount';
+
+      if (pct === 0) {
+        box.innerHTML = `
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Client Savings:</span>
+            <span class="font-medium text-primary-container font-tabular-nums">₹0</span>
+          </div>
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Yielded Agency Margin:</span>
+            <span class="font-bold text-secondary font-tabular-nums">23.43% (Full Benchmark Target)</span>
+          </div>
+          <div class="text-on-surface-variant font-body-sm text-body-sm pt-1">
+            <strong class="text-primary-container">Notice:</strong> Proposal adheres to baseline royal atelier guidelines.
+          </div>
+        `;
+      } else if (pct === 3) {
+        box.innerHTML = `
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Client Savings:</span>
+            <span class="font-medium text-primary-container font-tabular-nums">₹7,45,500</span>
+          </div>
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Yielded Agency Margin:</span>
+            <span class="font-bold text-secondary font-tabular-nums">21.84% (Within Safe Zone)</span>
+          </div>
+          <div class="text-on-surface-variant font-body-sm text-body-sm pt-1">
+            <strong class="text-primary-container">Counter-Offer Advice:</strong> Waive drone rehearsal night instead of line-item haircut.
+          </div>
+        `;
+      } else if (pct === 5) {
+        box.innerHTML = `
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Client Savings:</span>
+            <span class="font-medium text-primary-container font-tabular-nums">₹12,42,500</span>
+          </div>
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Yielded Agency Margin:</span>
+            <span class="font-bold text-error font-tabular-nums">19.82% (Borderline Amber Zone)</span>
+          </div>
+          <div class="text-on-surface-variant font-body-sm text-body-sm pt-1">
+            <strong class="text-primary-container">Caution:</strong> Margin dips below 20.0% threshold. Managing Director approval required.
+          </div>
+        `;
+      } else if (pct === 7) {
+        box.innerHTML = `
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Client Savings:</span>
+            <span class="font-medium text-primary-container font-tabular-nums">₹17,39,500</span>
+          </div>
+          <div class="flex justify-between font-label-sm text-label-sm">
+            <span class="text-on-surface-variant">Yielded Agency Margin:</span>
+            <span class="font-bold text-error font-tabular-nums">17.65% (Critical Margin Warning)</span>
+          </div>
+          <div class="text-on-surface-variant font-body-sm text-body-sm pt-1">
+            <strong class="text-error font-semibold">Strict Rule:</strong> Unviable for royal tier execution. Suggest Tier 1 Grand Heritage instead.
+          </div>
+        `;
+      }
+    }
+  </script>
+</div></main></div></body></html>

@@ -1,0 +1,945 @@
+<!DOCTYPE html>
+
+<html lang="en"><head><meta charset="utf-8"/><meta content="width=device-width, initial-scale=1.0" name="viewport"/><meta content="web_dashboard" name="shell-type"/><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400..800;1,400..800&amp;family=Manrope:wght@300;400;500;600;700&amp;display=swap" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" rel="stylesheet"/><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/><style>@layer base{html,body{margin:0;padding:0;}body{overscroll-behavior:none;}main>:first-child{margin-top:0!important;}main>:last-child{margin-bottom:0!important;}}::-webkit-scrollbar{display:none;}</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config={"darkMode":"class","theme":{"extend":{"colors":{"secondary-container":"#fddaae","inverse-surface":"#2c322d","error":"#ba1a1a","surface":"#f5fbf3","surface-variant":"#dee4dd","primary-fixed":"#f3dde8","secondary-fixed":"#ffddb3","surface-dim":"#d6dcd4","secondary":"#745a37","surface-container-low":"#eff5ee","on-surface-variant":"#4c4549","on-error":"#ffffff","surface-tint":"#6a5a63","on-secondary-fixed":"#291800","error-container":"#ffdad6","on-tertiary-fixed":"#2e1318","on-secondary-fixed-variant":"#5a4322","on-tertiary":"#ffffff","surface-container-highest":"#dee4dd","on-primary-fixed":"#241820","primary-container":"#241820","surface-bright":"#f5fbf3","outline-variant":"#cfc3c8","primary-fixed-dim":"#d6c1cc","tertiary":"#000000","on-surface":"#171d19","on-secondary-container":"#785e3b","on-primary-fixed-variant":"#51424c","inverse-on-surface":"#edf2eb","on-primary":"#ffffff","tertiary-fixed-dim":"#eabac1","outline":"#7e7579","on-background":"#171d19","on-tertiary-fixed-variant":"#603d43","on-error-container":"#93000a","tertiary-fixed":"#ffd9de","tertiary-container":"#2e1318","inverse-primary":"#d6c1cc","surface-container":"#eaefe8","surface-container-lowest":"#ffffff","on-tertiary-container":"#a3797f","on-secondary":"#ffffff","primary":"#010001","secondary-fixed-dim":"#e3c196","background":"#f5fbf3","surface-container-high":"#e4eae2","on-primary-container":"#917f89"},"borderRadius":{"DEFAULT":"0.125rem","lg":"0.25rem","xl":"0.5rem","full":"0.75rem"},"spacing":{"space-sm":"0.5rem","space-md":"0.75rem","space-xs":"0.25rem","space-xl":"2rem","gutter":"1rem","gutter-lg":"1.5rem","margin":"1.5rem","margin-lg":"2rem","space-lg":"1.25rem"},"fontFamily":{"label-md":["Manrope"],"tabular-nums":["Manrope"],"display-lg":["EB Garamond"],"body-md":["Manrope"],"title-md":["Manrope"],"headline-lg":["EB Garamond"],"body-lg":["Manrope"],"headline-md":["EB Garamond"],"label-sm":["Manrope"],"headline-sm":["EB Garamond"],"display-md":["EB Garamond"],"body-sm":["Manrope"]},"fontSize":{"label-sm":["10px",{"lineHeight":"14px","letterSpacing":"0.08em","fontWeight":"700"}],"display-lg":["40px",{"lineHeight":"48px","letterSpacing":"-0.01em","fontWeight":"400"}],"label-md":["12px",{"lineHeight":"16px","letterSpacing":"0.04em","fontWeight":"600"}],"title-md":["15px",{"lineHeight":"22px","letterSpacing":"0.01em","fontWeight":"600"}],"headline-sm":["18px",{"lineHeight":"24px","letterSpacing":"0.01em","fontWeight":"600"}],"tabular-nums":["13px",{"lineHeight":"18px","letterSpacing":"0.02em","fontWeight":"500"}],"headline-lg":["26px",{"lineHeight":"34px","letterSpacing":"0em","fontWeight":"500"}],"body-sm":["12px",{"lineHeight":"18px","letterSpacing":"0.005em","fontWeight":"400"}],"headline-md":["22px",{"lineHeight":"28px","letterSpacing":"0em","fontWeight":"500"}],"display-md":["32px",{"lineHeight":"40px","letterSpacing":"-0.005em","fontWeight":"400"}],"body-md":["13px",{"lineHeight":"20px","letterSpacing":"0em","fontWeight":"400"}],"body-lg":["15px",{"lineHeight":"24px","letterSpacing":"0em","fontWeight":"400"}]}}}}</script></head><body class="bg-surface font-body-md text-on-surface antialiased"><aside class="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto"><div class="flex flex-col"><div class="h-16 px-margin flex items-center justify-between"><div class="flex items-center gap-space-md"><img alt="Vivaah Monogram Logo" class="h-8 w-auto object-contain" src="https://lh3.googleusercontent.com/aida/AEtjO1X6iMhZ4l9YyLCIwXH5E2W-xRAgrA1wQuSItRluH-nYCz4Si1K2T2qJOTPtXqK58Ndy14PQ2JZADxhCQWh5Ysb7kFBxvP4o_nJ1n-l9v3x1tXW62RkudcE5KU4MslPmnsM-0BHCllBbWq1b6zzMOsRXoJtTAdJaFZwP0FOaGIS-Xbm7bT93rFcKunMVYboE6z1xGzUqZCMklmgJmxMX5zawZqwJqtUd3xyzDT6Caas"/><div class="flex flex-col"><span class="font-headline-sm text-headline-sm tracking-wider uppercase text-on-surface">VIVAAH</span><span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary">Haute Atelier</span></div></div><button class="flex items-center justify-center w-7 h-7 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[18px]">dock_to_left</span></button></div><div class="px-space-md py-space-sm"><div class="px-space-sm py-space-xs font-label-sm text-label-sm text-secondary uppercase tracking-widest">Agency Workspace</div><nav class="mt-space-xs flex flex-col gap-0.5" data-active-classes="bg-primary-container text-on-primary font-title-md shadow-[0_1px_3px_rgba(36,24,32,0.04)]"><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="overview" href="#"><span class="font-body-md text-body-md">Overview</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="enquiries-and-clients" href="#"><span class="font-body-md text-body-md">Enquiries &amp; Clients</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">18</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="wedding-projects" href="#"><span class="font-body-md text-body-md">Wedding Projects</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface tabular-nums">12</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="planning-and-tasks" href="#"><span class="font-body-md text-body-md">Planning &amp; Tasks</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-error-container text-on-error-container tabular-nums">9</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="calendar" href="#"><span class="font-body-md text-body-md">Calendar</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="vendor-management" href="#"><span class="font-body-md text-body-md">Vendor Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="quotations" href="#"><span class="font-body-md text-body-md">Quotations</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="guest-management" href="#"><span class="font-body-md text-body-md">Guest Management</span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container tabular-nums">42</span></a><a aria-current="page" class="flex items-center justify-between px-space-md py-space-sm rounded-lg bg-primary-container text-on-primary font-title-md shadow-[0_1px_3px_rgba(36,24,32,0.04)]" data-path="event-operations" href="#"><span class="font-body-md text-body-md text-on-primary">Event Operations</span><div class="flex items-center gap-1.5"><span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span><span class="px-space-xs py-0.5 rounded font-label-sm text-label-sm bg-on-tertiary-fixed text-on-primary tabular-nums">Live</span></div></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="finance-and-payments" href="#"><span class="font-body-md text-body-md">Finance &amp; Payments</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="documents-and-agreements" href="#"><span class="font-body-md text-body-md">Documents &amp; Agreements</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="ideas-and-moodboards" href="#"><span class="font-body-md text-body-md">Ideas &amp; Moodboards</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="reports-and-analytics" href="#"><span class="font-body-md text-body-md">Reports &amp; Analytics</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="team-management" href="#"><span class="font-body-md text-body-md">Team Management</span></a><a class="flex items-center justify-between px-space-md py-space-sm rounded-lg text-on-surface-variant hover:bg-surface-container-high hover:text-on-surface transition-colors" data-path="settings" href="#"><span class="font-body-md text-body-md">Settings</span></a></nav></div></div><div class="p-space-md"><div class="p-space-md rounded-lg bg-surface-container-low flex items-center justify-between"><div class="flex items-center gap-space-sm"><span class="w-2 h-2 rounded-full bg-secondary"></span><div class="flex flex-col"><span class="font-label-sm text-label-sm uppercase tracking-wider text-on-surface-variant">Concierge Desk</span><span class="font-body-sm text-body-sm text-on-surface">Udaipur · London · Como</span></div></div><span class="material-symbols-outlined text-secondary text-[18px]">verified</span></div></div></aside><div class="pl-72 min-h-screen flex flex-col bg-surface"><header class="fixed top-0 left-72 right-0 h-16 bg-surface-container-lowest/90 backdrop-blur-xl shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-40 flex items-center justify-between px-margin-lg"><div class="flex items-center gap-space-lg"><div class="flex items-center gap-space-xs font-label-md text-label-md"><span class="text-on-surface-variant uppercase tracking-wider">AGENCY WORKSPACE</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">WEDDING PROJECTS</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface-variant uppercase tracking-wider">Aarav &amp; Meera (Jaipur)</span><span class="material-symbols-outlined text-outline-variant text-[16px]">chevron_right</span><span class="text-on-surface font-title-md uppercase tracking-wider">EVENT OPERATIONS</span></div><div class="relative flex items-center"><span class="material-symbols-outlined absolute left-space-md text-on-surface-variant text-[18px]">search</span><input class="w-96 h-9 pl-10 pr-12 rounded-lg bg-surface-container-low text-on-surface font-body-md text-body-md placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest transition-colors" placeholder="Search weddings, clients, vendors, tasks..." type="text"/><div class="absolute right-space-sm flex items-center px-1.5 py-0.5 rounded bg-surface-container-highest font-label-sm text-label-sm text-on-surface-variant font-tabular-nums">⌘K</div></div></div><div class="flex items-center gap-space-md"><button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm flex items-center gap-space-xs hover:bg-on-tertiary-fixed transition-colors"><span class="material-symbols-outlined text-[18px]">add</span><span>Quick Create</span></button><div class="h-5 w-px bg-surface-container-highest"></div><button class="flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">calendar_month</span></button><button class="relative flex items-center justify-center w-9 h-9 rounded-lg text-on-surface-variant hover:text-on-surface hover:bg-surface-container-high transition-colors"><span class="material-symbols-outlined text-[20px]">notifications</span><span class="absolute top-2 right-2 w-2 h-2 rounded-full bg-error ring-2 ring-surface-container-lowest"></span></button><div class="flex items-center gap-space-md pl-space-sm"><div class="relative"><img alt="Profile" class="w-8 h-8 rounded-full object-cover" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBcUcUsXxFCdJYCNKfselJ9Xrw4DkT81QE946NSOS59F_nm3G1PKkisf4c6G7Sveqg0P4PZWqkFIaTHoHT7z6nX4j5zBBX0cjoWEGNwPbLxtSdhgnJDYsQaCQR8hcsp1l-v--cUYucY3bWmaVQFuV3TyHNZ1oWrh7Ig4woT_2k28zCWvoVqafOnA0ZcTMNQnhixwKf6fHOPHfR9g8Et27ePDJg2XzTYKWjAr064M4"/><span class="absolute bottom-0 right-0 w-2.5 h-2.5 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span></div><div class="flex flex-col text-left"><span class="font-title-md text-body-md text-on-surface leading-tight">Pooja Singhania</span><span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary">Managing Director</span></div></div></div></header><main class="w-full pt-16 bg-surface"><div class="flex flex-col w-full">
+<!-- TOP CONTEXT BANNER & OPERATIONAL HEADER -->
+<section class="px-margin-lg pt-space-md pb-space-lg flex flex-col gap-space-md">
+<!-- Breadcrumb & Context Chips -->
+<div class="flex flex-wrap items-center justify-between gap-space-sm">
+<div class="flex items-center gap-space-xs font-label-sm text-label-sm uppercase tracking-widest text-on-surface-variant">
+<span class="text-secondary font-bold">PROJECT ID: VIV-JPR-2026-08</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface font-semibold">The Leela Palace, Jaipur</span>
+<span class="text-outline-variant">/</span>
+<span class="px-space-xs py-0.5 rounded bg-secondary-container text-on-secondary-container font-tabular-nums">T-MINUS 42 DAYS</span>
+<span class="text-outline-variant">/</span>
+<span class="text-on-surface">Seq #03 Pre-Production &amp; Rigging Run</span>
+</div>
+<div class="flex items-center gap-space-sm">
+<div class="flex items-center gap-2 px-space-md py-1 rounded-full bg-surface-container-lowest shadow-sm">
+<span class="relative flex h-2.5 w-2.5">
+<span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-error opacity-75"></span>
+<span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-error"></span>
+</span>
+<span class="font-label-sm text-label-sm tracking-widest uppercase text-on-surface">LIVE MASTER COMM LINK</span>
+<span class="font-tabular-nums text-label-sm text-secondary font-bold">142.850 MHz</span>
+</div>
+</div>
+</div>
+<!-- Page Title & Operational Actions Toolbar -->
+<div class="flex flex-wrap items-end justify-between gap-space-lg">
+<div class="flex flex-col max-w-2xl">
+<h1 class="font-headline-lg text-headline-lg text-on-surface leading-tight font-serif">
+          Event Operations &amp; Master Call Sheets
+        </h1>
+<p class="font-body-md text-body-md text-on-surface-variant mt-1">
+          Aarav Singhania &amp; Meera Kapur Royal Wedding • Real-time show running, cue-to-cue sequence protocol, radio channel dispatch, and multi-venue stage management.
+        </p>
+</div>
+<div class="flex flex-wrap items-center gap-space-sm">
+<!-- Live Run Toggle -->
+<button class="h-9 px-space-md rounded-lg bg-error text-on-error font-title-md text-body-sm flex items-center gap-space-xs shadow-sm hover:opacity-95 transition-opacity" id="liveModeBtn" onclick="toggleLiveMode()">
+<span class="material-symbols-outlined text-[18px]">sensors</span>
+<span id="liveStatusText">ON AIR / RUNNING</span>
+</button>
+<!-- Print Call Sheet -->
+<button class="h-9 px-space-md rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-sm flex items-center gap-space-xs shadow-sm" onclick="window.print()">
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">picture_as_pdf</span>
+<span>Print Call Sheet</span>
+</button>
+<!-- Broadcast Radio Alert -->
+<button class="h-9 px-space-md rounded-lg bg-surface-container-lowest text-on-surface hover:bg-surface-container-high transition-colors font-title-md text-body-sm flex items-center gap-space-xs shadow-sm" onclick="openBroadcastModal()">
+<span class="material-symbols-outlined text-[18px] text-secondary">podcasts</span>
+<span>Broadcast Radio Alert</span>
+</button>
+<!-- Add Sequence Cue -->
+<button class="h-9 px-space-md rounded-lg bg-primary-container text-on-primary font-title-md text-body-sm flex items-center gap-space-xs hover:bg-on-tertiary-fixed transition-colors shadow-sm">
+<span class="material-symbols-outlined text-[18px]">add_circle</span>
+<span>+ Add Sequence Cue</span>
+</button>
+</div>
+</div>
+<!-- Multi-Day Itinerary Navigation Ribbon -->
+<div class="flex items-center justify-between gap-space-md bg-surface-container-lowest p-1.5 rounded-xl shadow-sm overflow-x-auto">
+<div class="flex items-center gap-1.5 min-w-max">
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-high transition-colors">
+          All Days (3)
+        </button>
+<button class="px-space-md py-space-xs rounded-lg bg-primary-container text-on-primary font-title-md text-label-md uppercase tracking-wider flex items-center gap-2 shadow-sm">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary-fixed"></span>
+<span>Day 1: Welcome Brunch &amp; Sheesh Mahal Sangeet</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-tabular-nums">18 DEC</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span>Day 2: Haldi Phoolon Ki Holi &amp; Sufi Night</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant font-tabular-nums">19 DEC</span>
+</button>
+<button class="px-space-md py-space-xs rounded-lg text-on-surface-variant font-label-md text-label-md uppercase tracking-wider hover:bg-surface-container-high transition-colors flex items-center gap-2">
+<span>Day 3: Royal Vintage Baraat &amp; Lotus Pool Pheras</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-surface-container-high text-on-surface-variant font-tabular-nums">20 DEC</span>
+</button>
+</div>
+<div class="flex items-center gap-3 px-space-md text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<span class="flex items-center gap-1 text-secondary">
+<span class="material-symbols-outlined text-[16px]">wb_sunny</span>
+<span>19°C Dry / Fair</span>
+</span>
+<span class="text-outline-variant">|</span>
+<span class="flex items-center gap-1 text-on-surface">
+<span class="material-symbols-outlined text-[16px]">schedule</span>
+<span>IST 11:15 AM</span>
+</span>
+</div>
+</div>
+</section>
+<!-- 6-METRIC COMMAND COCKPIT CARDS -->
+<section class="px-margin-lg pb-space-lg">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-6 gap-space-md">
+<!-- KPI 1 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between relative overflow-hidden group">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">NEXT PRODUCTION GATE</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">alarm</span>
+</div>
+<div class="my-2">
+<div class="font-display-md text-display-md text-on-surface font-serif font-bold tracking-tight">00:15:00</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant line-clamp-1">To Welcome Brunch Gate Open</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm pt-1.5">
+<span class="text-error font-semibold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error"></span> Sound check 98%
+          </span>
+<span class="text-secondary font-tabular-nums">Zone 1 Lawns</span>
+</div>
+</div>
+<!-- KPI 2 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">TODAY'S CUES</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">format_list_bulleted</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-on-surface font-serif font-bold">14</span>
+<span class="font-label-sm text-label-sm text-on-surface-variant font-medium">TOTAL RUNS</span>
+</div>
+<div class="w-full bg-surface-container-high h-1.5 rounded-full mt-1.5 overflow-hidden flex">
+<div class="bg-secondary h-full" style="width: 57%"></div>
+<div class="bg-error h-full" style="width: 14%"></div>
+<div class="bg-secondary-container h-full" style="width: 29%"></div>
+</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1.5 font-tabular-nums">
+<span>8 Done</span>
+<span class="text-error font-bold">2 Live</span>
+<span>4 Standby</span>
+</div>
+</div>
+<!-- KPI 3 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">ON-GROUND CREW</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">badge</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-on-surface font-serif font-bold">48/48</span>
+<span class="px-1.5 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-tabular-nums font-bold">100%</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Biometric &amp; App Check-in</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1.5">
+<span class="text-on-surface font-medium">Marshals &amp; Leads</span>
+<span class="text-secondary font-bold">Zero Absentee</span>
+</div>
+</div>
+<!-- KPI 4 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">STATUTORY NOCs</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">verified_user</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-on-surface font-serif font-bold">6/6</span>
+<span class="font-label-sm text-label-sm text-secondary font-bold">SECURED</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Police • Decibel • Fire Dept</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1.5">
+<span>Decibel Limit: <strong class="text-on-surface">75 dB(A)</strong></span>
+<span class="text-secondary">Curfew 10 PM</span>
+</div>
+</div>
+<!-- KPI 5 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">RADIO DISPATCH</span>
+<span class="material-symbols-outlined text-[18px] text-on-surface-variant">settings_remote</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-on-surface font-serif font-bold">6 CH</span>
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">Motorola MOTOTRBO DP4801e</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1.5">
+<span class="text-secondary font-bold">CH 1-5 Traffic Normal</span>
+<span class="text-on-surface">RSSI -64dBm</span>
+</div>
+</div>
+<!-- KPI 6 -->
+<div class="bg-surface-container-lowest p-space-md rounded-xl shadow-sm flex flex-col justify-between">
+<div class="flex items-center justify-between text-on-surface-variant">
+<span class="font-label-sm text-label-sm uppercase tracking-widest text-secondary font-bold">PROTOCOL &amp; MEDICAL</span>
+<span class="material-symbols-outlined text-[18px] text-error">emergency</span>
+</div>
+<div class="my-2">
+<div class="flex items-baseline gap-2">
+<span class="font-display-md text-display-md text-on-surface font-serif font-bold">CODE GRN</span>
+<span class="font-label-sm text-label-sm text-secondary font-semibold">ALL CLEAR</span>
+</div>
+<div class="font-body-sm text-body-sm text-on-surface-variant">2 Palace Medical Posts Armed</div>
+</div>
+<div class="flex items-center justify-between font-label-sm text-label-sm text-on-surface-variant pt-1.5">
+<span>Rain Plan: <strong class="text-on-surface">Armed / Ready</strong></span>
+<span class="text-secondary">Fortis Escort</span>
+</div>
+</div>
+</div>
+</section>
+<!-- MAIN OPERATIONAL WORK AREA: 68% LEFT MAIN SHEET + 32% RIGHT COMMAND SIDEBAR -->
+<section class="px-margin-lg pb-space-xl grid grid-cols-12 gap-space-lg">
+<!-- LEFT 8 COLS: CUE-TO-CUE MASTER SHEET & READINESS MATRIX -->
+<div class="col-span-12 lg:col-span-8 flex flex-col gap-space-lg">
+<!-- CUE TABLE CONTAINER -->
+<div class="bg-surface-container-lowest rounded-xl shadow-sm overflow-hidden flex flex-col">
+<!-- Table Toolbar & Filters -->
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex flex-wrap items-center gap-space-sm">
+<div class="relative">
+<span class="material-symbols-outlined absolute left-2.5 top-2 text-on-surface-variant text-[18px]">search</span>
+<input class="h-8 pl-8 pr-3 rounded bg-surface-container-lowest font-body-sm text-body-sm text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest shadow-sm w-56" id="cueSearchInput" onkeyup="filterCues()" placeholder="Search cues, leads, venues..." type="text"/>
+</div>
+<!-- Functional Filters -->
+<div class="flex items-center gap-1 overflow-x-auto text-label-sm font-label-sm uppercase">
+<button class="filter-btn px-2.5 py-1 rounded bg-primary-container text-on-primary font-semibold shadow-sm" onclick="filterByTag('all', this)">All Cues</button>
+<button class="filter-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="filterByTag('av', this)">AV &amp; Rigging</button>
+<button class="filter-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="filterByTag('hospitality', this)">Hospitality/VIP</button>
+<button class="filter-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="filterByTag('fb', this)">F&amp;B Service</button>
+<button class="filter-btn px-2.5 py-1 rounded text-on-surface-variant hover:bg-surface-container-high transition-colors" onclick="filterByTag('artist', this)">Artist &amp; Stage</button>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="font-label-sm text-label-sm uppercase text-on-surface-variant tracking-wider">VIEW:</span>
+<div class="flex items-center bg-surface-container-high p-0.5 rounded-lg text-body-sm font-title-md">
+<button class="px-2 py-0.5 rounded text-on-surface bg-surface-container-lowest shadow-sm text-xs" id="viewDenseBtn" onclick="setViewMode('dense')">Compact</button>
+<button class="px-2 py-0.5 rounded text-on-surface-variant hover:text-on-surface text-xs" id="viewDetailedBtn" onclick="setViewMode('detailed')">Detailed</button>
+</div>
+</div>
+</div>
+<!-- Master Run Table -->
+<div class="overflow-x-auto">
+<table class="w-full text-left border-collapse" id="cueMasterTable">
+<thead>
+<tr class="bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase tracking-wider">
+<th class="py-2.5 px-space-md w-24">TIMECODE</th>
+<th class="py-2.5 px-space-md w-16">CUE #</th>
+<th class="py-2.5 px-space-md">SEQUENCE &amp; PROTOCOL</th>
+<th class="py-2.5 px-space-md w-36">ZONE / VENUE</th>
+<th class="py-2.5 px-space-md w-36">STAGE LEAD</th>
+<th class="py-2.5 px-space-md w-20">RADIO</th>
+<th class="py-2.5 px-space-md text-right w-28">STATUS</th>
+</tr>
+</thead>
+<tbody class="divide-y divide-surface-container-high font-body-sm text-body-sm text-on-surface">
+<!-- Cue 01 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="av">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  07:00 - 09:30<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">150 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 01</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Venue Prep &amp; Structural Rigging</div>
+<div class="text-on-surface-variant text-xs mt-0.5">Truss safety inspections, floral canopy suspension (Atelier Interflora), heavy DG sync check.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Lily Pond Lawn</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Kabir Mehta</div>
+<div class="text-[11px] text-on-surface-variant">Rigging &amp; Tech Lead</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 2</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold">
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+                    COMPLETED
+                  </span>
+</td>
+</tr>
+<!-- Cue 02 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="av">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  09:30 - 11:00<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">90 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 02</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Acoustic Soundcheck &amp; Decibel Calibration</div>
+<div class="text-on-surface-variant text-xs mt-0.5">Soundscapes Mumbai line check, wireless mic frequencies scan (CH 47-52 clean), heritage resonance test.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Amphitheatre</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Rohan Merchant</div>
+<div class="text-[11px] text-on-surface-variant">Lead Audio Eng</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 2</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase font-bold">
+<span class="material-symbols-outlined text-[13px] text-secondary">check_circle</span>
+                    COMPLETED
+                  </span>
+</td>
+</tr>
+<!-- Cue 03 (LIVE NOW) -->
+<tr class="cue-row bg-secondary-container/20 transition-colors" data-category="hospitality">
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-error whitespace-nowrap">
+                  11:00 - 11:30<br/>
+<span class="text-label-sm font-label-sm text-error uppercase font-bold flex items-center gap-1">
+<span class="w-1.5 h-1.5 rounded-full bg-error animate-ping"></span>
+                    NOW (11:15)
+                  </span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-error">CUE 03</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-bold flex items-center gap-2">
+                    VIP Hospitality &amp; Royal Welcome Protocol
+                    <span class="px-1.5 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm uppercase font-bold">ACTIVE SHOW</span>
+</div>
+<div class="text-on-surface-variant text-xs mt-0.5">Royal Shehnai troupe assembled; silver trays with cold towels &amp; marigold garlands in position at Portico.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold">Palace Toran Gate</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-bold text-on-surface">Devika Nair</div>
+<div class="text-[11px] text-on-surface-variant">VIP Hospitality Head</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-error text-on-error font-label-sm text-label-sm font-bold font-tabular-nums">CH 3</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full bg-error text-on-error font-label-sm text-label-sm uppercase font-bold">
+<span class="w-2 h-2 rounded-full bg-surface-container-lowest animate-pulse"></span>
+                    ON AIR
+                  </span>
+</td>
+</tr>
+<!-- Cue 04 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="fb">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  11:30 - 13:30<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">120 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 04</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Welcome Royal Brunch Service &amp; Live Folk Ensemble</div>
+<div class="text-on-surface-variant text-xs mt-0.5">Live culinary stations open; acoustic flute &amp; Santoor ensemble begins playing subtle morning ragas.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Lily Pond Lawns</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Chef Sanjeev / Kapur</div>
+<div class="text-[11px] text-on-surface-variant">Palace Exec Chef</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 4</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-secondary-container text-on-secondary-container font-label-sm text-label-sm uppercase font-bold">
+                    STANDBY (T-15M)
+                  </span>
+</td>
+</tr>
+<!-- Cue 05 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="av">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  14:00 - 16:00<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">120 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 05</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Afternoon Turnaround &amp; Sheesh Mahal Sangeet Rigging</div>
+<div class="text-on-surface-variant text-xs mt-0.5">Switch to evening lighting rig, 4K LED backdrops calibration, Nizami Bandhu artist greenroom protocol.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Sheesh Mahal Court</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Priyanka Sharma</div>
+<div class="text-[11px] text-on-surface-variant">Lead Show Caller</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 1</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">
+                    UPCOMING
+                  </span>
+</td>
+</tr>
+<!-- Cue 06 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="hospitality">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  18:30 - 20:00<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">90 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 06</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Sangeet Red Carpet &amp; Champagne Reception</div>
+<div class="text-on-surface-variant text-xs mt-0.5">String quartet on archway balcony, vintage Bollinger bar opens, photo media wall lighting active.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Mirror Corridor</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Simran Sethi</div>
+<div class="text-[11px] text-on-surface-variant">Design &amp; Protocol Dir</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 3</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">
+                    UPCOMING
+                  </span>
+</td>
+</tr>
+<!-- Cue 07 -->
+<tr class="cue-row hover:bg-surface-container-low transition-colors" data-category="artist">
+<td class="py-space-sm px-space-md font-tabular-nums text-on-surface-variant font-medium whitespace-nowrap">
+                  20:30 - 23:30<br/>
+<span class="text-label-sm font-label-sm text-secondary uppercase font-semibold">180 MINS</span>
+</td>
+<td class="py-space-sm px-space-md font-tabular-nums font-bold text-on-surface">CUE 07</td>
+<td class="py-space-sm px-space-md">
+<div class="font-title-md text-body-md text-on-surface font-semibold">Grand Sangeet Performances &amp; Sufi Qawwali Finale</div>
+<div class="text-on-surface-variant text-xs mt-0.5">12 family acts, couple entrance with cold sparkulars (NOC approved), 22:00 outdoor-to-indoor acoustic switch.</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-2 py-0.5 rounded bg-surface-container text-on-surface font-label-sm text-label-sm uppercase">Sheesh Mahal Stage</span>
+</td>
+<td class="py-space-sm px-space-md">
+<div class="font-medium text-on-surface">Kabir Mehta / Aftab</div>
+<div class="text-[11px] text-on-surface-variant">Stage Caller &amp; Artist Mgr</div>
+</td>
+<td class="py-space-sm px-space-md">
+<span class="px-1.5 py-0.5 rounded bg-surface-container-high text-on-surface font-label-sm text-label-sm font-bold font-tabular-nums">CH 2</span>
+</td>
+<td class="py-space-sm px-space-md text-right">
+<span class="inline-flex items-center gap-1 px-2 py-0.5 rounded bg-surface-container-high text-on-surface-variant font-label-sm text-label-sm uppercase">
+                    STANDBY
+                  </span>
+</td>
+</tr>
+</tbody>
+</table>
+</div>
+<!-- Table Footer / Running Summary -->
+<div class="p-space-md bg-surface-container-low flex flex-wrap items-center justify-between text-label-sm font-label-sm text-on-surface-variant">
+<div class="flex items-center gap-space-md">
+<span>Showing <strong>7 of 14</strong> active master day sequences</span>
+<span class="text-outline-variant">•</span>
+<span>Next Stage Handover: <strong>13:30 PM (Turnaround Crew)</strong></span>
+</div>
+<div class="flex items-center gap-space-sm font-tabular-nums">
+<span class="text-secondary font-bold">CHRONO-RUN VERIFIED BY SHOW CALLER 1</span>
+</div>
+</div>
+</div>
+<!-- READINESS MATRIX & VENUE TECHNICAL SAFEGUARDS -->
+<div class="bg-surface-container-lowest rounded-xl p-space-lg shadow-sm flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-space-sm">
+<span class="material-symbols-outlined text-secondary text-[22px]">tune</span>
+<h2 class="font-headline-sm text-headline-sm text-on-surface font-serif">Stage Readiness &amp; Heritage Venue Protocols</h2>
+</div>
+<span class="font-label-sm text-label-sm uppercase tracking-wider text-secondary font-bold">THE LEELA PALACE HERITAGE CELL</span>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-space-md">
+<!-- Item 1: Power & Generator Redundancy -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">3x 250 kVA DG Sync</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">bolt</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+              Parallel generator load test passed at 06:15 AM. Auto-switchover redundancy configured at 12 milliseconds (zero light flicker guaranteed).
+            </p>
+<div class="flex items-center justify-between text-xs font-tabular-nums text-on-surface pt-2">
+<span class="text-secondary font-semibold">Load: 42% (Normal)</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm">DIESEL 94%</span>
+</div>
+</div>
+<!-- Item 2: Heritage Venue Protection -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">Zero-Nail Heritage Rule</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">shield</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+              Self-weighted truss bases counterbalanced with lead blocks. Heavy neoprene pads placed beneath rigging on 200-year-old Italian marble surfaces.
+            </p>
+<div class="flex items-center justify-between text-xs font-tabular-nums text-on-surface pt-2">
+<span class="text-secondary font-semibold">Signed by Leela Eng.</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm">INSPECTED</span>
+</div>
+</div>
+<!-- Item 3: Weather Station & Sunlight Window -->
+<div class="p-space-md rounded-lg bg-surface-container-low flex flex-col justify-between">
+<div class="flex items-center justify-between mb-2">
+<span class="font-label-sm text-label-sm uppercase font-bold text-on-surface">Microclimate &amp; Sunset</span>
+<span class="material-symbols-outlined text-[18px] text-secondary">cloud</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant mb-3">
+              Wind at 6 km/h (within safe &lt;18 km/h limit for floral archways). Golden Hour window for couple portraits calculated at <strong>05:22 - 05:48 PM</strong>.
+            </p>
+<div class="flex items-center justify-between text-xs font-tabular-nums text-on-surface pt-2">
+<span class="text-secondary font-semibold">Precipitation: 0%</span>
+<span class="px-1.5 py-0.5 rounded bg-surface-container-highest text-on-surface font-label-sm">SUNSET 17:38</span>
+</div>
+</div>
+</div>
+<!-- Venue Layout & Visual Manifest Overview -->
+<div class="mt-2 p-space-md rounded-lg bg-surface-container-low flex flex-wrap items-center justify-between gap-space-md">
+<div class="flex items-center gap-space-md">
+<div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0 bg-surface-container-high">
+<img class="w-full h-full object-cover" data-alt="Aerial architectural layout blueprint of the Leela Palace Jaipur courtyard and lawn zones with elegant gold sequence markers for high-end wedding operations" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhTbefVWKF6zAxSvLs2cBDXxoJRUnmemdtw9gdEw5P8ekJWBXBzHkyDyKrW9Rhlw_qFm0wmy3HEuavEk9TEuusKaN26pF6DhoWenBEo3-ejupf6XAz_sRUvMX5EL_W9D3G90F7Qg2AiyeBY_xRDPbrbPjAK4lpH9carXPmciM9v5fmgGenZhFRHsI2l7Fxs8TE__d3z_ieZxnAuT6zeIuJvFyl4DD1riA6r-lsYBA"/>
+</div>
+<div class="flex flex-col">
+<span class="font-title-md text-body-md text-on-surface font-semibold">The Leela Palace Jaipur Master Site Map v4.2</span>
+<span class="font-body-sm text-body-sm text-on-surface-variant">Includes emergency exit corridors, medical rally point, vendor marshalling yard &amp; VIP private motorcade entry.</span>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<button class="h-8 px-space-md rounded bg-surface-container-lowest text-on-surface hover:bg-surface-container-high font-label-md text-label-md transition-colors shadow-sm">View High-Res Blueprint</button>
+<button class="h-8 px-space-md rounded bg-primary-container text-on-primary font-label-md text-label-md transition-colors shadow-sm">Drone Feed Live</button>
+</div>
+</div>
+</div>
+</div>
+<!-- RIGHT 4 COLS: LIVE COMMAND & DISPATCH SIDEBAR -->
+<div class="col-span-12 lg:col-span-4 flex flex-col gap-space-lg">
+<!-- 1. LIVE RADIO COMMS & WALKIE DIRECTORY -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">two_wheeler</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-serif">Radio Comms Dispatch</h3>
+</div>
+<span class="px-2 py-0.5 rounded font-label-sm text-label-sm bg-secondary-container text-on-secondary-container font-tabular-nums font-bold">6 NETS ACTIVE</span>
+</div>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Live repeater monitor for on-ground department leads &amp; security command.</p>
+<div class="flex flex-col gap-2 mt-2">
+<!-- Channel 1 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-primary-container text-on-primary font-tabular-nums font-bold flex items-center justify-center text-xs">CH 1</div>
+<div>
+<div class="font-title-md text-body-md text-on-surface leading-tight font-semibold">Executive Command</div>
+<div class="text-[11px] text-on-surface-variant">Priyanka S. &amp; Maj. Rathore (Palace Sec)</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" onclick="toggleChannelMute(this)">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Channel 2 -->
+<div class="p-2.5 rounded-lg bg-secondary-container/20 flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-error text-on-error font-tabular-nums font-bold flex items-center justify-center text-xs">CH 2</div>
+<div>
+<div class="font-title-md text-body-md text-on-surface leading-tight font-semibold flex items-center gap-1.5">
+                  Technical, Stage &amp; AV
+                  <span class="px-1 py-0.2 rounded bg-error text-on-error text-[9px] font-bold">TX</span>
+</div>
+<div class="text-[11px] text-on-surface-variant">Kabir Mehta &amp; Sound Consoles</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-error animate-pulse"></span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" onclick="toggleChannelMute(this)">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Channel 3 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-surface-container-highest text-on-surface font-tabular-nums font-bold flex items-center justify-center text-xs">CH 3</div>
+<div>
+<div class="font-title-md text-body-md text-on-surface leading-tight font-semibold">Hospitality &amp; VIP Concierge</div>
+<div class="text-[11px] text-on-surface-variant">Devika Nair &amp; Palace Royal Butlers</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" onclick="toggleChannelMute(this)">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Channel 4 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-surface-container-highest text-on-surface font-tabular-nums font-bold flex items-center justify-center text-xs">CH 4</div>
+<div>
+<div class="font-title-md text-body-md text-on-surface leading-tight font-semibold">Banquets, F&amp;B Sync</div>
+<div class="text-[11px] text-on-surface-variant">Executive Chef Sanjeev &amp; Head Sommelier</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" onclick="toggleChannelMute(this)">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- Channel 5 -->
+<div class="p-2.5 rounded-lg bg-surface-container-low flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-surface-container-highest text-on-surface font-tabular-nums font-bold flex items-center justify-center text-xs">CH 5</div>
+<div>
+<div class="font-title-md text-body-md text-on-surface leading-tight font-semibold">Artist &amp; Greenroom Liaison</div>
+<div class="text-[11px] text-on-surface-variant">Aftab (Nizami Bandhu Mgr) &amp; Choreographer</div>
+</div>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-2 h-2 rounded-full bg-secondary"></span>
+<button class="w-6 h-6 flex items-center justify-center rounded hover:bg-surface-container-high text-on-surface-variant" onclick="toggleChannelMute(this)">
+<span class="material-symbols-outlined text-[16px]">volume_up</span>
+</button>
+</div>
+</div>
+<!-- SOS Hotline -->
+<div class="p-2.5 rounded-lg bg-surface-container-highest flex items-center justify-between">
+<div class="flex items-center gap-3">
+<div class="w-7 h-7 rounded bg-error text-on-error font-tabular-nums font-bold flex items-center justify-center text-xs">SOS</div>
+<div>
+<div class="font-title-md text-body-md text-error leading-tight font-bold">Fortis Medical &amp; Palace GM</div>
+<div class="text-[11px] text-on-surface-variant">Direct Priority Override Network</div>
+</div>
+</div>
+<button class="px-2 py-1 rounded bg-error text-on-error font-label-sm text-label-sm uppercase font-bold hover:opacity-90">Hotline</button>
+</div>
+</div>
+</div>
+<!-- 2. LEAD PRODUCERS & ON-GROUND SHADOW ROSTER -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">groups</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-serif">Command Leads On-Station</h3>
+</div>
+<span class="font-label-sm text-label-sm text-secondary uppercase font-bold">ALL POSTS MANNED</span>
+</div>
+<div class="divide-y divide-surface-container-high text-body-sm">
+<!-- Person 1 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of senior female luxury wedding producer Priyanka Sharma wearing tailored blazer with discrete radio earpiece" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDZpBWHeUvgf9339bp0ZofAOODWbHH2lbPMvgFzp341DaSCNi5wrTByovImjDrWAfco9NG_YDVxmVtRihvmyvt_Qwa0m2TtRgTJbOben0iuFoVbMlbnQKlwq8Fc9n78smookEivonmNGmkaVNpV9u0g7sykP-JbeKe6EPmIAOvus6YBsEWEtVyehV0-KIVbRxw7RGMEP7eQoawAe6pSIe55JoHvnZvcNu2i2n33_v8"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Priyanka Sharma</div>
+<div class="text-[11px] text-on-surface-variant">Lead Show Caller • Sheesh Mahal FOH</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface">POST 1</span>
+</div>
+<!-- Person 2 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of female luxury VIP hospitality director Devika Nair dressed in formal elegant silk attire with agency badge" src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-Ai7iP7RipMvmi104F4gZ-7zHtrsoA9mkThE2X0lDb6JlTFuHTZj9KI94o4j-sK9CI7waRik0UZxIL08qCSt1pHVTjyA56RpiiOusmX8V17TOJj7OaRJ6MNxRO-C2uQ56n0dt1Md5PzWf6oSQ3sJ5byoJE84dRAg6gpcElPHceir4T5bPDd5p43iy8tG8VNLtEli473Y_aRXIxYDfY5g1POiPJ089HUS8_kC_hrM"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Devika Nair</div>
+<div class="text-[11px] text-on-surface-variant">VIP Guest Protocol • Port Cochère</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface">POST 2</span>
+</div>
+<!-- Person 3 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of male technical sound engineer Kabir Mehta with audio headphones around neck and production clipboard" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCDlcrQEKGAgCcQZINILzhZY34b6DaO0Ex8zQrp-HlE74tuWydgszMqJeVe68smxw5tqpghHN9T24Wm8fh28ZJtOz_-yo-x_OhPJKjilO2V4sevxqnZ2Riu2VG53JOhqoJjHdL74F8cTVZWz3qw60IXzXKhz5awJ0xZ9unRlwYsmsnsVx-7qbh6mYQOsIBEWC0cHRAmXEvkeXix5WIq8opLIdjnEVrOZmJAbs_IEBQ"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Kabir Mehta</div>
+<div class="text-[11px] text-on-surface-variant">Technical Director • Sound Console 1</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface">POST 3</span>
+</div>
+<!-- Person 4 -->
+<div class="py-2.5 flex items-center justify-between">
+<div class="flex items-center gap-2.5">
+<div class="relative">
+<img class="w-8 h-8 rounded-full object-cover" data-alt="Portrait of professional female wedding planner shadow lead Ritu Vardhan standing calmly with digital schedule tablet" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB8XQL1GWj3kABYdCmY9c6kE9Pd5oddAcwZsKsnj-7dqV2XgD9GjK5JUjSv4SacC3xdh1kJB8lWEP1_7FPLDCsNSNQey_a9G79CiBMqHHJ-WalkywunnG0ciIP3G8qPAi1_coICaBQFb8GDdXLOXPMz5lyvT-DaSd5prlQV9Fm__8JAJqAYX_4dbjWAiehl99SIY_vKMdgs5omsGbyh3gs5NCfLso0tHScD6swojME"/>
+<span class="absolute bottom-0 right-0 w-2 h-2 rounded-full bg-secondary ring-2 ring-surface-container-lowest"></span>
+</div>
+<div>
+<div class="font-semibold text-on-surface">Ritu Vardhan</div>
+<div class="text-[11px] text-on-surface-variant">Bride &amp; Groom Shadow • Suite #101</div>
+</div>
+</div>
+<span class="font-label-sm text-label-sm px-2 py-0.5 rounded bg-surface-container-high text-on-surface">POST 4</span>
+</div>
+</div>
+</div>
+<!-- 3. INCIDENT PROTOCOL & CURFEW RADAR -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">notifications_active</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-serif">Curfew &amp; Rapid Incident</h3>
+</div>
+<span class="inline-flex items-center gap-1 text-secondary font-label-sm text-label-sm font-bold">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+            ALL CLEAR
+          </span>
+</div>
+<div class="p-3 rounded-lg bg-surface-container-low flex flex-col gap-1.5">
+<div class="flex items-center justify-between text-xs font-semibold text-on-surface">
+<span>Jaipur Police Sound Curfew</span>
+<span class="font-tabular-nums text-error font-bold">10:00 PM SHARP</span>
+</div>
+<p class="text-xs text-on-surface-variant leading-relaxed">
+            Outdoor amplified speakers cut off at 22:00. Transition to indoor acoustic Sheesh Mahal salon scheduled at 22:01. DSP Patrol vehicle stationed on Palace Road.
+          </p>
+</div>
+<button class="w-full h-8 px-space-md rounded bg-surface-container-high hover:bg-surface-container text-on-surface font-title-md text-xs flex items-center justify-center gap-1.5 transition-colors" onclick="logIncidentModal()">
+<span class="material-symbols-outlined text-[16px] text-secondary">report_problem</span>
+<span>+ Log Operational Deviation / Delay</span>
+</button>
+</div>
+<!-- 4. ON-GROUND EQUIPMENT DELIVERABLE CHECKLIST -->
+<div class="bg-surface-container-lowest rounded-xl p-space-md shadow-sm flex flex-col gap-space-sm">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[20px]">fact_check</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-serif">Sign-off Checklist</h3>
+</div>
+<span class="font-tabular-nums text-label-sm font-label-sm text-secondary font-bold">3/4 COMPLETED</span>
+</div>
+<div class="flex flex-col gap-2 mt-1">
+<label class="flex items-start gap-2.5 p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface line-through text-on-surface-variant">Wireless Mics Battery Packs Refreshed</span>
+<p class="text-on-surface-variant text-[11px]">12 Shure Axient Digital sets tested with fresh Duracell Procell</p>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface line-through text-on-surface-variant">Cold Sparkular Powder Loaded</span>
+<p class="text-on-surface-variant text-[11px]">Non-sulfur titanium composite; Fire Marshal cleared</p>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input checked="" class="mt-0.5 rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface line-through text-on-surface-variant">Vintage Royal Golf Carts Charged</span>
+<p class="text-on-surface-variant text-[11px]">Decorated with ivory tuberose garlands at Motor Pool</p>
+</div>
+</label>
+<label class="flex items-start gap-2.5 p-2 rounded hover:bg-surface-container-low cursor-pointer transition-colors">
+<input class="mt-0.5 rounded text-primary focus:ring-0" type="checkbox"/>
+<div class="text-xs">
+<span class="font-semibold text-on-surface">Greenroom Refreshments for Nizami Bandhu</span>
+<p class="text-on-surface-variant text-[11px]">Artisanal Kahwa, Manuka honey &amp; dried figs (Due: 13:00)</p>
+</div>
+</label>
+</div>
+</div>
+</div>
+</section>
+<!-- BROADCAST DISPATCH MODAL OVERLAY (Controlled via script) -->
+<div class="hidden fixed inset-0 z-50 flex items-center justify-center p-4 bg-primary-container/40 backdrop-blur-sm" id="broadcastModal">
+<div class="bg-surface-container-lowest rounded-xl max-w-lg w-full p-space-lg shadow-xl flex flex-col gap-space-md">
+<div class="flex items-center justify-between">
+<div class="flex items-center gap-2">
+<span class="material-symbols-outlined text-secondary text-[24px]">podcasts</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface font-serif">Broadcast Walkie Dispatch</h3>
+</div>
+<button class="w-8 h-8 rounded hover:bg-surface-container-high flex items-center justify-center text-on-surface-variant" onclick="closeBroadcastModal()">
+<span class="material-symbols-outlined">close</span>
+</button>
+</div>
+<div class="flex flex-col gap-3">
+<label class="text-label-sm font-label-sm uppercase text-on-surface-variant font-bold">Select Channel Frequency</label>
+<select class="h-9 px-3 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm focus:outline-none">
+<option>All Channels (Priority Executive Override)</option>
+<option>CH 1: Executive Command &amp; Security</option>
+<option>CH 2: Technical, Stage &amp; AV</option>
+<option>CH 3: Hospitality &amp; VIP Concierge</option>
+<option>CH 4: Banquets &amp; F&amp;B Sync</option>
+<option>CH 5: Artist &amp; Greenroom Liaison</option>
+</select>
+<label class="text-label-sm font-label-sm uppercase text-on-surface-variant font-bold mt-1">Dispatch Message / Cue Call</label>
+<textarea class="p-3 rounded bg-surface-container-low text-on-surface font-body-sm text-body-sm placeholder:text-on-surface-variant focus:outline-none resize-none" placeholder="e.g., 'Standby Cue 04: Brunch gate opening in 10 minutes. Hospitality lead confirm floral trays.'" rows="3"></textarea>
+</div>
+<div class="flex items-center justify-end gap-2 pt-2">
+<button class="h-9 px-space-md rounded bg-surface-container-high text-on-surface font-title-md text-xs hover:bg-surface-container" onclick="closeBroadcastModal()">Cancel</button>
+<button class="h-9 px-space-md rounded bg-primary-container text-on-primary font-title-md text-xs flex items-center gap-1.5 shadow-sm hover:bg-on-tertiary-fixed" onclick="sendBroadcast()">
+<span class="material-symbols-outlined text-[16px]">send</span>
+<span>Transmit Voice &amp; Pager Memo</span>
+</button>
+</div>
+</div>
+</div>
+<!-- TOAST NOTIFICATION CONTAINER -->
+<div class="fixed bottom-6 right-6 z-50 transform translate-y-20 opacity-0 transition-all duration-300 pointer-events-none flex items-center gap-3 px-4 py-3 rounded-lg bg-primary-container text-on-primary shadow-xl font-body-sm text-body-sm" id="toastNotification">
+<span class="material-symbols-outlined text-secondary text-[20px]">check_circle</span>
+<span id="toastMessage">Operational update saved successfully.</span>
+</div>
+</div>
+<script>
+  // Filter Cues by Text Search
+  function filterCues() {
+    const input = document.getElementById('cueSearchInput');
+    const filter = input.value.toLowerCase();
+    const rows = document.querySelectorAll('#cueMasterTable tbody tr');
+
+    rows.forEach(row => {
+      const text = row.innerText.toLowerCase();
+      row.style.display = text.includes(filter) ? '' : 'none';
+    });
+  }
+
+  // Filter Cues by Category Tag
+  function filterByTag(category, btn) {
+    // Update active button state
+    document.querySelectorAll('.filter-btn').forEach(b => {
+      b.classList.remove('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+      b.classList.add('text-on-surface-variant');
+    });
+    btn.classList.add('bg-primary-container', 'text-on-primary', 'font-semibold', 'shadow-sm');
+    btn.classList.remove('text-on-surface-variant');
+
+    const rows = document.querySelectorAll('#cueMasterTable tbody tr');
+    rows.forEach(row => {
+      if (category === 'all' || row.getAttribute('data-category') === category) {
+        row.style.display = '';
+      } else {
+        row.style.display = 'none';
+      }
+    });
+  }
+
+  // View Mode: Compact vs Detailed
+  function setViewMode(mode) {
+    const table = document.getElementById('cueMasterTable');
+    const rows = table.querySelectorAll('tbody tr td');
+    const denseBtn = document.getElementById('viewDenseBtn');
+    const detailBtn = document.getElementById('viewDetailedBtn');
+
+    if (mode === 'dense') {
+      denseBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      denseBtn.classList.remove('text-on-surface-variant');
+      detailBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      detailBtn.classList.add('text-on-surface-variant');
+      rows.forEach(td => td.classList.replace('py-space-md', 'py-space-sm'));
+    } else {
+      detailBtn.classList.add('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      detailBtn.classList.remove('text-on-surface-variant');
+      denseBtn.classList.remove('bg-surface-container-lowest', 'text-on-surface', 'shadow-sm');
+      denseBtn.classList.add('text-on-surface-variant');
+      rows.forEach(td => td.classList.replace('py-space-sm', 'py-space-md'));
+    }
+  }
+
+  // Live Mode Toggle Micro-interaction
+  let isRunning = true;
+  function toggleLiveMode() {
+    isRunning = !isRunning;
+    const btn = document.getElementById('liveModeBtn');
+    const txt = document.getElementById('liveStatusText');
+    if (isRunning) {
+      btn.className = "h-9 px-space-md rounded-lg bg-error text-on-error font-title-md text-body-sm flex items-center gap-space-xs shadow-sm hover:opacity-95 transition-opacity";
+      txt.innerText = "ON AIR / RUNNING";
+      showToast("Live operations timeline actively broadcasting to all leads.");
+    } else {
+      btn.className = "h-9 px-space-md rounded-lg bg-surface-container-high text-on-surface font-title-md text-body-sm flex items-center gap-space-xs shadow-sm hover:bg-surface-container transition-colors";
+      txt.innerText = "RUN PAUSED / REHEARSAL";
+      showToast("Master Run paused. Show clock in standby state.");
+    }
+  }
+
+  // Channel Mute Toggle
+  function toggleChannelMute(btn) {
+    const icon = btn.querySelector('.material-symbols-outlined');
+    if (icon.innerText === 'volume_up') {
+      icon.innerText = 'volume_off';
+      btn.classList.add('text-error');
+      showToast('Radio Channel Audio Muted locally.');
+    } else {
+      icon.innerText = 'volume_up';
+      btn.classList.remove('text-error');
+      showToast('Radio Channel Audio Unmuted.');
+    }
+  }
+
+  // Broadcast Modal controls
+  function openBroadcastModal() {
+    document.getElementById('broadcastModal').classList.remove('hidden');
+  }
+
+  function closeBroadcastModal() {
+    document.getElementById('broadcastModal').classList.add('hidden');
+  }
+
+  function sendBroadcast() {
+    closeBroadcastModal();
+    showToast("Radio Dispatch Transmitted across selected walkie networks.");
+  }
+
+  function logIncidentModal() {
+    const desc = prompt("Enter minor operational issue or schedule delay note:");
+    if (desc) {
+      showToast("Incident logged to Command Log. Producer alerted.");
+    }
+  }
+
+  // Toast System
+  function showToast(message) {
+    const toast = document.getElementById('toastNotification');
+    const toastMsg = document.getElementById('toastMessage');
+    toastMsg.innerText = message;
+    toast.classList.remove('translate-y-20', 'opacity-0');
+    toast.classList.add('translate-y-0', 'opacity-100');
+    setTimeout(() => {
+      toast.classList.remove('translate-y-0', 'opacity-100');
+      toast.classList.add('translate-y-20', 'opacity-0');
+    }, 3200);
+  }
+</script></main></div></body></html>

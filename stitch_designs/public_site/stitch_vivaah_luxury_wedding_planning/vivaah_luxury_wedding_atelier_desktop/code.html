@@ -1,0 +1,732 @@
+<!DOCTYPE html><html class="scroll-smooth" lang="en"><head><meta charset="utf-8"><meta content="width=device-width, initial-scale=1.0" name="viewport"><meta content="web_standard" name="shell-type"><title>Vivaah — Haute Wedding Atelier</title><link href="https://fonts.googleapis.com" rel="preconnect"><link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"><link href="https://fonts.googleapis.com/css2?family=EB+Garamond:ital,wght@0,400;0,500;0,600;1,400&amp;family=Manrope:wght@300;400;500;600&amp;display=swap" rel="stylesheet"><link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,300,0,0" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"><style>@layer base { html, body { margin: 0; padding: 0; } body { overscroll-behavior: none; } main > :first-child { margin-top: 0 !important; } main > :last-child { margin-bottom: 0 !important; } } ::-webkit-scrollbar { display: none; }</style><script src="https://cdn.tailwindcss.com"></script><script id="tailwind-config">tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+          "tertiary-fixed": "#ffd9de",
+          "inverse-surface": "#32302b",
+          "primary-fixed": "#f3dde8",
+          "surface-bright": "#fff8f0",
+          "error-container": "#ffdad6",
+          "on-tertiary-fixed-variant": "#603d43",
+          "primary-fixed-dim": "#d6c1cc",
+          "on-secondary": "#ffffff",
+          "on-primary": "#ffffff",
+          "surface-dim": "#dfd9d1",
+          "outline": "#7e7579",
+          "secondary": "#745a37",
+          "surface-variant": "#e7e2da",
+          "tertiary-container": "#2e1318",
+          "on-primary-container": "#917f89",
+          "on-surface-variant": "#4c4549",
+          "inverse-on-surface": "#f6f0e8",
+          "secondary-fixed": "#ffddb3",
+          "inverse-primary": "#d6c1cc",
+          "on-primary-fixed-variant": "#51424c",
+          "secondary-container": "#fddaae",
+          "on-tertiary": "#ffffff",
+          "on-secondary-fixed-variant": "#5a4322",
+          "surface-container-low": "#f9f3eb",
+          "outline-variant": "#cfc3c8",
+          "on-tertiary-container": "#a3797f",
+          "tertiary-fixed-dim": "#eabac1",
+          "on-tertiary-fixed": "#2e1318",
+          "surface-tint": "#6a5a63",
+          "surface": "#fff8f0",
+          "surface-container-lowest": "#ffffff",
+          "error": "#ba1a1a",
+          "on-primary-fixed": "#241820",
+          "surface-container-highest": "#e7e2da",
+          "primary": "#010001",
+          "on-error": "#ffffff",
+          "surface-container": "#f3ede5",
+          "on-surface": "#1d1b17",
+          "background": "#fff8f0",
+          "on-error-container": "#93000a",
+          "tertiary": "#000000",
+          "primary-container": "#241820",
+          "secondary-fixed-dim": "#e3c196",
+          "on-secondary-fixed": "#291800",
+          "on-secondary-container": "#785e3b",
+          "surface-container-high": "#ede7df",
+          "on-background": "#1d1b17"
+        },
+        "borderRadius": {
+          "DEFAULT": "0.25rem",
+          "lg": "0.5rem",
+          "xl": "0.75rem",
+          "full": "9999px"
+        },
+        "spacing": {
+          "space-md": "1rem",
+          "margin": "4rem",
+          "space-lg": "2rem",
+          "space-sm": "0.5rem",
+          "margin-mobile": "1.5rem",
+          "gutter": "2rem",
+          "gutter-mobile": "1rem",
+          "space-xl": "4rem",
+          "space-xs": "0.25rem"
+        },
+        "fontFamily": {
+          "headline-lg-mobile": [
+            "EB Garamond"
+          ],
+          "headline-lg": [
+            "EB Garamond"
+          ],
+          "headline-sm": [
+            "EB Garamond"
+          ],
+          "display-hero-mobile": [
+            "EB Garamond"
+          ],
+          "body-md": [
+            "Manrope"
+          ],
+          "label-interactive": [
+            "Manrope"
+          ],
+          "headline-md": [
+            "EB Garamond"
+          ],
+          "body-lg": [
+            "Manrope"
+          ],
+          "label-caps": [
+            "Manrope"
+          ],
+          "body-sm": [
+            "Manrope"
+          ],
+          "display-hero": [
+            "EB Garamond"
+          ]
+        },
+        "fontSize": {
+          "headline-lg-mobile": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "letterSpacing": "0",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-lg": [
+            "48px",
+            {
+              "lineHeight": "56px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "headline-sm": [
+            "24px",
+            {
+              "lineHeight": "32px",
+              "fontWeight": "500"
+            }
+          ],
+          "display-hero-mobile": [
+            "44px",
+            {
+              "lineHeight": "52px",
+              "letterSpacing": "-0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "body-md": [
+            "15px",
+            {
+              "lineHeight": "26px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "400"
+            }
+          ],
+          "label-interactive": [
+            "13px",
+            {
+              "lineHeight": "18px",
+              "letterSpacing": "0.06em",
+              "fontWeight": "500"
+            }
+          ],
+          "headline-md": [
+            "32px",
+            {
+              "lineHeight": "40px",
+              "fontWeight": "400"
+            }
+          ],
+          "body-lg": [
+            "18px",
+            {
+              "lineHeight": "30px",
+              "letterSpacing": "0.01em",
+              "fontWeight": "300"
+            }
+          ],
+          "label-caps": [
+            "11px",
+            {
+              "lineHeight": "16px",
+              "letterSpacing": "0.18em",
+              "fontWeight": "600"
+            }
+          ],
+          "body-sm": [
+            "13px",
+            {
+              "lineHeight": "20px",
+              "fontWeight": "400"
+            }
+          ],
+          "display-hero": [
+            "72px",
+            {
+              "lineHeight": "80px",
+              "letterSpacing": "-0.02em",
+              "fontWeight": "400"
+            }
+          ]
+        }
+      },
+    },
+  }</script></head><body class="bg-surface text-on-surface antialiased selection:bg-secondary-container selection:text-on-secondary-container"><header class="fixed top-0 inset-x-0 z-50 bg-surface/85 backdrop-blur-xl shadow-[0_1px_8px_rgba(36,24,32,0.03)]"><div class="h-20 max-w-7xl mx-auto px-6 lg:px-12 flex items-center justify-between"><a class="flex flex-col text-left group" data-path="home" href="#"><span class="font-headline-sm text-headline-sm tracking-tight text-on-surface transition-colors duration-300">VIVAAH</span><span class="font-label-caps text-label-caps text-secondary uppercase -mt-1">Haute Wedding Atelier</span></a><nav class="hidden lg:flex items-center gap-8" data-active-classes="text-on-surface border-b border-secondary"><a aria-current="page" class="font-label-interactive uppercase py-1 transition-colors duration-300 text-on-surface border-b border-secondary" data-path="home" href="#">Home</a><a class="font-label-interactive text-label-interactive uppercase text-on-surface-variant hover:text-on-surface py-1 transition-colors duration-300" data-path="about-us" href="#">About Us</a><a class="font-label-interactive text-label-interactive uppercase text-on-surface-variant hover:text-on-surface py-1 transition-colors duration-300" data-path="services" href="#">Services</a><a class="font-label-interactive text-label-interactive uppercase text-on-surface-variant hover:text-on-surface py-1 transition-colors duration-300" data-path="destinations" href="#">Destinations</a><a class="font-label-interactive text-label-interactive uppercase text-on-surface-variant hover:text-on-surface py-1 transition-colors duration-300" data-path="journal" href="#">Journal</a></nav><div class="flex items-center gap-6"><div class="hidden md:flex items-center gap-2 text-on-surface-variant"><span class="material-symbols-outlined text-[16px] text-secondary">room_service</span><span class="font-label-caps text-label-caps uppercase text-on-surface-variant tracking-wider">London · EUR</span></div><a class="hidden sm:inline-flex items-center justify-center bg-primary-container text-surface px-6 py-2.5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-on-surface-variant hover:text-surface transition-all duration-300" data-path="enquire" href="#">Enquire Now</a><div class="w-8 h-8 rounded-full bg-primary flex items-center justify-center"><span class="material-symbols-outlined text-on-primary text-[18px]">person</span></div></div></div></header><main class="w-full pt-20 bg-surface min-h-[calc(100vh-80px)]"><div class="flex flex-col w-full">
+<!-- 1. Hero Section: Immersive Panoramic Visual Showcase -->
+<section class="relative w-full -mt-20 overflow-hidden bg-primary-container text-surface">
+<!-- Carousel Slides Container -->
+<div class="relative w-full h-[92vh] min-h-[660px]" id="hero-slider">
+<!-- Slide 1: Udaipur Royal Palace -->
+<div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none z-0" data-index="0">
+<div class="absolute inset-0 bg-cover bg-center scale-105 transition-transform duration-10000 ease-out" data-alt="A breathtaking night scene at a royal Rajasthani palace courtyard in Udaipur, with shimmering candlelit reflecting pools, elaborate golden floral mandap archways, warm lantern glow, and an opulent royal wedding reception under starlit skies." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCsY2Go6YsM7GIM9-4npDToQdK0bxjb-7iemcbPiWbRhZN9NklHjS9JyrL9bpR5Ui5q9ptgOL1vzAs5d5I2-rs6rXsjVlp2ZZn4hXAyh5xUVNBcIAKMEkdWnSFnpLcip6pBnXij9NZ4A7TXdoxN5cxkuXa2AzgOpLV_25AMUEMG4p29juYfqNer9tsVZGLqjm6Ia3FFJQf4b_28iKbxwD3H2Hbncvsaa6G_gQKqT1iF')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/95 via-primary-container/40 to-primary-container/50"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/80 via-transparent to-transparent"></div>
+</div>
+<!-- Slide 2: Lake Como Villa Balbianello -->
+<div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-100 z-10" data-index="1">
+<div class="absolute inset-0 bg-cover bg-center scale-100 transition-transform duration-10000 ease-out" data-alt="An ethereal golden hour wedding terrace on Lake Como Italy, opulent floral arches with blush English garden roses overlooking serene alpine waters and historic stone balustrades at Villa Balbianello with an elegant couple." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCNJ8bZIJAp1n9UfZvNEf843Cn9IuDprYouj6SbyZ9DTzmTLaxreQZPpYs3yW5Ke1H-W-nN4zafimSZw93_JIH09Qb3qVOU0ns5MvuVmoOaM1xD6KsPeE4thlO-KpCpggn4uKhKnYqsgvNheiWY5b0nUluKGtQTMmNsmQK_jLTDjE6ZNSHnfQxCA7U3toE_oiwvXuMq-DcAQwNXGHXn1LgJKYyeMv8HFnhlZV8cZ0S8')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/95 via-primary-container/40 to-primary-container/50"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/80 via-transparent to-transparent"></div>
+</div>
+<!-- Slide 3: French Provence Château -->
+<div class="hero-slide absolute inset-0 transition-opacity duration-1000 ease-in-out opacity-0 pointer-events-none z-0" data-index="2">
+<div class="absolute inset-0 bg-cover bg-center scale-100 transition-transform duration-10000 ease-out" data-alt="A sunlit luxury wedding ceremony in a private French chateau in Provence, framed by grand floral arches with crystal chandeliers hanging gracefully from ancient plane trees, manicured garden hedges and guests in haute couture." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDqnj8_N0Vm9bl7qelE2pTbcRch4uB9-GVKpgjjaEk3cLe3OxjbjcSJ_bHxGv9h1lC-jqtGeSeOzRb0n5a9L0opQpOBoS0pbtkMXNCZs72VUD8R-2ze2mYTodFjQ-Z0hdJOxFA41ehh--TP0Yo9nmIWd_ZycKAu5a7ceeWFG9KKybmmvifYj5CfhvwrbeNmhKmjydrUVG29gk0VUhoDduCGWE_VqvK7Ix5TAZffL9IN')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/95 via-primary-container/40 to-primary-container/50"></div>
+<div class="absolute inset-0 bg-gradient-to-r from-primary-container/80 via-transparent to-transparent"></div>
+</div>
+<!-- Hero Content Foreground -->
+<div class="relative z-20 h-full max-w-7xl mx-auto px-6 lg:px-12 flex flex-col justify-between pt-36 pb-14">
+<!-- Top Editorial Kicker -->
+<div class="flex items-center gap-3">
+<span class="w-8 h-[1px] bg-secondary-fixed"></span>
+<span class="font-label-caps text-label-caps text-secondary-fixed uppercase tracking-[0.25em]">Bespoke Royal &amp; Destination Weddings</span>
+</div>
+<!-- Center Display Typography & CTA -->
+<div class="max-w-4xl space-y-6 my-auto">
+<h1 class="font-display-hero text-display-hero text-surface-bright leading-[1.08] tracking-tight">
+            Every love story deserves an <span class="italic font-light text-secondary-container">extraordinary</span> beginning.
+          </h1>
+<p class="font-body-lg text-body-lg text-surface-container max-w-2xl font-light leading-relaxed">We turn your wedding dreams into grand celebrations filled with timeless traditions, royal hospitality, and effortless elegance across sovereign palaces and heritage estates worldwide.</p>
+<div class="pt-4 flex flex-wrap items-center gap-6">
+<a class="inline-flex items-center gap-3 bg-surface text-primary-container px-8 py-3.5 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary-container hover:text-on-secondary-container transition-all duration-300 shadow-xl" href="#offerings">
+<span class="">Explore Your Wedding</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+<a class="inline-flex items-center gap-2 px-6 py-3.5 text-surface-bright font-label-caps text-label-caps uppercase tracking-widest hover:text-secondary-fixed transition-colors duration-200" href="#destinations">
+<span class="material-symbols-outlined text-[18px]">explore</span>
+<span class="">Private Sanctuaries</span>
+</a>
+</div>
+</div>
+<!-- Bottom Controller & Destination Ticker -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6 pt-6 border-t border-surface/15">
+<!-- Slide Indicator & Controls -->
+<div class="flex items-center gap-6">
+<div class="flex items-center gap-2">
+<span class="font-label-interactive text-label-interactive text-secondary-fixed tracking-widest font-semibold" id="slide-num-current">02</span>
+<span class="text-surface/40 font-body-sm">/</span>
+<span class="font-label-interactive text-label-interactive text-surface/50 tracking-widest">03</span>
+</div>
+<div class="flex items-center gap-2">
+<button aria-label="Previous slide" class="w-10 h-10 rounded-full bg-surface/10 hover:bg-surface/25 flex items-center justify-center text-surface transition-colors" onclick="VivaahSlider.prev()">
+<span class="material-symbols-outlined text-[18px]">arrow_back</span>
+</button>
+<button aria-label="Next slide" class="w-10 h-10 rounded-full bg-surface/10 hover:bg-surface/25 flex items-center justify-center text-surface transition-colors" onclick="VivaahSlider.next()">
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+<!-- Slide Dots -->
+<div class="flex items-center gap-2 ml-2">
+<button aria-label="Go to slide 1" class="slide-dot h-[2px] transition-all duration-300 w-2 bg-surface/30" onclick="VivaahSlider.go(0)"></button>
+<button aria-label="Go to slide 2" class="slide-dot h-[2px] hover:bg-surface/60 transition-all duration-300 w-6 bg-secondary-fixed" onclick="VivaahSlider.go(1)"></button>
+<button aria-label="Go to slide 3" class="slide-dot h-[2px] hover:bg-surface/60 transition-all duration-300 w-2 bg-surface/30" onclick="VivaahSlider.go(2)"></button>
+</div>
+</div>
+<!-- Editorial Destination Badges -->
+<div class="hidden lg:flex items-center gap-8 font-label-caps text-label-caps uppercase tracking-wider text-surface/60">
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-surface/80">Lake Como · Villa Balbianello</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-surface/80">Udaipur · The City Palace</span>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-1.5 h-1.5 rounded-full bg-secondary"></span>
+<span class="text-surface/80">Provence · Château de Tourreau</span>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 2. Refined Animated Achievements Bar -->
+<section class="w-full bg-surface-container-low py-12 px-6 lg:px-12 shadow-sm">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12">
+<!-- Stat 1 -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-light">100+</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">hotel_class</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-semibold">Weddings Celebrated</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Royal estates, private islands, and historic landmarks.</p>
+</div>
+<!-- Stat 2 -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-light">30+</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">auto_awesome</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-semibold">Global Guild Artisans</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Florists, scenographers, and culinary artists of Michelin rank.</p>
+</div>
+<!-- Stat 3 -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-light">15+</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">public</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-semibold">Sovereign Destinations</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Unrivaled access across Italy, India, France, and the Emirates.</p>
+</div>
+<!-- Stat 4 -->
+<div class="flex flex-col space-y-2">
+<div class="flex items-center gap-2">
+<span class="font-headline-lg text-headline-lg text-primary tracking-tight font-light">100%</span>
+<span class="material-symbols-outlined text-secondary text-[20px]">verified</span>
+</div>
+<span class="font-label-caps text-label-caps uppercase text-secondary font-semibold">Precision &amp; Discretion</span>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Confidential NDAs, private chartered aviation, and calm poise.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- 3. Editorial Brand Narrative & Philosophy -->
+<section class="w-full py-28 px-6 lg:px-12 bg-surface">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start">
+<!-- Left: Narrative -->
+<div class="lg:col-span-7 space-y-8">
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-6 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Our Philosophy &amp; Ethos</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface max-w-xl leading-[1.12]">
+              More than a wedding.<br>
+<span class="italic text-secondary">A story crafted around you.</span>
+</h2>
+</div>
+<div class="space-y-6 font-body-lg text-body-lg text-on-surface-variant max-w-2xl leading-relaxed"><p class="">Vivaah was founded on the belief that a great shaadi is a celebration of two lineages, rich rituals, and profound love. We harmonize sacred heritage with timeless royal grandeur and modern sophistication.</p><p class="font-body-md text-body-md text-on-surface-variant">From luminous Mehendi soirees and high-energy Sangeet galas to sacred Pheras at sunset and regal receptions, our dedicated team orchestrates every celebration with unhurried grace, immaculate mandap design, and bespoke family hospitality.</p></div>
+<!-- Hallmark Pillars Bento -->
+<div class="grid grid-cols-1 sm:grid-cols-2 gap-6 pt-4">
+<div class="p-6 bg-surface-container-low rounded space-y-3 hover:bg-surface-container transition-colors duration-300">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">architecture</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">Spatial Mastery</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Grand mandap architecture, bespoke stage craft, and custom palace lighting tailored to sacred rituals.</p>
+</div>
+<div class="p-6 bg-surface-container-low rounded space-y-3 hover:bg-surface-container transition-colors duration-300">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container">
+<span class="material-symbols-outlined text-[20px]">concierge</span>
+</div>
+<h3 class="font-headline-sm text-headline-sm text-on-surface">White-Glove Care</h3>
+<p class="font-body-sm text-body-sm text-on-surface-variant">
+                Bespoke shadow concierge for the couple, discreet security protocol, and seamless guest hospitality from touchdown to farewell.
+              </p>
+</div>
+</div>
+</div>
+<!-- Right: Editorial Quote & High-Fashion Imagery -->
+<div class="lg:col-span-5 flex flex-col space-y-8">
+<!-- Quote Card -->
+<div class="relative p-10 bg-primary-container text-surface rounded shadow-xl overflow-hidden">
+<span class="material-symbols-outlined absolute -top-4 -right-4 text-[120px] text-surface/5 select-none pointer-events-none">format_quote</span>
+<div class="relative z-10 space-y-6">
+<span class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-[0.2em]">Private Client Reflection</span>
+<p class="font-headline-sm text-headline-sm italic text-surface-bright leading-relaxed font-light">
+                “True luxury is never loud. It is felt in the absolute absence of friction, the warmth of timeless hospitality, and the lingering perfume of jasmine at midnight.”
+              </p>
+<div class="pt-4 border-t border-surface/15 flex items-center justify-between">
+<div>
+<p class="font-label-interactive text-label-interactive font-medium text-surface">Aditi &amp; Rajiv Singhania</p>
+<p class="font-body-sm text-body-sm text-surface/60">Palazzo Reale, Naples · Three-Day Nuptials</p>
+</div>
+<span class="material-symbols-outlined text-secondary-fixed text-[24px]">verified</span>
+</div>
+</div>
+</div>
+<!-- Secondary Tactile Imagery -->
+<div class="relative overflow-hidden rounded shadow-md group">
+<div class="w-full h-72 bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="Intimate editorial detail shot of bespoke ivory wedding stationary embossed with gold foil calligraphy, delicate seed pearls, and fragrant white tuberose blossoms resting on hand-woven champagne raw silk fabric." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCVtHEE7J3gAQ5LFvOi7x8N0pEitzeU14E5ZEX1WMrXA1E1d2f3WQnWGtZX6pVJTXCvVuOeGFvWQ5Dgjk8I3cOjdZI6rMfXswllrX-nq8MGw3poE8E1mbJVLVm1dz9YRtcdbcKI5n_zlJ70c7H1moVK_Kj7ai5wsqWSlVwH-XtpveMP4_ExmitmdeiiXIRk3y0hou8RBotDY2A_TlkcSR5agTRDk2ObnoJ37kaAymDu')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/60 via-transparent to-transparent flex items-end p-6">
+<p class="font-label-caps text-label-caps text-surface uppercase tracking-widest">Handcrafted Haute Stationery &amp; Calligraphy</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 4. Bespoke Wedding Offerings (Services Section) -->
+<section class="w-full py-28 px-6 lg:px-12 bg-surface-container-low" id="offerings">
+<div class="max-w-7xl mx-auto space-y-16">
+<!-- Section Header -->
+<div class="flex flex-col md:flex-row md:items-end justify-between gap-6">
+<div class="space-y-3">
+<div class="flex items-center gap-3">
+<span class="w-6 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Signature Offerings</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Curated Wedding Engagements</h2>
+</div>
+<p class="font-body-md text-body-md text-on-surface-variant max-w-md">Tailored suites of wedding planning, royal hospitality, and meticulous coordination designed for magnificent multi-day celebrations.</p>
+</div>
+<!-- Services Cards Grid -->
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Package 1: Full-Service Planning (Flagship) -->
+<div class="flex flex-col bg-surface rounded shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"><div class="relative h-64 overflow-hidden"><div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A grand wedding ballroom scenography with thousands of hanging white orchids, cascading crystal chandeliers, mirror dining tables reflecting champagne candlelight, and tailored velvet dining chairs." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmRgKuAQSgMgW-hrkJzGsErPZzDuwdkFEnJj2pkaYvORxGFhCbTZECN2mBVvg7JFXMORu4izg5L94zaVA_vInpE6P2TJHorsQ9_Q_mBxYVVKS5gLBjsDg7mflWglTtv_2F17xnFXvilkIDsSLtF1L_fuXhCGGnJnVONqcGNIyk5qX87FNUuGeMpMCMoHjijYYgqwKmTvzXTkm-FZxSNBsbL8_V4VeFIfqvE0c-iieD')"></div><div class="absolute top-4 left-4 bg-primary-container text-surface px-3 py-1 font-label-caps text-label-caps uppercase tracking-wider rounded">Complete Shaadi Planning</div></div><div class="p-8 flex-1 flex flex-col justify-between space-y-6"><div class="space-y-4"><span class="font-headline-md text-headline-md text-secondary font-light">01</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Full-Service Shaadi Planning &amp; Décor</h3><p class="font-body-sm text-body-sm text-on-surface-variant">From initial theme conceptualization to the Vidaai and final farewell brunch, a complete end-to-end luxury management service for grand celebrations.</p><ul class="space-y-3 pt-2 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Palace and luxury resort acquisition &amp; permits</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Bespoke mandap design &amp; Sangeet stage production</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Royal catering, sweet banquets &amp; beverage curation</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">VIP guest logistics &amp; dedicated family concierge</span></li></ul></div><div class="pt-4"><a class="w-full inline-flex items-center justify-center bg-primary-container text-surface py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-secondary hover:text-on-secondary transition-colors duration-300" href="#enquire">Enquire Full-Service Planning</a></div></div></div>
+<!-- Package 2: Partial & Day-Of Coordination -->
+<div class="flex flex-col bg-surface rounded shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"><div class="relative h-64 overflow-hidden"><div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A refined wedding director holding an engraved brass clipboard in a serene olive grove venue, synchronizing an ensemble of musicians and white floral procession with elegant grace." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCOwyFJLDSNsg3VvvCnjgjMYWWanO9by_H0_G0C4sgeWvpjNWApE3_be9a0nyeQO0PZsAfyjt6Iye0KZ5-xHIKiSeCzohxIjgPdfKrHFhvqdUnuwBgaSk6Vvt3vCGBx_uA-Lclzk6dyYy1ndQtTR7RZhzBCcS6wqI5SWLJDx2CjsXOkvJVbxv7AdzWf84EKTm6HM2xHjv57Ur4sfeZZZQJNOdxmc8EOX4MUs5t4PvTm')"></div><div class="absolute top-4 left-4 bg-surface-container text-on-surface px-3 py-1 font-label-caps text-label-caps uppercase tracking-wider rounded">Runway &amp; Day-of Coordination</div></div><div class="p-8 flex-1 flex flex-col justify-between space-y-6"><div class="space-y-4"><span class="font-headline-md text-headline-md text-secondary font-light">02</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Day-of Coordination &amp; Sangeet Management</h3><p class="font-body-sm text-body-sm text-on-surface-variant">For families with established vendors seeking meticulous event orchestration, flawless Baraat entries, and serene peace of mind.</p><ul class="space-y-3 pt-2 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Comprehensive vendor coordination &amp; schedule handover</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Baraat timing &amp; Sangeet stage run-of-show choreography</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Dedicated bridal shadow &amp; trousseau styling support</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Pheras ritual timeline management and smooth flow</span></li></ul></div><div class="pt-4"><a class="w-full inline-flex items-center justify-center bg-surface-container-high text-on-surface py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary-container hover:text-surface transition-colors duration-300" href="#enquire">Enquire Coordination Services</a></div></div></div>
+<!-- Package 3: Destination Architecture -->
+<div class="flex flex-col bg-surface rounded shadow-md hover:shadow-xl transition-all duration-300 overflow-hidden group"><div class="relative h-64 overflow-hidden"><div class="w-full h-full bg-cover bg-center transition-transform duration-700 group-hover:scale-105" data-alt="A cinematic sunset aerial view of a private Italian renaissance villa estate on a dramatic cliffside overlooking the Mediterranean Sea, with luxury wooden Riva boats docked at the private pier and warm festoon lighting." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDzFFbUOzBNz7YGIcJ1VZFpmpDKpnGH_6S-tnpx8z1hSrxUPoJm5Wgymt-Uuf0HNsv-1cDVeqglkWSjcIBZWSb7Tue49nMTc_3r1vrOGDCY-og1cuXQ6y1nGmtNRT5zP0YtigQtAac1uBDfAvDZHSFdvGybL3f6Xc1HfYv8Hzt1pPM4SXaEg6OOrADgFRZKjEzp1_SCErJF4idjamuQaNjK5uHfuz1d-EQVStpgzfT7')"></div><div class="absolute top-4 left-4 bg-surface-container text-on-surface px-3 py-1 font-label-caps text-label-caps uppercase tracking-wider rounded">Destination Weddings</div></div><div class="p-8 flex-1 flex flex-col justify-between space-y-6"><div class="space-y-4"><span class="font-headline-md text-headline-md text-secondary font-light">03</span><h3 class="font-headline-sm text-headline-sm text-on-surface">Destination Wedding Management</h3><p class="font-body-sm text-body-sm text-on-surface-variant">Seamless multi-day celebrations uniting global families across heritage palaces in India and luxury destinations worldwide.</p><ul class="space-y-3 pt-2 font-body-sm text-body-sm text-on-surface-variant"><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Chartered flights, airport transfers &amp; guest welcoming</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">Multi-day cultural itineraries &amp; welcome cocktail soirees</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">24/7 dedicated guest hospitality desk &amp; hampers</span></li><li class="flex items-start gap-2.5"><span class="material-symbols-outlined text-secondary text-[18px] shrink-0 mt-0.5">check_circle</span><span class="">High-jewelry security &amp; bridal styling coordination</span></li></ul></div><div class="pt-4"><a class="w-full inline-flex items-center justify-center bg-surface-container-high text-on-surface py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary-container hover:text-surface transition-colors duration-300" href="#enquire">Enquire Destination Weddings</a></div></div></div>
+</div>
+</div>
+</section>
+<!-- 5. Destination Showcase Gallery: Curated Geographies -->
+<section class="w-full py-28 px-6 lg:px-12 bg-surface" id="destinations">
+<div class="max-w-7xl mx-auto space-y-16">
+<!-- Section Intro -->
+<div class="max-w-2xl space-y-4">
+<div class="flex items-center gap-3">
+<span class="w-6 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Iconic Geographies</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface">Sanctuaries of Romance</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">
+          Our longstanding private agreements unlock sovereign castles, remote mountain retreats, and secluded lakefront villas closed to the public eye.
+        </p>
+</div>
+<!-- Asymmetric Mosaic Gallery -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8 items-stretch">
+<!-- Large Card: Lake Como -->
+<div class="md:col-span-7 relative min-h-[480px] rounded overflow-hidden group shadow-lg">
+<div class="w-full h-full absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="An expansive panoramic vista of Lake Como at twilight, showing illuminated Villa del Balbianello, antique terracotta urns overflowed with white peonies, romantic stone loggia, and candlelit waterfront dining tables." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBYK5yc4mlo0dOth5FLUdTWHQElI03ClOkrg9nBY3vz97IjQJ3Hmcze_a7-VufBEEEdVaA84PTKgP1Zq5pLeSimuL7pGFnaoMJwPzHO9Kc21u7YK_NyYbZ2AuIs6wm_Kb1cwB_lNrY4EObFFlNF9zGtXbr4y9nXxe9IhWuFZIeYa9U_2SQHFsSjnMUN3PwtmqAUxupr4P4t9yZhtc1N6JOuIOM4u2A8HfYffh8RKMNN')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/20 to-transparent"></div>
+<div class="absolute inset-0 p-10 flex flex-col justify-between text-surface z-10">
+<div class="flex items-center justify-between">
+<span class="font-label-caps text-label-caps uppercase tracking-widest bg-surface/20 backdrop-blur-md px-3 py-1 rounded">Lombardy · Italy</span>
+<span class="material-symbols-outlined text-[20px] text-secondary-fixed">sailing</span>
+</div>
+<div class="space-y-2">
+<h3 class="font-headline-md text-headline-md text-surface-bright">Lake Como &amp; The Italian Lakes</h3>
+<p class="font-body-sm text-body-sm text-surface/80 max-w-md">Private water arrivals via Riva Tritone, historic loggia ceremonies, and fireworks cascading over calm alpine reflections.</p>
+<div class="pt-2">
+<span class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider flex items-center gap-2 group-hover:translate-x-1 transition-transform">
+<span class="">Explore Estate Roster</span>
+<span class="material-symbols-outlined text-[16px]">north_east</span>
+</span>
+</div>
+</div>
+</div>
+</div>
+<!-- Right Stacked Cards -->
+<div class="md:col-span-5 flex flex-col gap-8">
+<!-- Card 2: Udaipur & Rajasthan -->
+<div class="relative h-64 rounded overflow-hidden group shadow-md flex-1">
+<div class="w-full h-full absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A royal Rajasthani palace courtyard with carved marble arches lit with hundreds of warm oil lamps, marigold garlands, and royal musicians in classic turbans beside an illuminated pool under starry night sky." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCMrORoELHuqydJX2X0beEpvaJsNS_XnZpmZVTsbhLyqSA3c6P6fp5UmPv4qlvNDvjszB-22zmALU0G9UO8n4D8hM3wq2gJjLRKoKtfL73WX3Wow9zH66s60XVOm-v75cgb1mia_KzL09HVDKLahIfJcV0Xp2iw82cqV3oe0ybByVsENwtPAfPNqw78c76J9SFyWNbLV_EfLoYxgBR-n7EFKhE1Ph4E7F77OXFd8RHe')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-between text-surface z-10">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary-fixed">Udaipur · Rajasthan</span>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-surface-bright">Royal Rajput Palaces</h3>
+<p class="font-body-sm text-body-sm text-surface/80">Centuries-old fortress walls, private royal bagh gardens, and midnight firework serenades.</p>
+</div>
+</div>
+</div>
+<!-- Card 3: Provence & Côte d'Azur -->
+<div class="relative h-64 rounded overflow-hidden group shadow-md flex-1">
+<div class="w-full h-full absolute inset-0 bg-cover bg-center transition-transform duration-1000 group-hover:scale-105" data-alt="A lush French chateau courtyard in Provence with aged stone walls, sprawling ivy, banquet table adorned with lavender, olive branches, and crystal wine glasses in the golden Mediterranean sun." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuC1Whyg60mUbb566PhMCsD0v1DSDtGLp4zXaCTDJo8z6zD9bQ-DoYlk-MCNFrRNdQp1uMTDM_KHMvPQB1XyMb8JWMouO-TByh51gG98Q7IryaRR2Sh1Vf9oxAwL7BhkZ_lyVh6EqdsDnWrogLx7-3X2eY8dKzQWxdu2wNnYgOh-p48fig8y2AVFK_XfPJ9HbBCIj54FgsxL-aa3lQG4sTF9ZwJdWRomKf4NRkasS_vf')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-primary-container/90 via-primary-container/30 to-transparent"></div>
+<div class="absolute inset-0 p-8 flex flex-col justify-between text-surface z-10">
+<span class="font-label-caps text-label-caps uppercase tracking-widest text-secondary-fixed">Provence · French Riviera</span>
+<div class="space-y-1">
+<h3 class="font-headline-sm text-headline-sm text-surface-bright">French Châteaux &amp; Bastides</h3>
+<p class="font-body-sm text-body-sm text-surface/80">Lavender fields at dusk, heirloom vineyard dinners, and secluded bastides bathed in golden light.</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- Map & Access Strip -->
+<div class="p-8 bg-surface-container-low rounded flex flex-col md:flex-row items-center justify-between gap-6">
+<div class="flex items-center gap-4">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center text-on-secondary-container shrink-0">
+<span class="material-symbols-outlined text-[24px]">pin_drop</span>
+</div>
+<div>
+<h4 class="font-headline-sm text-headline-sm text-on-surface">Seeking an Unpublished Private Sanctuary?</h4>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Our directors hold keys to sovereign estates not listed on any commercial registry.</p>
+</div>
+</div>
+<a class="inline-flex items-center gap-2 bg-surface text-primary-container px-6 py-3 font-label-caps text-label-caps uppercase tracking-widest hover:bg-primary-container hover:text-surface transition-all duration-300 shadow-sm shrink-0" href="#enquire">
+          Request Confidential Folio
+        </a>
+</div>
+</div>
+</section>
+<!-- 6. Interactive Wedding Readiness Checklist & Timeline Preview -->
+<section class="w-full py-24 px-6 lg:px-12 bg-surface-container">
+<div class="max-w-7xl mx-auto">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+<div class="lg:col-span-5 space-y-6">
+<div class="flex items-center gap-3">
+<span class="w-6 h-[1px] bg-secondary"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary tracking-widest">Atelier Methodology</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-surface leading-[1.15]">
+            The Journey from Whisper to Wonder
+          </h2>
+<p class="font-body-md text-body-md text-on-surface-variant leading-relaxed">
+            Planning a celebration of this magnitude requires absolute transparency and fluid milestone management. We provide our couples with a proprietary private portal tracking every detail in real-time.
+          </p>
+<div class="space-y-4 pt-2">
+<div class="flex items-center gap-4 p-4 bg-surface rounded">
+<span class="font-headline-sm text-headline-sm text-secondary font-light">12+</span>
+<div>
+<p class="font-label-interactive text-label-interactive text-on-surface font-semibold">Months in Advance</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Estate scouting, creative moodboards &amp; date reservation.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface rounded">
+<span class="font-headline-sm text-headline-sm text-secondary font-light">06</span>
+<div>
+<p class="font-label-interactive text-label-interactive text-on-surface font-semibold">Months in Advance</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Culinary tastings, couture wardrobe harmonization &amp; invitations.</p>
+</div>
+</div>
+<div class="flex items-center gap-4 p-4 bg-surface rounded">
+<span class="font-headline-sm text-headline-sm text-secondary font-light">01</span>
+<div>
+<p class="font-label-interactive text-label-interactive text-on-surface font-semibold">Month to Curtain Call</p>
+<p class="font-body-sm text-body-sm text-on-surface-variant">Technical walk-throughs, light tests &amp; guest concierge deployment.</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Right: Interactive Scenography Previewer / Moodboard -->
+<div class="lg:col-span-7 bg-surface p-8 md:p-10 rounded shadow-md space-y-8">
+<div class="flex items-center justify-between border-b border-surface-variant pb-4">
+<div>
+<span class="font-label-caps text-label-caps uppercase text-secondary">Creative Atelier Preview</span>
+<h3 class="font-headline-sm text-headline-sm text-on-surface mt-1">Palette &amp; Scenography Moodboard</h3>
+</div>
+<div class="flex items-center gap-2">
+<span class="w-3 h-3 rounded-full bg-secondary"></span>
+<span class="w-3 h-3 rounded-full bg-surface-dim"></span>
+<span class="w-3 h-3 rounded-full bg-primary-container"></span>
+<span class="w-3 h-3 rounded-full bg-secondary-container"></span>
+</div>
+</div>
+<div class="grid grid-cols-3 gap-4">
+<div class="space-y-2">
+<div class="h-44 rounded overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Close up of artisanal hand-blown champagne crystal glassware on embroidered linen beside vintage silver cutlery and gardenias." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAz0w6XZaNhgJYHnF6OUIJSH8FPuqnvEPtF5vJjDW-oHDWcFh1rcWijDxihIMJpOdnxXJgX67NgQ30T6-arcd6r8xjbOr3zU66Tfy0SRTIU5ne-2WiHcCVKIomcHEdMkgSANwW8Hef8ahXZ8K6npyk4chI-zizQVEkY2lRNCPEJri_X5b8ETLn-wnjImTpyh8xvboj4mr75FxyYmgq9BVCSsYayF5gHnfL0rtrqgmyO')"></div>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Artisanal Tableware</p>
+</div>
+<div class="space-y-2">
+<div class="h-44 rounded overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Lavish floral cloud installation of white hydrangeas and English garden roses suspended gracefully in midair." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBBp-rPs8F1voEGWPNdqQ21eoohuIBASxewZ5TT492PVCdmAw1CdpcleuR-9AEYtncY0iGSgWURY9J_rdNkj68tw_ahAK2TvC0S7Cih_71LGHZiYbi2hL9TNB0yNmFE7GdWgSZd7CC7K5dru3hYvDbdvkv-NnpoAzeyEwS6wuSgZtzElFpC1WZkUAmGVFj3F3rVgCsQMctvE30EtJ01sVQ1XVyPZdk16I-R0fBveSo9')"></div>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Floral Cloud Architecture</p>
+</div>
+<div class="space-y-2">
+<div class="h-44 rounded overflow-hidden">
+<div class="w-full h-full bg-cover bg-center" data-alt="Golden candlelit lantern pathway curving along an Italian stone garden terrace overlooking a dark romantic lake." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBQOWvfURiRUYwyUl1k6BMKrFXZHVJleoXEskGHZbIumiuJRtzsjrevn4kBk8b0yXDrVp0uNSQ_E9FDhL1kNxVUa4M2RNYg58R94hPznCQFaAL2jkVQIRyRLPB1hbSCRX15Y5rLX06fFksUIMlL6tGjKYk7GNwYKHT06EK88sO0V7AndVqv-nYnvmCMqBCgrCkKGi3vRGcgGjYyHwiaZxArJySJa0T0kfv-tNA6FB1j')"></div>
+</div>
+<p class="font-label-caps text-label-caps text-on-surface-variant uppercase">Atmospheric Illumination</p>
+</div>
+</div>
+<div class="p-4 bg-surface-container-low rounded flex items-center justify-between">
+<span class="font-body-sm text-body-sm text-on-surface-variant">Looking for a custom scenography rendition for your chosen venue?</span>
+<a class="font-label-interactive text-label-interactive text-secondary uppercase hover:text-primary transition-colors flex items-center gap-1 font-semibold" href="#enquire">
+<span class="">Request Moodboard</span>
+<span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- 7. Final Grand Call-to-Action: High-Impact Consultation Inquiry -->
+<section class="w-full py-28 px-6 lg:px-12 bg-primary-container text-surface relative overflow-hidden" id="enquire">
+<!-- Subtle Background Glow Element -->
+<div class="absolute -right-40 -bottom-40 w-96 h-96 rounded-full bg-secondary/15 blur-3xl pointer-events-none"></div>
+<div class="absolute -left-20 -top-20 w-80 h-80 rounded-full bg-tertiary-fixed/5 blur-3xl pointer-events-none"></div>
+<div class="max-w-4xl mx-auto text-center space-y-10 relative z-10">
+<div class="space-y-4">
+<div class="flex items-center justify-center gap-3">
+<span class="w-8 h-[1px] bg-secondary-fixed"></span>
+<span class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-[0.25em]">Private Consultation</span>
+<span class="w-8 h-[1px] bg-secondary-fixed"></span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-surface-bright leading-tight">
+          Your dream celebration begins with a quiet conversation.
+        </h2>
+<p class="font-body-lg text-body-lg text-surface-container max-w-2xl mx-auto font-light leading-relaxed">
+          Tell us the story you wish to create. From lakeside Italian villas to majestic heritage fortresses, our directors are prepared to bring every whisper to life with uncompromising poise.
+        </p>
+</div>
+<!-- Quick Inquiry Form Card -->
+<div class="bg-surface/10 backdrop-blur-xl p-8 md:p-10 rounded text-left shadow-2xl space-y-6 max-w-2xl mx-auto">
+<form class="space-y-6" onsubmit="event.preventDefault(); document.getElementById('consult-success').classList.remove('hidden');">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider">Your Names</label>
+<input class="w-full bg-surface/10 border-b border-secondary-fixed/40 px-3 py-2 text-surface placeholder:text-surface/40 focus:outline-none focus:border-secondary-fixed transition-colors font-body-sm" placeholder="e.g. Aditi &amp; Rajiv" required="" type="text">
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider">Preferred Email</label>
+<input class="w-full bg-surface/10 border-b border-secondary-fixed/40 px-3 py-2 text-surface placeholder:text-surface/40 focus:outline-none focus:border-secondary-fixed transition-colors font-body-sm" placeholder="yourname@domain.com" required="" type="email">
+</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider">Dream Geography</label>
+<select class="w-full bg-primary-container border-b border-secondary-fixed/40 px-3 py-2 text-surface focus:outline-none focus:border-secondary-fixed font-body-sm">
+<option value="como">Lake Como &amp; Northern Italy</option>
+<option value="rajasthan">Rajasthan Heritage Palaces</option>
+<option value="france">Provence &amp; Côte d'Azur</option>
+<option value="dubai">Emirates Private Dunes &amp; Island</option>
+<option value="undecided">Undecided / Concierge Selection</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider">Estimated Timeline</label>
+<select class="w-full bg-primary-container border-b border-secondary-fixed/40 px-3 py-2 text-surface focus:outline-none focus:border-secondary-fixed font-body-sm">
+<option value="2025-late">Late 2025</option>
+<option value="2026-early">Early 2026</option>
+<option value="2026-late">Late 2026 &amp; Beyond</option>
+</select>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-caps text-label-caps uppercase text-secondary-fixed tracking-wider">Celebration Vision &amp; Notes</label>
+<textarea class="w-full bg-surface/10 border-b border-secondary-fixed/40 px-3 py-2 text-surface placeholder:text-surface/40 focus:outline-none focus:border-secondary-fixed transition-colors font-body-sm resize-none" placeholder="Tell us about the atmosphere, guest count, or specific memories you want to evoke..." rows="2"></textarea>
+</div>
+<div class="pt-2">
+<button class="w-full bg-secondary-fixed text-on-secondary-fixed hover:bg-surface hover:text-primary-container py-4 font-label-caps text-label-caps uppercase tracking-widest transition-all duration-300 flex items-center justify-center gap-3" type="submit">
+<span class="">Let's Plan Your Wedding</span>
+<span class="material-symbols-outlined text-[18px]">arrow_forward</span>
+</button>
+</div>
+</form>
+<div class="hidden p-4 bg-secondary-container/20 rounded text-center" id="consult-success">
+<p class="font-label-interactive text-label-interactive text-secondary-fixed font-semibold">Thank you for your trust.</p>
+<p class="font-body-sm text-body-sm text-surface/80 mt-1">A Senior Atelier Director will personally contact your salon within 24 hours.</p>
+</div>
+<div class="flex items-center justify-center gap-6 pt-2 font-label-caps text-label-caps text-surface/60">
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">lock</span> Strict Confidentiality
+          </span>
+<span class="flex items-center gap-1.5">
+<span class="material-symbols-outlined text-[14px]">support_agent</span> Dedicated Senior Partner
+          </span>
+</div>
+</div>
+</div>
+</section>
+<!-- Slider Interactive Logic -->
+<script>
+    const VivaahSlider = (() => {
+      let current = 0;
+      const slides = document.querySelectorAll('.hero-slide');
+      const dots = document.querySelectorAll('.slide-dot');
+      const numDisplay = document.getElementById('slide-num-current');
+      const total = slides.length;
+      let interval = null;
+
+      function show(index) {
+        current = (index + total) % total;
+        slides.forEach((s, i) => {
+          if (i === current) {
+            s.classList.remove('opacity-0', 'pointer-events-none');
+            s.classList.add('opacity-100', 'z-10');
+            s.classList.remove('z-0');
+          } else {
+            s.classList.remove('opacity-100', 'z-10');
+            s.classList.add('opacity-0', 'pointer-events-none', 'z-0');
+          }
+        });
+
+        dots.forEach((d, i) => {
+          if (i === current) {
+            d.classList.remove('w-2', 'bg-surface/30');
+            d.classList.add('w-6', 'bg-secondary-fixed');
+          } else {
+            d.classList.remove('w-6', 'bg-secondary-fixed');
+            d.classList.add('w-2', 'bg-surface/30');
+          }
+        });
+
+        if (numDisplay) {
+          numDisplay.textContent = '0' + (current + 1);
+        }
+      }
+
+      function next() {
+        show(current + 1);
+        restartTimer();
+      }
+
+      function prev() {
+        show(current - 1);
+        restartTimer();
+      }
+
+      function go(idx) {
+        show(idx);
+        restartTimer();
+      }
+
+      function restartTimer() {
+        if (interval) clearInterval(interval);
+        interval = setInterval(() => {
+          show(current + 1);
+        }, 6500);
+      }
+
+      restartTimer();
+
+      return { next, prev, go };
+    })();
+  </script>
+</div></main><footer class="w-full bg-surface-container-low text-on-surface shadow-[0_-1px_12px_rgba(36,24,32,0.02)]"><div class="max-w-7xl mx-auto px-6 lg:px-12 pt-20 pb-16"><div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-8 mb-20"><div class="lg:col-span-5 flex flex-col justify-between space-y-6"><div class="space-y-4"><div class="flex flex-col"><span class="font-headline-md text-headline-md tracking-tight text-on-surface">VIVAAH</span><span class="font-label-caps text-label-caps text-secondary uppercase -mt-1">Haute Wedding Atelier</span></div><p class="font-body-md text-body-md text-on-surface-variant max-w-sm">Curating epochal celebrations for royalty, luminaries, and connoisseurs of timeless romance across the globe.</p></div><div class="space-y-2 pt-2"><p class="font-label-caps text-label-caps uppercase text-secondary">Private Salons</p><p class="font-body-sm text-body-sm text-on-surface-variant">Mayfair · Mumbai · Lake Como · Dubai</p></div></div><div class="lg:col-span-3 space-y-4"><h4 class="font-label-caps text-label-caps uppercase text-secondary">Services</h4><ul class="space-y-3 font-body-sm text-body-sm text-on-surface-variant"><li class=""><a class="hover:text-on-surface transition-colors duration-200" data-path="services" href="#">Full Shaadi Planning</a></li><li class=""><a class="hover:text-on-surface transition-colors duration-200" data-path="services" href="#">Mandap &amp; Scenography</a></li><li class=""><a class="hover:text-on-surface transition-colors duration-200" data-path="destinations" href="#">Destination Management</a></li><li class=""><a class="hover:text-on-surface transition-colors duration-200" data-path="enquire" href="#">VIP Bridal Concierge</a></li></ul></div><div class="lg:col-span-4 space-y-6"><div class="space-y-2"><h4 class="font-label-caps text-label-caps uppercase text-secondary">Private Gazette</h4><p class="font-body-sm text-body-sm text-on-surface-variant">Subscribe for seasonal monograph previews, venue debuts, and salon evenings.</p></div><div class="flex flex-col space-y-3"><div class="flex items-center bg-surface-container px-4 py-3"><input class="bg-transparent w-full text-on-surface font-body-sm text-body-sm placeholder:text-outline focus:outline-none" placeholder="Your esteemed email address" type="email"><button class="font-label-caps text-label-caps uppercase text-secondary hover:text-on-surface ml-3 transition-colors duration-200">Join</button></div><span class="font-label-caps text-label-caps text-on-surface-variant">Discretion assured. Strictly confidential.</span></div></div></div><div class="pt-8 flex flex-col md:flex-row items-center justify-between gap-6 font-label-caps text-label-caps text-on-surface-variant"><div class="flex items-center gap-8"><a class="hover:text-on-surface transition-colors duration-200" href="#">Instagram</a><a class="hover:text-on-surface transition-colors duration-200" href="#">Pinterest</a><a class="hover:text-on-surface transition-colors duration-200" href="#">Vogue Weddings</a><a class="hover:text-on-surface transition-colors duration-200" href="#">WhatsApp Concierge</a></div><p class="text-center md:text-right">© 2025 Vivaah Haute Atelier Ltd. All rights reserved. Mayfair · Mumbai · Lake Como.</p></div></div></footer>
+
+</body></html>
