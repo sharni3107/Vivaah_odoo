@@ -71,7 +71,18 @@ async def update_enquiry(
     payload: EnquiryUpdate,
     user: Dict[str, Any] = Depends(require_agency_user)
 ):
-    enq = next((e for e in db_store.enquiries if e["id"] == enquiry_id), None)
+    enq = next((e for e in db_store.enquiries if str(e["id"]) == str(enquiry_id)), None)
+    if not enq:
+        client = get_supabase_client()
+        if client:
+            try:
+                res = client.table("enquiries").select("*").eq("id", enquiry_id).execute()
+                if res.data and len(res.data) > 0:
+                    enq = res.data[0]
+                    db_store.enquiries.insert(0, enq)
+            except Exception as e:
+                print(f"Supabase fallback enquiry error: {e}")
+
     if not enq:
         raise HTTPException(status_code=404, detail="Enquiry not found.")
 
@@ -80,6 +91,8 @@ async def update_enquiry(
     if payload.assigned_executive:
         enq["assigned_executive"] = payload.assigned_executive
     if payload.note_content:
+        if "notes" not in enq or not isinstance(enq["notes"], list):
+            enq["notes"] = []
         enq["notes"].append({
             "date": datetime.utcnow().strftime("%Y-%m-%d"),
             "author": user.get("name", "Staff Member"),
@@ -101,7 +114,18 @@ async def convert_enquiry_to_wedding(
     payload: EnquiryConvert,
     user: Dict[str, Any] = Depends(require_agency_user)
 ):
-    enq = next((e for e in db_store.enquiries if e["id"] == enquiry_id), None)
+    enq = next((e for e in db_store.enquiries if str(e["id"]) == str(enquiry_id)), None)
+    if not enq:
+        client = get_supabase_client()
+        if client:
+            try:
+                res = client.table("enquiries").select("*").eq("id", enquiry_id).execute()
+                if res.data and len(res.data) > 0:
+                    enq = res.data[0]
+                    db_store.enquiries.insert(0, enq)
+            except Exception as e:
+                print(f"Supabase fallback enquiry error: {e}")
+
     if not enq:
         raise HTTPException(status_code=404, detail="Enquiry not found.")
 
@@ -167,7 +191,48 @@ async def convert_enquiry_to_wedding(
         db_store.tasks.append(task_obj)
         generated_tasks.append(task_obj)
 
-    # 5. Record activity log
+    # 5. Create initial client payment milestones
+    deposit = getattr(payload, 'deposit_received', None) or (wedding_record["contract_amount"] * 0.15)
+    db_store.client_payments.extend([
+        {
+            "id": f"pay-c-{new_wedding_id}-01",
+            "wedding_id": new_wedding_id,
+            "milestone_name": "Date Reservation & Initial Retainer (15%)",
+            "amount": deposit,
+            "due_date": datetime.utcnow().strftime("%Y-%m-%d"),
+            "paid_date": None,
+            "status": "Pending",
+            "payment_method": "RTGS Wire Transfer",
+            "reference_no": f"TXN-RTGS-{new_wedding_id[-4:]}-01",
+            "notes": "Initial reservation token milestone."
+        },
+        {
+            "id": f"pay-c-{new_wedding_id}-02",
+            "wedding_id": new_wedding_id,
+            "milestone_name": "First Production Advance (Venue & Design Lock) (35%)",
+            "amount": wedding_record["contract_amount"] * 0.35,
+            "due_date": (w_date - timedelta(days=90)).strftime("%Y-%m-%d"),
+            "paid_date": None,
+            "status": "Pending",
+            "payment_method": "RTGS Wire Transfer",
+            "reference_no": f"TXN-RTGS-{new_wedding_id[-4:]}-02",
+            "notes": "Advance for venue buyout and production staging."
+        },
+        {
+            "id": f"pay-c-{new_wedding_id}-03",
+            "wedding_id": new_wedding_id,
+            "milestone_name": "Final Balance & Vendor Settlement (50%)",
+            "amount": wedding_record["contract_amount"] * 0.50,
+            "due_date": (w_date - timedelta(days=15)).strftime("%Y-%m-%d"),
+            "paid_date": None,
+            "status": "Pending",
+            "payment_method": "RTGS Wire Transfer",
+            "reference_no": f"TXN-RTGS-{new_wedding_id[-4:]}-03",
+            "notes": "Final balance prior to event execution."
+        }
+    ])
+
+    # 6. Record activity log
     db_store.activity_logs.insert(0, {
         "id": f"act-{str(uuid.uuid4())[:8]}",
         "wedding_id": new_wedding_id,
@@ -199,5 +264,6 @@ async def convert_enquiry_to_wedding(
         "success": True,
         "message": f"Successfully converted enquiry to wedding project with {len(generated_tasks)} tasks generated.",
         "wedding": wedding_record,
+        "tasks_generated": len(generated_tasks),
         "tasks_generated_count": len(generated_tasks)
     }

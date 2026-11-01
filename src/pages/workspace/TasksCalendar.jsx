@@ -44,22 +44,27 @@ export default function TasksCalendar() {
     return matchesWedding && matchesCategory && matchesSearch;
   });
 
-  const handleCreateTask = (e) => {
+  const handleCreateTask = async (e) => {
     e.preventDefault();
-    createTask({
-      ...newTask,
-      wedding_id: selectedWeddingId
-    });
-    setNewTask({
-      title: '',
-      category: 'Decoration',
-      assigned_member: 'Priya Sharma',
-      due_date: new Date().toISOString().split('T')[0],
-      priority: 'Medium',
-      status: 'To Plan',
-      notes: ''
-    });
-    setShowAddModal(false);
+    if (!newTask.title.trim()) return;
+    try {
+      await createTask({
+        ...newTask,
+        wedding_id: selectedWeddingId
+      });
+      setNewTask({
+        title: '',
+        category: 'Decoration',
+        assigned_member: 'Priya Sharma',
+        due_date: new Date().toISOString().split('T')[0],
+        priority: 'Medium',
+        status: 'To Plan',
+        notes: ''
+      });
+      setShowAddModal(false);
+    } catch (err) {
+      alert(`Error creating task: ${err.message}`);
+    }
   };
 
   return (
@@ -220,7 +225,13 @@ export default function TasksCalendar() {
                         <span className="text-secondary font-medium">{t.assigned_member}</span>
                         <select
                           value={t.status}
-                          onChange={(e) => updateTaskStatus(t.id, e.target.value)}
+                          onChange={async (e) => {
+                            try {
+                              await updateTaskStatus(t.id, e.target.value);
+                            } catch (err) {
+                              alert(`Error updating task status: ${err.message}`);
+                            }
+                          }}
                           className="bg-surface-container-low p-0.5 border border-secondary/20 rounded text-[10px]"
                         >
                           {statuses.map(s => <option key={s} value={s}>{s}</option>)}
@@ -271,7 +282,13 @@ export default function TasksCalendar() {
                     <td className="px-4 py-3">
                       <select
                         value={t.status}
-                        onChange={(e) => updateTaskStatus(t.id, e.target.value)}
+                        onChange={async (e) => {
+                          try {
+                            await updateTaskStatus(t.id, e.target.value);
+                          } catch (err) {
+                            alert(`Error updating task status: ${err.message}`);
+                          }
+                        }}
                         className="bg-surface-container-low p-1 border border-secondary/20 rounded text-xs font-medium"
                       >
                         {statuses.map(s => <option key={s} value={s}>{s}</option>)}
@@ -280,7 +297,13 @@ export default function TasksCalendar() {
                     <td className="px-4 py-3 text-right">
                       {t.status !== 'Done' ? (
                         <button
-                          onClick={() => updateTaskStatus(t.id, 'Done')}
+                          onClick={async () => {
+                            try {
+                              await updateTaskStatus(t.id, 'Done');
+                            } catch (err) {
+                              alert(`Error updating task status: ${err.message}`);
+                            }
+                          }}
                           className="px-2 py-1 bg-surface-container-high hover:bg-secondary text-primary rounded text-[10px] font-semibold transition-colors"
                         >
                           Mark Done ✓

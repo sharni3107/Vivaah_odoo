@@ -3,12 +3,24 @@ from typing import Optional, Dict, Any
 from backend.database import db_store
 from backend.supabase_client import get_supabase_client
 
-async def get_current_user(authorization: Optional[str] = Header(None)) -> Dict[str, Any]:
+async def get_current_user(
+    authorization: Optional[str] = Header(None),
+    x_user_role: Optional[str] = Header(None),
+    x_user_name: Optional[str] = Header(None)
+) -> Dict[str, Any]:
     """
     Validates the bearer token or fallback role header.
     In live Supabase mode, validates with supabase.auth.get_user(token).
-    In standby mode, checks for test user email/id or returns default admin/planner.
+    In standby mode, checks for test user email/id or X-User-Role header.
     """
+    if x_user_role:
+        return {
+            "id": f"user-{x_user_role}",
+            "role": x_user_role,
+            "name": x_user_name or f"Test {x_user_role.capitalize()}",
+            "email": f"{x_user_role}@vivaah.com"
+        }
+
     client = get_supabase_client()
     if client and authorization and authorization.startswith("Bearer "):
         token = authorization.replace("Bearer ", "").strip()

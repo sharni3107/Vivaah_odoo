@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { useData } from '../../context/DataContext';
 import { Link } from 'react-router-dom';
 
@@ -9,37 +9,28 @@ export default function WeddingProjects() {
     setSelectedWeddingId,
     selectedWedding,
     tasks,
-    updateTaskStatus,
-    vendors,
-    quotations,
     guests,
     events,
-    clientPayments,
-    vendorPayments,
-    expenses,
-    documents,
     financials
   } = useData();
-
-  const [activeTab, setActiveTab] = useState('Overview');
 
   const weddingTasks = tasks.filter(t => t.wedding_id === selectedWeddingId);
   const weddingGuests = guests.filter(g => g.wedding_id === selectedWeddingId);
   const weddingEvents = events.filter(e => e.wedding_id === selectedWeddingId);
-  const weddingDocuments = documents.filter(d => d.wedding_id === selectedWeddingId);
-  const weddingQuotations = quotations.filter(q => q.wedding_id === selectedWeddingId);
 
   const completedTasksCount = weddingTasks.filter(t => t.status === 'Done').length;
-  const progressPct = weddingTasks.length > 0 ? Math.round((completedTasksCount / weddingTasks.length) * 100) : selectedWedding.progress;
+  const progressPct = weddingTasks.length > 0
+    ? Math.round((completedTasksCount / weddingTasks.length) * 100)
+    : selectedWedding?.progress || 0;
 
   const checkedInGuests = weddingGuests.filter(g => g.checked_in).length;
 
   return (
     <div className="p-8 space-y-8 max-w-[1720px] mx-auto w-full">
-      {/* 1. Project Selector Bar (if multiple weddings) */}
+      {/* 1. Project Selector Bar */}
       <div className="flex flex-wrap items-center justify-between gap-4 border-b border-secondary/15 pb-4">
         <div className="flex items-center gap-3">
-          <span className="font-label-caps text-[10px] uppercase text-secondary font-semibold">Active Project Focus:</span>
+          <span className="text-xs uppercase text-secondary font-semibold tracking-wider">Active Wedding Project:</span>
           <div className="flex items-center gap-2">
             {weddings.map((w) => (
               <button
@@ -68,438 +59,368 @@ export default function WeddingProjects() {
         </div>
       </div>
 
-      {/* 2. Hero Dossier Header Card */}
-      <div className="relative rounded-xl overflow-hidden shadow-lg border border-secondary/20 bg-primary-container text-surface">
-        <div className="absolute inset-0 opacity-25">
-          <img src={selectedWedding.cover_image} alt={selectedWedding.title} className="w-full h-full object-cover" />
+      {/* 2. Wedding Project Header Card & Details */}
+      {!selectedWedding ? (
+        <div className="p-12 text-center bg-surface-container-lowest border border-secondary/20 rounded-xl space-y-4">
+          <div className="w-16 h-16 mx-auto rounded-full bg-surface-container flex items-center justify-center border border-secondary/30 text-secondary">
+            <span className="material-symbols-outlined text-3xl">diamond</span>
+          </div>
+          <h2 className="text-xl font-serif text-primary">No Active Wedding Project Selected</h2>
+          <p className="text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed">
+            {weddings.length === 0
+              ? 'There are currently no wedding projects loaded in the workspace. In demo mode, initial records will be hydrated automatically.'
+              : 'Please select a wedding project from the selector bar above to inspect wedding details, tasks, guests, and finances.'}
+          </p>
+          {weddings.length === 0 && (
+            <div className="pt-2">
+              <Link
+                to="/workspace/enquiries"
+                className="px-4 py-2 bg-primary text-surface rounded text-xs font-semibold hover:bg-secondary-dark transition-colors inline-flex items-center gap-1.5 shadow-sm"
+              >
+                <span className="material-symbols-outlined text-[16px]">receipt_long</span>
+                <span>Review Enquiries &amp; Clients</span>
+              </Link>
+            </div>
+          )}
         </div>
-        <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/90 to-primary-container/70" />
-
-        <div className="relative z-10 p-8 sm:p-10 space-y-6">
-          <div className="flex flex-wrap items-center justify-between gap-4">
-            <div className="flex items-center gap-3">
-              <span className="px-3 py-1 rounded bg-secondary-container/20 text-secondary-fixed text-xs font-label-caps uppercase tracking-wider border border-secondary-fixed/30 font-semibold">
-                {selectedWedding.package_tier}
-              </span>
-              <span className="text-surface/60 text-xs font-tabular-nums">ID: {selectedWedding.id}</span>
+      ) : (
+        <>
+          {/* 2. Wedding Project Header Card */}
+          <div className="relative rounded-xl overflow-hidden shadow-lg border border-secondary/20 bg-primary-container text-surface">
+            <div className="absolute inset-0 opacity-25">
+              <img src={selectedWedding.cover_image || 'https://images.unsplash.com/photo-1519741497674-611481863552?auto=format&fit=crop&w=1200&q=80'} alt={selectedWedding.title || 'Wedding'} className="w-full h-full object-cover" />
             </div>
-            <div className="flex items-center gap-2 text-xs text-secondary-fixed">
-              <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
-              <span>Status: {selectedWedding.status}</span>
-            </div>
-          </div>
+            <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/90 to-primary-container/70" />
 
-          <div className="space-y-2">
-            <h1 className="font-display-lg text-3xl sm:text-5xl text-surface-bright font-serif">
-              {selectedWedding.title}
-            </h1>
-            <div className="flex flex-wrap items-center gap-6 text-sm text-surface/80">
-              <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary-fixed">location_on</span>
-                <span>{selectedWedding.venue}, {selectedWedding.destination}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary-fixed">calendar_today</span>
-                <span>{selectedWedding.dates}</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <span className="material-symbols-outlined text-[18px] text-secondary-fixed">payments</span>
-                <span className="font-tabular-nums font-semibold">₹{(selectedWedding.contract_amount / 10000000).toFixed(2)} Crore Budget</span>
-              </div>
-            </div>
-          </div>
-
-          {/* Progress & Quick Stats Rail */}
-          <div className="pt-4 border-t border-surface/15 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
-            {/* Progress Bar */}
-            <div className="md:col-span-2 space-y-1.5">
-              <div className="flex justify-between text-xs">
-                <span className="font-label-caps uppercase text-secondary-fixed font-semibold tracking-wider">
-                  Master Execution Progress
-                </span>
-                <span className="font-tabular-nums text-surface font-semibold">{progressPct}% Complete</span>
-              </div>
-              <div className="w-full bg-surface/20 rounded-full h-2 overflow-hidden">
-                <div className="bg-secondary-fixed h-full rounded-full transition-all duration-700" style={{ width: `${progressPct}%` }} />
-              </div>
-              <p className="text-[11px] text-surface/60">{completedTasksCount} of {weddingTasks.length} tasks confirmed done</p>
-            </div>
-
-            {/* Guests Stats */}
-            <div className="space-y-0.5">
-              <span className="text-[10px] font-label-caps uppercase text-surface/60">Guests Registered</span>
-              <div className="text-xl font-bold font-tabular-nums text-surface">
-                {checkedInGuests} <span className="text-sm font-normal text-surface/60">/ {selectedWedding.expected_guests}</span>
-              </div>
-            </div>
-
-            {/* Assigned Lead Planner */}
-            <div className="flex items-center gap-3">
-              <div className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-xs border border-secondary-fixed/40">
-                PS
-              </div>
-              <div>
-                <span className="text-[10px] font-label-caps uppercase text-secondary-fixed block">Lead Wedding Architect</span>
-                <span className="text-xs font-semibold text-surface">{selectedWedding.assigned_planner}</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. Master Workspace Section Navigation Tabs */}
-      <div className="border-b border-secondary/20 flex gap-1 overflow-x-auto text-xs">
-        {['Overview', 'Tasks', 'Vendors', 'Guests & Events', 'Finance', 'Documents'].map((tab) => (
-          <button
-            key={tab}
-            onClick={() => setActiveTab(tab)}
-            className={`px-5 py-3 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all whitespace-nowrap ${
-              activeTab === tab
-                ? 'border-primary text-primary font-bold bg-surface-container-low/50'
-                : 'border-transparent text-on-surface-variant hover:text-primary hover:border-secondary/40'
-            }`}
-          >
-            {tab}
-          </button>
-        ))}
-      </div>
-
-      {/* 4. Tab Content Panels */}
-      {activeTab === 'Overview' && (
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
-          {/* Left Column: Itinerary & Next Milestones (7 cols) */}
-          <div className="lg:col-span-7 space-y-6">
-            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
-                <h3 className="font-headline-sm text-lg text-primary font-serif">Upcoming Scheduled Events</h3>
-                <span className="text-xs text-secondary font-medium">{weddingEvents.length} Days of Celebration</span>
-              </div>
-
-              <div className="space-y-3">
-                {weddingEvents.map((evt) => (
-                  <div key={evt.id} className="p-3 bg-surface-container-low rounded border border-secondary/15 flex items-start justify-between text-xs">
-                    <div className="space-y-1">
-                      <span className="font-semibold text-primary text-sm">{evt.event_name}</span>
-                      <p className="text-on-surface-variant">{evt.description}</p>
-                      <div className="flex items-center gap-4 text-[11px] text-secondary font-medium pt-1">
-                        <span className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-[14px]">pin_drop</span> {evt.location}
-                        </span>
-                        <span className="flex items-center gap-1">
-                          <span className="material-symbols-outlined text-[14px]">checkroom</span> {evt.dress_code}
-                        </span>
-                      </div>
-                    </div>
-                    <div className="text-right shrink-0 font-tabular-nums">
-                      <span className="font-bold text-primary block">{evt.date}</span>
-                      <span className="text-on-surface-variant text-[11px]">{evt.start_time} - {evt.end_time}</span>
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Next Urgent Tasks */}
-            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
-                <h3 className="font-headline-sm text-lg text-primary font-serif">Immediate Phase Deliverables</h3>
-                <button onClick={() => setActiveTab('Tasks')} className="text-xs text-secondary font-medium hover:underline">
-                  Open Tasks Kanban →
-                </button>
-              </div>
-
-              <div className="space-y-2 text-xs">
-                {weddingTasks.slice(0, 4).map((t) => (
-                  <div key={t.id} className="p-2.5 bg-surface-container-low rounded border border-secondary/15 flex items-center justify-between">
-                    <div className="flex items-center gap-3">
-                      <span className={`w-2 h-2 rounded-full ${t.priority === 'Urgent' ? 'bg-error' : 'bg-secondary'}`} />
-                      <span className="font-medium text-primary">{t.title}</span>
-                    </div>
-                    <span className="font-tabular-nums text-on-surface-variant text-[11px]">{t.due_date}</span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-
-          {/* Right Column: Financial Snapshot & Confirmed Vendors (5 cols) */}
-          <div className="lg:col-span-5 space-y-6">
-            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
-                <h3 className="font-headline-sm text-lg text-primary font-serif">Commercial Health</h3>
-                <button onClick={() => setActiveTab('Finance')} className="text-xs text-secondary font-medium hover:underline">
-                  Full Ledger →
-                </button>
-              </div>
-
-              <div className="p-4 bg-surface-container-low rounded border border-secondary/15 space-y-2 text-xs">
-                <div className="flex justify-between">
-                  <span className="text-on-surface-variant">Contract Total:</span>
-                  <span className="font-bold text-primary font-tabular-nums">₹{(selectedWedding.contract_amount / 10000000).toFixed(2)} Cr</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-on-surface-variant">Settled In Escrow:</span>
-                  <span className="font-semibold text-secondary font-tabular-nums">₹{(financials.totalClientReceived / 100000).toFixed(2)} L</span>
-                </div>
-                <div className="flex justify-between">
-                  <span className="text-on-surface-variant">Disbursed to Vendors:</span>
-                  <span className="font-semibold text-on-surface font-tabular-nums">₹{(financials.totalVendorPaid / 100000).toFixed(2)} L</span>
-                </div>
-                <div className="pt-2 border-t border-secondary/20 flex justify-between text-sm">
-                  <span className="font-bold text-primary font-serif">Project Net Profit:</span>
-                  <span className="font-bold text-secondary font-tabular-nums">₹{(financials.estimatedProfit / 100000).toFixed(2)} L</span>
-                </div>
-              </div>
-            </div>
-
-            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
-              <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
-                <h3 className="font-headline-sm text-lg text-primary font-serif">Confirmed Guild Partners</h3>
-                <button onClick={() => setActiveTab('Vendors')} className="text-xs text-secondary font-medium hover:underline">
-                  Procurement →
-                </button>
-              </div>
-
-              <div className="space-y-2.5 text-xs">
-                {vendors.filter(v => v.confirmed_assignments?.includes(selectedWedding.title)).map((v) => (
-                  <div key={v.id} className="p-2.5 bg-surface-container-low rounded border border-secondary/15 flex items-center justify-between">
-                    <div>
-                      <span className="font-semibold text-primary block">{v.name}</span>
-                      <span className="text-[10px] text-on-surface-variant">{v.category}</span>
-                    </div>
-                    <span className="px-2 py-0.5 rounded text-[10px] bg-secondary-container text-on-secondary-container font-medium">
-                      Confirmed
-                    </span>
-                  </div>
-                ))}
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Tasks Tab */}
-      {activeTab === 'Tasks' && (
-        <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 space-y-4 shadow-sm">
-          <div className="flex items-center justify-between">
-            <h3 className="font-headline-sm text-xl text-primary font-serif">
-              Master Planning Checklist ({weddingTasks.length} Tasks)
-            </h3>
-            <span className="text-xs text-on-surface-variant">Linked to {selectedWedding.couple_names}</span>
-          </div>
-
-          <div className="overflow-x-auto">
-            <table className="w-full text-left text-xs">
-              <thead>
-                <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Title</th>
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Category</th>
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Assigned Member</th>
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Due Date</th>
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Priority</th>
-                  <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Status</th>
-                </tr>
-              </thead>
-              <tbody className="divide-y divide-secondary/10">
-                {weddingTasks.map((t) => (
-                  <tr key={t.id} className="hover:bg-surface-container-low/50">
-                    <td className="px-4 py-3 font-medium text-primary">{t.title}</td>
-                    <td className="px-4 py-3 text-on-surface-variant">{t.category}</td>
-                    <td className="px-4 py-3 text-on-surface">{t.assigned_member}</td>
-                    <td className="px-4 py-3 font-tabular-nums text-on-surface">{t.due_date}</td>
-                    <td className="px-4 py-3">
-                      <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase ${
-                        t.priority === 'Urgent' ? 'bg-error-container text-on-error-container' : 'bg-secondary-container text-on-secondary-container'
-                      }`}>
-                        {t.priority}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <select
-                        value={t.status}
-                        onChange={(e) => updateTaskStatus(t.id, e.target.value)}
-                        className="bg-surface-container-low p-1 border border-secondary/20 text-xs rounded"
-                      >
-                        <option value="To Plan">To Plan</option>
-                        <option value="In Progress">In Progress</option>
-                        <option value="Review">Review</option>
-                        <option value="Done">Done</option>
-                      </select>
-                    </td>
-                  </tr>
-                ))}
-              </tbody>
-            </table>
-          </div>
-        </div>
-      )}
-
-      {/* Vendors Tab */}
-      {activeTab === 'Vendors' && (
-        <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 space-y-6 shadow-sm">
-          <div className="flex items-center justify-between">
-            <h3 className="font-headline-sm text-xl text-primary font-serif">
-              Vendor Quotations &amp; Proposals
-            </h3>
-            <span className="text-xs text-on-surface-variant">3 Comparative Catering Bids</span>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {weddingQuotations.map((q) => (
-              <div key={q.id} className="p-5 rounded bg-surface-container-low border border-secondary/20 space-y-4 text-xs">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h4 className="font-semibold text-primary text-sm">{q.vendor_name}</h4>
-                    <span className="text-[10px] text-on-surface-variant uppercase">Catering &amp; Banqueting</span>
-                  </div>
-                  <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase ${
-                    q.status === 'Confirmed' || q.status === 'Client Approved' ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-high'
-                  }`}>
-                    {q.status}
-                  </span>
-                </div>
-
-                <div className="space-y-1">
-                  <div className="text-lg font-bold font-serif text-primary font-tabular-nums">
-                    ₹{q.total_quoted_amount.toLocaleString('en-IN')}
-                  </div>
-                  <span className="text-on-surface-variant text-[11px]">₹{q.price_per_plate_or_service}/cover</span>
-                </div>
-
-                <p className="text-on-surface-variant text-[11px] leading-relaxed">{q.service_inclusions}</p>
-
-                <div className="pt-2 border-t border-secondary/15 flex items-center justify-between">
-                  <span className="text-[10px] text-secondary">
-                    {q.shared_with_client ? '✓ Shared with Couple' : 'Internal Bid Only'}
-                  </span>
-                  <a
-                    href={q.proposal_pdf_url}
-                    onClick={(e) => { e.preventDefault(); alert(`Opening proposal attachment for ${q.vendor_name}`); }}
-                    className="text-primary hover:underline font-semibold"
-                  >
-                    View PDF ↗
-                  </a>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      )}
-
-      {/* Guests & Events Tab */}
-      {activeTab === 'Guests & Events' && (
-        <div className="space-y-6">
-          <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 space-y-4 shadow-sm text-xs">
-            <h3 className="font-headline-sm text-xl text-primary font-serif">
-              Royal RSVP Manifest ({weddingGuests.length} VIP Guests)
-            </h3>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
-                    <th className="px-4 py-2 font-label-sm uppercase">Guest Name</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Family Group</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Category</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">RSVP Status</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Check-in</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">QR Pass Code</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-secondary/10">
-                  {weddingGuests.map((g) => (
-                    <tr key={g.id}>
-                      <td className="px-4 py-2.5 font-semibold text-primary">{g.name} (+{g.plus_ones})</td>
-                      <td className="px-4 py-2.5 text-on-surface-variant">{g.family_group}</td>
-                      <td className="px-4 py-2.5">{g.invitation_category}</td>
-                      <td className="px-4 py-2.5">
-                        <span className="px-2 py-0.5 rounded text-[10px] bg-secondary-container/40 text-on-secondary-container font-medium">
-                          {g.rsvp_status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-2.5">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${g.checked_in ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container'}`}>
-                          {g.checked_in ? '✓ Checked In' : 'Pending'}
-                        </span>
-                      </td>
-                      <td className="px-4 py-2.5 font-mono text-[10px] text-secondary">{g.qr_code}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Finance Tab */}
-      {activeTab === 'Finance' && (
-        <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 space-y-6 shadow-sm text-xs">
-          <h3 className="font-headline-sm text-xl text-primary font-serif">
-            Financial Ledger &amp; Payments Schedule
-          </h3>
-
-          <div className="space-y-4">
-            <h4 className="font-label-caps uppercase text-secondary font-semibold">Client Milestones</h4>
-            <div className="overflow-x-auto">
-              <table className="w-full text-left">
-                <thead>
-                  <tr className="bg-surface-container-low text-on-surface-variant h-9">
-                    <th className="px-4 py-2 font-label-sm uppercase">Milestone</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Amount</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Due Date</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Status</th>
-                    <th className="px-4 py-2 font-label-sm uppercase">Reference</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-secondary/10">
-                  {clientPayments.filter(p => p.wedding_id === selectedWeddingId).map((p) => (
-                    <tr key={p.id}>
-                      <td className="px-4 py-3 font-semibold text-primary">{p.milestone_name}</td>
-                      <td className="px-4 py-3 font-tabular-nums font-bold text-primary">₹{p.amount.toLocaleString('en-IN')}</td>
-                      <td className="px-4 py-3 font-tabular-nums">{p.due_date}</td>
-                      <td className="px-4 py-3">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-semibold ${p.status === 'Received' ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-high'}`}>
-                          {p.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-3 font-mono text-[10px] text-on-surface-variant">{p.reference_no}</td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Documents Tab */}
-      {activeTab === 'Documents' && (
-        <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 space-y-6 shadow-sm text-xs">
-          <h3 className="font-headline-sm text-xl text-primary font-serif">
-            Stored Contracts &amp; Blueprints ({weddingDocuments.length} Files)
-          </h3>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-            {weddingDocuments.map((doc) => (
-              <div key={doc.id} className="p-4 bg-surface-container-low rounded border border-secondary/15 flex items-center justify-between">
+            <div className="relative z-10 p-8 sm:p-10 space-y-6">
+              <div className="flex flex-wrap items-center justify-between gap-4">
                 <div className="flex items-center gap-3">
-                  <span className="material-symbols-outlined text-secondary text-[24px]">picture_as_pdf</span>
-                  <div>
-                    <span className="font-semibold text-primary block">{doc.file_name}</span>
-                    <span className="text-[10px] text-on-surface-variant">{doc.category} • {doc.file_size}</span>
+                  <span className="px-3 py-1 rounded bg-secondary-container/20 text-secondary-fixed text-xs uppercase tracking-wider border border-secondary-fixed/30 font-semibold">
+                    {selectedWedding.package_tier || 'Full-Service Planning'}
+                  </span>
+                  <span className="text-surface/60 text-xs font-tabular-nums">ID: {selectedWedding.id}</span>
+                </div>
+                <div className="flex items-center gap-2 text-xs text-secondary-fixed">
+                  <span className="w-2 h-2 rounded-full bg-secondary animate-pulse" />
+                  <span>Status: {selectedWedding.status || 'Active Planning'}</span>
+                </div>
+              </div>
+
+              <div className="space-y-2">
+                <h1 className="text-3xl sm:text-5xl text-surface-bright font-serif">
+                  {selectedWedding.title || selectedWedding.couple_names || 'Wedding Project'}
+                </h1>
+                <div className="flex flex-wrap items-center gap-6 text-sm text-surface/80">
+                  <div className="flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-secondary-fixed">location_on</span>
+                    <span>{selectedWedding.venue || 'Venue Pending'}, {selectedWedding.destination || 'Destination'}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-secondary-fixed">calendar_today</span>
+                    <span>{selectedWedding.dates || 'Dates Scheduled'}</span>
+                  </div>
+                  <div className="flex items-center gap-1.5">
+                    <span className="material-symbols-outlined text-[18px] text-secondary-fixed">payments</span>
+                    <span className="font-tabular-nums font-semibold">₹{(((selectedWedding.contract_amount || 0) / 10000000)).toFixed(2)} Crore Budget</span>
                   </div>
                 </div>
-                <button
-                  onClick={() => alert(`Downloading ${doc.file_name}`)}
-                  className="px-3 py-1 bg-surface-container-lowest text-primary rounded border border-secondary/20 hover:bg-primary hover:text-surface transition-colors"
-                >
-                  Download ↓
-                </button>
               </div>
-            ))}
+
+              {/* Progress & Quick Stats Rail */}
+              <div className="pt-4 border-t border-surface/15 grid grid-cols-1 md:grid-cols-4 gap-6 items-center">
+                {/* Progress Bar */}
+                <div className="md:col-span-2 space-y-1.5">
+                  <div className="flex justify-between text-xs">
+                    <span className="uppercase text-secondary-fixed font-semibold tracking-wider">
+                      Wedding Execution Progress
+                    </span>
+                    <span className="font-tabular-nums text-surface font-semibold">{progressPct}% Complete</span>
+                  </div>
+                  <div className="w-full bg-surface/20 rounded-full h-2 overflow-hidden">
+                    <div className="bg-secondary-fixed h-full rounded-full transition-all duration-700" style={{ width: `${progressPct}%` }} />
+                  </div>
+                  <p className="text-[11px] text-surface/60">{completedTasksCount} of {weddingTasks.length} tasks confirmed done</p>
+                </div>
+
+                {/* Guests Stats */}
+                <div className="space-y-0.5">
+                  <span className="text-[10px] uppercase text-surface/60 font-semibold tracking-wider">Guests Registered</span>
+                  <div className="text-xl font-bold font-tabular-nums text-surface">
+                    {checkedInGuests} <span className="text-sm font-normal text-surface/60">/ {selectedWedding.expected_guests || 0} expected</span>
+                  </div>
+                </div>
+
+                {/* Assigned Lead Planner */}
+                <div className="flex items-center gap-3">
+                  <div className="w-9 h-9 rounded-full bg-surface-container flex items-center justify-center text-primary font-bold text-xs border border-secondary-fixed/40">
+                    PS
+                  </div>
+                  <div>
+                    <span className="text-[10px] uppercase text-secondary-fixed block font-semibold tracking-wider">Assigned Planner</span>
+                    <span className="text-xs font-semibold text-surface">{selectedWedding.assigned_planner || 'Senior Planner'}</span>
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
-        </div>
+
+          {/* 3. Project Details & Key Specifications */}
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
+            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
+              <div className="flex items-center gap-2 border-b border-secondary/15 pb-3">
+                <span className="material-symbols-outlined text-secondary">favorite</span>
+                <h3 className="text-base font-semibold text-primary">Couple Information</h3>
+              </div>
+              <div className="space-y-3 text-xs">
+                <div>
+                  <span className="text-on-surface-variant block">Couple Names:</span>
+                  <span className="font-semibold text-primary text-sm">{selectedWedding.couple_names || '—'}</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Primary Contact:</span>
+                  <span className="font-medium text-primary">{selectedWedding.phone || 'Primary Contact on File'}</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Email:</span>
+                  <span className="font-medium text-primary">{selectedWedding.email || 'confidential@vivaah.internal'}</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Special Requirements:</span>
+                  <p className="text-on-surface-variant mt-1 leading-relaxed">
+                    {selectedWedding.notes || 'Royal heritage theme with bespoke floral canopies, lakeside fireworks permission, and personalized royal hospitality fleet.'}
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
+              <div className="flex items-center gap-2 border-b border-secondary/15 pb-3">
+                <span className="material-symbols-outlined text-secondary">domain</span>
+                <h3 className="text-base font-semibold text-primary">Venue &amp; Destination</h3>
+              </div>
+              <div className="space-y-3 text-xs">
+                <div>
+                  <span className="text-on-surface-variant block">Primary Venue:</span>
+                  <span className="font-semibold text-primary text-sm">{selectedWedding.venue || 'Venue Pending'}</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Destination:</span>
+                  <span className="font-medium text-primary">{selectedWedding.destination || 'Destination Pending'}, India</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Celebration Schedule:</span>
+                  <span className="font-medium text-primary">{selectedWedding.dates || 'Dates Pending'} ({weddingEvents.length} distinct events)</span>
+                </div>
+                <div>
+                  <span className="text-on-surface-variant block">Guest Accommodation:</span>
+                  <span className="font-medium text-primary">120 Heritage Lake Suites &amp; 4 Royal Pavilions</span>
+                </div>
+              </div>
+            </div>
+
+            <div className="p-6 rounded-lg bg-surface-container-lowest border border-secondary/20 shadow-sm space-y-4">
+              <div className="flex items-center gap-2 border-b border-secondary/15 pb-3">
+                <span className="material-symbols-outlined text-secondary">account_balance_wallet</span>
+                <h3 className="text-base font-semibold text-primary">Financial Snapshot</h3>
+              </div>
+              <div className="space-y-3 text-xs">
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Contract Total:</span>
+                  <span className="font-bold text-primary font-tabular-nums text-sm">₹{(((selectedWedding.contract_amount || 0) / 10000000)).toFixed(2)} Cr</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Client Payments Received:</span>
+                  <span className="font-semibold text-secondary font-tabular-nums">₹{(((financials?.totalClientReceived || 0) / 100000)).toFixed(2)} L</span>
+                </div>
+                <div className="flex justify-between items-center">
+                  <span className="text-on-surface-variant">Vendor Disbursements:</span>
+                  <span className="font-semibold text-on-surface font-tabular-nums">₹{(((financials?.totalVendorPaid || 0) / 100000)).toFixed(2)} L</span>
+                </div>
+                <div className="pt-2 border-t border-secondary/15 flex justify-between items-center">
+                  <span className="font-semibold text-primary">Estimated Agency Margin:</span>
+                  <span className="font-bold text-secondary font-tabular-nums text-sm">₹{(((financials?.estimatedProfit || 0) / 100000)).toFixed(2)} L</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </>
       )}
+
+      {/* 4. Dedicated Module Navigation Launchpad */}
+      <div className="space-y-4">
+        <div>
+          <h2 className="text-lg font-bold text-primary font-serif">Project Execution Modules</h2>
+          <p className="text-xs text-on-surface-variant">Access dedicated workspace modules directly for this wedding project.</p>
+        </div>
+
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          <Link
+            to="/workspace/tasks"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">checklist</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Tasks &amp; Milestones</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">{weddingTasks.length} planning tasks ({completedTasksCount} completed)</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/workspace/vendors"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">storefront</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Vendors &amp; Quotations</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">Vendor directory, comparative quotations &amp; work orders</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/workspace/guests"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">group</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Guest Management</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">{weddingGuests.length} VIP guests, RSVP manifest &amp; QR scanning</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/workspace/events"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">calendar_month</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Event Management</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">{weddingEvents.length} ceremonies, schedule details &amp; vendor timings</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/workspace/finance"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">account_balance_wallet</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Financial Ledger</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">Milestone receipts, vendor disbursements &amp; expenses</p>
+            </div>
+          </Link>
+
+          <Link
+            to="/workspace/documents"
+            className="p-5 rounded-lg bg-surface-container-lowest border border-secondary/20 hover:border-primary hover:shadow-md transition-all group flex items-start gap-4"
+          >
+            <div className="w-10 h-10 rounded-lg bg-surface-container-low flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-surface transition-colors">
+              <span className="material-symbols-outlined text-[22px]">description</span>
+            </div>
+            <div className="flex-1 min-w-0">
+              <div className="flex items-center justify-between">
+                <h4 className="text-sm font-semibold text-primary group-hover:text-primary-dim">Documents &amp; Agreements</h4>
+                <span className="material-symbols-outlined text-secondary text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+              </div>
+              <p className="text-xs text-on-surface-variant mt-1">Executed contracts, permits, floor plans &amp; uploads</p>
+            </div>
+          </Link>
+        </div>
+      </div>
+
+      {/* 5. Agency Weddings Master Register */}
+      <div className="bg-surface-container-lowest p-6 rounded-lg border border-secondary/20 shadow-sm space-y-4">
+        <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
+          <div>
+            <h3 className="text-base font-semibold text-primary">All Agency Wedding Projects</h3>
+            <p className="text-xs text-on-surface-variant">Active master portfolio under agency management.</p>
+          </div>
+          <span className="text-xs px-2.5 py-1 bg-surface-container-low rounded border border-secondary/15 font-semibold text-secondary">
+            {weddings.length} Active Weddings
+          </span>
+        </div>
+
+        <div className="overflow-x-auto">
+          <table className="w-full text-left text-xs">
+            <thead>
+              <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
+                <th className="px-4 py-2 font-semibold">Couple Names</th>
+                <th className="px-4 py-2 font-semibold">Destination &amp; Venue</th>
+                <th className="px-4 py-2 font-semibold">Dates</th>
+                <th className="px-4 py-2 font-semibold">Tier</th>
+                <th className="px-4 py-2 font-semibold">Budget</th>
+                <th className="px-4 py-2 font-semibold">Status</th>
+                <th className="px-4 py-2 font-semibold text-right">Action</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-secondary/10">
+              {weddings.map((w) => (
+                <tr key={w.id} className={selectedWeddingId === w.id ? 'bg-surface-container-low/60' : 'hover:bg-surface-container-low/30'}>
+                  <td className="px-4 py-3 font-semibold text-primary">
+                    <div className="flex items-center gap-2">
+                      {selectedWeddingId === w.id && (
+                        <span className="w-2 h-2 rounded-full bg-secondary shrink-0" />
+                      )}
+                      <span>{w.couple_names}</span>
+                    </div>
+                  </td>
+                  <td className="px-4 py-3 text-on-surface-variant">{w.venue}, {w.destination}</td>
+                  <td className="px-4 py-3 font-tabular-nums text-on-surface">{w.dates}</td>
+                  <td className="px-4 py-3">
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-secondary-container/40 text-on-secondary-container font-medium">
+                      {w.package_tier}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 font-tabular-nums font-semibold text-primary">
+                    ₹{(w.contract_amount / 10000000).toFixed(2)} Cr
+                  </td>
+                  <td className="px-4 py-3">
+                    <span className="px-2 py-0.5 rounded text-[10px] bg-surface-container-high font-medium text-primary">
+                      {w.status}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-right">
+                    {selectedWeddingId === w.id ? (
+                      <span className="text-secondary text-xs font-semibold">Currently Selected</span>
+                    ) : (
+                      <button
+                        onClick={() => setSelectedWeddingId(w.id)}
+                        className="px-3 py-1 bg-primary text-surface rounded text-xs font-medium hover:bg-primary-dim transition-colors"
+                      >
+                        Select Project
+                      </button>
+                    )}
+                  </td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </div>
     </div>
   );
 }

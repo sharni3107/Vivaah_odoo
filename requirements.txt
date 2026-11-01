@@ -1,0 +1,25 @@
+# ==============================================================================
+# Vivaah Luxury Wedding Platform — Backend Dependencies
+# ==============================================================================
+
+# Core Web Framework & ASGI Server
+fastapi>=0.100.0
+uvicorn[standard]>=0.22.0
+
+# Data Validation & Settings Management
+pydantic>=2.0.0
+pydantic-settings>=2.0.0
+email-validator>=2.0.0
+
+# Environment Configuration & File/Form Handling
+python-dotenv>=1.0.0
+python-multipart>=0.0.6
+
+# Database & Supabase Cloud Integration
+supabase>=2.0.0
+httpx>=0.24.0
+
+# Authentication & Cryptography
+PyJWT>=2.8.0
+cryptography>=41.0.0
+passlib[bcrypt]>=1.7.4

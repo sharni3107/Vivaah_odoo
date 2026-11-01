@@ -45,15 +45,15 @@ export default function VendorPortal() {
       wedding_id: selectedRfp?.wedding_id || 'wed-001',
       vendor_id: myVendorId,
       vendor_name: myVendorName,
-      proposal_pdf_url: '/docs/Royal_Feast_Catering_Bespoke_Proposal.pdf'
+      proposal_pdf_url: '/docs/Royal_Feast_Catering_Proposal.pdf'
     });
     setShowBidModal(false);
-    setBidSuccessMsg("Quotation submitted successfully to Vivaah Atelier directors!");
+    setBidSuccessMsg("Quotation submitted successfully to Vivaah planning team!");
     setTimeout(() => setBidSuccessMsg(null), 3000);
   };
 
   return (
-    <div className="w-full min-h-screen bg-surface text-on-surface">
+    <div className="w-full min-h-screen bg-surface text-on-surface portal-root font-inter">
       {/* 1. Header */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-secondary/20 h-20 flex items-center justify-between px-6 lg:px-12">
         <Link to="/" className="flex items-center gap-3">
@@ -77,9 +77,9 @@ export default function VendorPortal() {
           </span>
 
           <button
-            onClick={() => {
-              logout();
-              navigate('/vendor/login');
+            onClick={async () => {
+              await logout();
+              navigate('/login');
             }}
             className="px-3.5 py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-xs text-primary font-semibold border border-secondary/20 flex items-center gap-1.5 transition-colors"
           >
@@ -95,13 +95,13 @@ export default function VendorPortal() {
         <div className="p-8 bg-surface-container-lowest rounded-xl border border-secondary/20 shadow-sm flex flex-col md:flex-row md:items-center justify-between gap-6">
           <div className="space-y-1">
             <span className="font-label-caps text-[10px] uppercase tracking-widest text-secondary font-semibold">
-              Verified Atelier Guild Partner
+              Verified Vendor Partner
             </span>
             <h1 className="font-headline-lg text-3xl text-primary font-serif">
               Royal Feast Catering
             </h1>
             <p className="text-xs text-on-surface-variant max-w-xl">
-              Partner status: Sovereign Class · Rating: ★ 4.98 · Active Contract: Aarav &amp; Meera (Jaipur Royal Wedding)
+              Partner status: Premier Tier · Rating: ★ 4.98 · Active Wedding: Aarav &amp; Meera (Jaipur Wedding)
             </p>
           </div>
 
@@ -111,7 +111,7 @@ export default function VendorPortal() {
               <span className="text-lg font-bold text-primary font-serif">1 Active</span>
             </div>
             <div className="p-3 bg-surface-container-low rounded border border-secondary/15 text-center">
-              <span className="text-[10px] uppercase text-on-surface-variant block">Advances Settled</span>
+              <span className="text-[10px] uppercase text-on-surface-variant block">Advances Paid</span>
               <span className="text-lg font-bold text-secondary font-serif">₹10.0 L</span>
             </div>
           </div>
@@ -135,7 +135,7 @@ export default function VendorPortal() {
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">request_quote</span>
-            <span>Tender Requests &amp; My Bids ({myQuotations.length})</span>
+            <span>Quotation Requests &amp; My Bids ({myQuotations.length})</span>
           </button>
 
           <button
@@ -147,7 +147,7 @@ export default function VendorPortal() {
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">schedule</span>
-            <span>Kitchen Setup &amp; Banquet Schedule</span>
+            <span>Event Setup &amp; Arrival Schedule</span>
           </button>
 
           <button
@@ -159,11 +159,11 @@ export default function VendorPortal() {
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">payments</span>
-            <span>Disbursement Ledger &amp; Invoices</span>
+            <span>Payment History &amp; Invoices</span>
           </button>
         </div>
 
-        {/* 4. TAB 1: TENDERS & MY BIDS */}
+        {/* 4. TAB 1: QUOTATIONS & MY BIDS */}
         {activeVendorTab === 'tenders' && (
           <div className="space-y-6 text-xs">
             {/* Open RFP Invitation */}
@@ -171,13 +171,13 @@ export default function VendorPortal() {
               <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-secondary/15 pb-3">
                 <div>
                   <span className="text-[10px] font-label-caps uppercase text-secondary font-semibold">
-                    Assigned Tender RFP #001
+                    Quotation Request RFP #001
                   </span>
                   <h3 className="font-headline-sm text-xl text-primary font-serif font-semibold mt-0.5">
-                    Multi-Day Royal Banquet &amp; Sangeet Gala (400 Guests)
+                    Multi-Day Royal Banquet &amp; Sangeet Feast (400 Guests)
                   </h3>
                   <p className="text-on-surface-variant text-[11px] mt-0.5">
-                    Client: Aarav &amp; Meera · Destination: Jaipur City Palace &amp; Rambagh Palace
+                    Client: Aarav &amp; Meera · Destination: Jaipur Palace
                   </p>
                 </div>
                 <button
@@ -384,7 +384,7 @@ export default function VendorPortal() {
                   type="submit"
                   className="px-4 py-1.5 bg-primary text-surface rounded font-label-caps uppercase text-xs font-semibold hover:bg-secondary-dark"
                 >
-                  Transmit Tender Bid
+                  Submit Quotation
                 </button>
               </div>
             </form>

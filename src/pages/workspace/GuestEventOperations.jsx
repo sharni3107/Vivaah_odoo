@@ -55,42 +55,67 @@ export default function GuestEventOperations() {
     return matchesSearch && matchesCat;
   });
 
-  const handleSimulateQrScan = (e) => {
+  const handleSimulateQrScan = async (e) => {
     e.preventDefault();
     if (!qrInputScan.trim()) return;
-    const res = checkInGuest(qrInputScan.trim(), true);
-    setCheckInResult(res);
-    setQrInputScan('');
+    try {
+      const res = await checkInGuest(qrInputScan.trim(), true);
+      setCheckInResult(res);
+      setQrInputScan('');
+    } catch (err) {
+      setCheckInResult({ success: false, message: `Check-in error: ${err.message}` });
+    }
   };
 
-  const handleManualCheckIn = (guestId) => {
-    const res = checkInGuest(guestId, false);
-    setCheckInResult(res);
+  const handleManualCheckIn = async (guestId) => {
+    try {
+      const res = await checkInGuest(guestId, false);
+      setCheckInResult(res);
+    } catch (err) {
+      setCheckInResult({ success: false, message: `Check-in error: ${err.message}` });
+    }
   };
 
-  const handleCreateGuest = (e) => {
+  const handleCreateGuest = async (e) => {
     e.preventDefault();
-    addGuest({
-      ...newGuestData,
-      wedding_id: selectedWeddingId
-    });
-    setNewGuestData({
-      name: '',
-      phone: '',
-      family_group: 'Groom Immediate Family',
-      plus_ones: 0,
-      invitation_category: 'VIP Royal Patron',
-      table_assigned: 'Table 1'
-    });
-    setShowAddGuestModal(false);
+    if (!newGuestData.name.trim()) return;
+    try {
+      await addGuest({
+        ...newGuestData,
+        wedding_id: selectedWeddingId
+      });
+      setNewGuestData({
+        name: '',
+        phone: '',
+        family_group: 'Groom Immediate Family',
+        plus_ones: 0,
+        invitation_category: 'VIP Royal Patron',
+        table_assigned: 'Table 1'
+      });
+      setShowAddGuestModal(false);
+    } catch (err) {
+      alert(`Error creating guest: ${err.message}`);
+    }
   };
 
-  const handleReportIssue = (e) => {
+  const handleReportIssue = async (e) => {
     e.preventDefault();
     if (!reportingIssueArrival) return;
-    updateArrivalStatus(reportingIssueArrival.id, 'Delayed', null, issueText);
-    setReportingIssueArrival(null);
-    setIssueText('');
+    try {
+      await updateArrivalStatus(reportingIssueArrival.id, 'Delayed', null, issueText);
+      setReportingIssueArrival(null);
+      setIssueText('');
+    } catch (err) {
+      alert(`Error updating arrival: ${err.message}`);
+    }
+  };
+
+  const handleMarkArrived = async (arrivalId) => {
+    try {
+      await updateArrivalStatus(arrivalId, 'Arrived');
+    } catch (err) {
+      alert(`Error updating arrival: ${err.message}`);
+    }
   };
 
   return (
@@ -100,7 +125,7 @@ export default function GuestEventOperations() {
         <div>
           <div className="flex items-center gap-2">
             <span className="font-label-sm text-[10px] uppercase tracking-widest text-secondary font-semibold">
-              Event Day Operations &amp; Concierge Desk
+              Event Day Operations &amp; Guest Check-in
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
             <span className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">
@@ -124,7 +149,7 @@ export default function GuestEventOperations() {
               }`}
             >
               <span className="material-symbols-outlined text-[16px]">qr_code_scanner</span>
-              <span>Guest Concierge</span>
+              <span>Guest Management</span>
             </button>
             <button
               onClick={() => setActiveSubTab('runofshow')}
@@ -236,7 +261,7 @@ export default function GuestEventOperations() {
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 border-b border-secondary/15 pb-3">
               <div>
                 <h3 className="font-headline-sm text-lg text-primary font-serif">
-                  Concierge Scanner &amp; Anti-Duplicate Arrival Desk
+                  Guest QR Scanner &amp; Anti-Duplicate Arrival Desk
                 </h3>
                 <p className="text-xs text-on-surface-variant">
                   Scan guest QR code pass or enter pass ID to instantly validate arrival and prevent duplicate re-entry.
@@ -467,7 +492,7 @@ export default function GuestEventOperations() {
                     <div className="pt-2 border-t border-secondary/15 flex items-center justify-between text-xs">
                       <div className="flex gap-1.5">
                         <button
-                          onClick={() => updateArrivalStatus(arr.id, 'Arrived')}
+                          onClick={() => handleMarkArrived(arr.id)}
                           className="px-2 py-1 bg-surface-container text-primary rounded text-[10px] font-semibold hover:bg-secondary"
                         >
                           Mark Arrived
@@ -510,8 +535,8 @@ export default function GuestEventOperations() {
             </div>
 
             <button
-              onClick={() => {
-                checkInGuest(viewingQrGuest.qr_code, true);
+              onClick={async () => {
+                await checkInGuest(viewingQrGuest.qr_code, true);
                 setViewingQrGuest(null);
               }}
               className="w-full py-2 bg-primary text-surface rounded font-label-caps uppercase text-xs font-semibold hover:bg-secondary-dark"

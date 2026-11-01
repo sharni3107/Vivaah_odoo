@@ -8,7 +8,7 @@ from backend.supabase_client import get_supabase_client
 # ==============================================================================
 DEFAULT_TASKS_TEMPLATE = [
     {"title": "Initial Couple Consultation & Vision Alignment", "category": "Initial Planning", "priority": "High", "days_before": 240, "assigned": "Priya Sharma"},
-    {"title": "Overall Budget Allocation & Escrow Setup", "category": "Initial Planning", "priority": "Urgent", "days_before": 230, "assigned": "Siddharth Goenka"},
+    {"title": "Overall Budget Allocation & Payment Schedule Setup", "category": "Initial Planning", "priority": "Urgent", "days_before": 230, "assigned": "Siddharth Goenka"},
     {"title": "Jaipur Palace Site Inspection & Hold Dates", "category": "Venue", "priority": "Urgent", "days_before": 210, "assigned": "Pooja Singhania"},
     {"title": "Palace Lease & Security Agreement Execution", "category": "Venue", "priority": "High", "days_before": 195, "assigned": "Siddharth Goenka"},
     {"title": "Master Theme & Palette Definition (Deep Plum & Champagne Gold)", "category": "Decoration", "priority": "High", "days_before": 180, "assigned": "Priya Sharma"},

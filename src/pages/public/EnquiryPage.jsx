@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Link, useSearchParams } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 
@@ -21,12 +21,23 @@ export default function EnquiryPage() {
     additional_requirements: ''
   });
 
+  useEffect(() => {
+    if (packageParam) {
+      setFormData(prev => ({ ...prev, package_type: packageParam }));
+    }
+    if (destinationParam) {
+      setFormData(prev => ({ ...prev, destination: destinationParam }));
+    }
+  }, [packageParam, destinationParam]);
+
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSubmitted, setIsSubmitted] = useState(false);
   const [submittedData, setSubmittedData] = useState(null);
+  const [submissionError, setSubmissionError] = useState(null);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setSubmissionError(null);
     if (!formData.client_names.trim() || !formData.email.trim() || !formData.phone.trim()) {
       alert('Please fill out all required fields.');
       return;
@@ -38,8 +49,11 @@ export default function EnquiryPage() {
       setSubmittedData(res);
       setIsSubmitted(true);
     } catch (err) {
-      console.error('Enquiry submission error:', err);
-      alert('There was an issue submitting your enquiry. Please try again.');
+      console.error('Enquiry submission error details (Supabase/DB):', err);
+      const userMessage = err.message?.includes('database') || err.message?.includes('PGRST')
+        ? `Database communication notice: ${err.message}`
+        : (err.message || 'There was an issue submitting your enquiry. Please check your connection and try again.');
+      setSubmissionError(userMessage);
     } finally {
       setIsSubmitting(false);
     }
@@ -290,6 +304,13 @@ export default function EnquiryPage() {
                 </div>
               </div>
             </div>
+
+            {submissionError && (
+              <div className="p-3 bg-error-container/40 border border-error text-error text-xs rounded flex items-center gap-2">
+                <span className="material-symbols-outlined text-[18px]">error</span>
+                <span>{submissionError}</span>
+              </div>
+            )}
 
             {/* Submission Button */}
             <div className="pt-4 border-t border-secondary/15 flex items-center justify-between">

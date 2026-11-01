@@ -95,7 +95,7 @@ async def check_in_guest(
         "id": f"act-{str(uuid.uuid4())[:8]}",
         "wedding_id": payload.wedding_id,
         "action": "Guest Checked In",
-        "actor_name": user.get("name", "Concierge Coordinator"),
+        "actor_name": user.get("name", "Guest Coordinator"),
         "details": f"{guest['name']} (+{guest['plus_ones']}) verified at entrance.",
         "created_at": now_time
     })

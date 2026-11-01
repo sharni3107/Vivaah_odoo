@@ -16,7 +16,7 @@ from backend.routers import (
 app = FastAPI(
     title=settings.app_name,
     version=settings.app_version,
-    description="Unified API for Vivaah Luxury Wedding Platform — Managing Enquiries, Task Checklists, Quotation Workflows, Guest Attendance, and Escrow Finance."
+    description="Unified API for Vivaah Luxury Wedding Platform — Managing Enquiries, Task Checklists, Quotation Workflows, Guest Attendance, and Client Finance."
 )
 
 # CORS Middleware for React Vite Frontend

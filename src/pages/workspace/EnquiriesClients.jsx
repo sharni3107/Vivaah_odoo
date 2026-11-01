@@ -14,40 +14,53 @@ export default function EnquiriesClients() {
 
   const statuses = ['All', 'New', 'Contacted', 'Follow-up', 'Consultation Scheduled', 'Confirmed', 'Lost'];
 
-  const filteredEnquiries = enquiries.filter((e) => {
+  const filteredEnquiries = (enquiries || []).filter((e) => {
+    const clientName = e.client_names || '';
+    const dest = e.destination || '';
+    const email = e.email || '';
+    const q = searchQuery.toLowerCase();
+
     const matchesSearch =
-      e.client_names.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      e.destination.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      e.email.toLowerCase().includes(searchQuery.toLowerCase());
+      clientName.toLowerCase().includes(q) ||
+      dest.toLowerCase().includes(q) ||
+      email.toLowerCase().includes(q);
 
     const matchesStatus = selectedStatusFilter === 'All' || e.status === selectedStatusFilter;
     return matchesSearch && matchesStatus;
   });
 
-  const handleAddNote = (e) => {
+  const handleAddNote = async (e) => {
     e.preventDefault();
     if (!newNoteText.trim() || !selectedEnquiry) return;
-    addEnquiryNote(selectedEnquiry.id, newNoteText);
-    // Refresh selected enquiry from updated state
-    setSelectedEnquiry((prev) => ({
-      ...prev,
-      notes: [
-        ...(prev.notes || []),
-        { date: new Date().toISOString().split('T')[0], author: 'Desk Executive', text: newNoteText }
-      ]
-    }));
-    setNewNoteText('');
+    try {
+      await addEnquiryNote(selectedEnquiry.id, newNoteText);
+      // Refresh selected enquiry from updated state
+      setSelectedEnquiry((prev) => ({
+        ...prev,
+        notes: [
+          ...(prev.notes || []),
+          { date: new Date().toISOString().split('T')[0], author: 'Desk Executive', text: newNoteText }
+        ]
+      }));
+      setNewNoteText('');
+    } catch (err) {
+      alert(`Error saving note: ${err.message}`);
+    }
   };
 
-  const handleConvertToWedding = (enquiryId) => {
-    const newWedding = convertEnquiryToWedding(enquiryId);
-    if (newWedding) {
-      setConversionSuccessMsg(`Successfully converted to Wedding Project "${newWedding.title}"! Generated 27 tasks.`);
-      setTimeout(() => {
-        setConversionSuccessMsg(null);
-        setSelectedEnquiry(null);
-        navigate('/workspace/weddings');
-      }, 1800);
+  const handleConvertToWedding = async (enquiryId) => {
+    try {
+      const newWedding = await convertEnquiryToWedding(enquiryId);
+      if (newWedding) {
+        setConversionSuccessMsg(`Successfully converted to Wedding Project "${newWedding.title}"! Generated 27 tasks.`);
+        setTimeout(() => {
+          setConversionSuccessMsg(null);
+          setSelectedEnquiry(null);
+          navigate('/workspace/weddings');
+        }, 1800);
+      }
+    } catch (err) {
+      alert(`Conversion error: ${err.message}`);
     }
   };
 
@@ -169,68 +182,85 @@ export default function EnquiriesClients() {
               </tr>
             </thead>
             <tbody className="divide-y divide-secondary/10">
-              {filteredEnquiries.map((enq) => {
-                const isConverted = Boolean(enq.converted_wedding_id);
-                return (
-                  <tr
-                    key={enq.id}
-                    className="hover:bg-surface-container-low/50 transition-colors cursor-pointer"
-                    onClick={() => setSelectedEnquiry(enq)}
-                  >
-                    <td className="px-4 py-3 font-semibold text-primary">
-                      {enq.client_names}
-                      <span className="block text-[11px] text-on-surface-variant font-normal">{enq.email}</span>
-                    </td>
-                    <td className="px-4 py-3 text-on-surface">{enq.destination}</td>
-                    <td className="px-4 py-3 font-tabular-nums text-on-surface">{enq.wedding_date}</td>
-                    <td className="px-4 py-3 font-tabular-nums text-on-surface">{enq.expected_guests} pax</td>
-                    <td className="px-4 py-3 font-tabular-nums font-semibold text-primary">
-                      ₹{(enq.estimated_budget / 10000000).toFixed(2)} Cr
-                    </td>
-                    <td className="px-4 py-3">
-                      <span className="px-2 py-0.5 rounded text-[10px] bg-surface-container text-on-surface">
-                        {enq.package_type}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3">
-                      <span
-                        className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase ${
-                          enq.status === 'Confirmed'
-                            ? 'bg-secondary-container text-on-secondary-container'
-                            : enq.status === 'New'
-                            ? 'bg-error-container text-on-error-container'
-                            : enq.status === 'Consultation Scheduled'
-                            ? 'bg-tertiary-fixed text-on-tertiary-fixed'
-                            : 'bg-surface-container-high text-on-surface'
-                        }`}
-                      >
-                        {enq.status}
-                      </span>
-                    </td>
-                    <td className="px-4 py-3 text-on-surface-variant text-[11px]">{enq.represented_by}</td>
-                    <td className="px-4 py-3 text-right" onClick={(e) => e.stopPropagation()}>
-                      {isConverted ? (
-                        <span className="px-2.5 py-1 bg-surface-container text-secondary text-[10px] rounded font-medium border border-secondary/20">
-                          ✓ Project Active
+              {filteredEnquiries.length === 0 ? (
+                <tr>
+                  <td colSpan="9" className="px-4 py-12 text-center text-on-surface-variant">
+                    <div className="flex flex-col items-center justify-center space-y-2">
+                      <span className="material-symbols-outlined text-3xl text-secondary/50">inbox</span>
+                      <p className="font-serif text-sm font-semibold text-primary">No Enquiries Found</p>
+                      <p className="text-xs text-on-surface-variant max-w-sm">
+                        {searchQuery || selectedStatusFilter !== 'All'
+                          ? 'No client enquiries match your current search or status filter.'
+                          : 'No active inquiries found in the pipeline.'}
+                      </p>
+                    </div>
+                  </td>
+                </tr>
+              ) : (
+                filteredEnquiries.map((enq) => {
+                  const isConverted = Boolean(enq.converted_wedding_id);
+                  const budgetInCr = ((Number(enq.estimated_budget) || 0) / 10000000).toFixed(2);
+                  return (
+                    <tr
+                      key={enq.id}
+                      className="hover:bg-surface-container-low/50 transition-colors cursor-pointer"
+                      onClick={() => setSelectedEnquiry(enq)}
+                    >
+                      <td className="px-4 py-3 font-semibold text-primary">
+                        {enq.client_names || 'Unnamed Client'}
+                        <span className="block text-[11px] text-on-surface-variant font-normal">{enq.email || '—'}</span>
+                      </td>
+                      <td className="px-4 py-3 text-on-surface">{enq.destination || 'TBD'}</td>
+                      <td className="px-4 py-3 font-tabular-nums text-on-surface">{enq.wedding_date || '—'}</td>
+                      <td className="px-4 py-3 font-tabular-nums text-on-surface">{enq.expected_guests || 0} pax</td>
+                      <td className="px-4 py-3 font-tabular-nums font-semibold text-primary">
+                        ₹{budgetInCr} Cr
+                      </td>
+                      <td className="px-4 py-3">
+                        <span className="px-2 py-0.5 rounded text-[10px] bg-surface-container text-on-surface">
+                          {enq.package_type || 'Custom'}
                         </span>
-                      ) : (
-                        <button
-                          onClick={() => handleConvertToWedding(enq.id)}
-                          className="px-2.5 py-1 bg-primary text-surface rounded text-[10px] uppercase tracking-wider font-semibold hover:bg-secondary-dark transition-colors shadow-sm"
+                      </td>
+                      <td className="px-4 py-3">
+                        <span
+                          className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase ${
+                            enq.status === 'Confirmed'
+                              ? 'bg-secondary-container text-on-secondary-container'
+                              : enq.status === 'New'
+                              ? 'bg-error-container text-on-error-container'
+                              : enq.status === 'Consultation Scheduled'
+                              ? 'bg-tertiary-fixed text-on-tertiary-fixed'
+                              : 'bg-surface-container-high text-on-surface'
+                          }`}
                         >
-                          Convert →
-                        </button>
-                      )}
-                    </td>
-                  </tr>
-                );
-              })}
+                          {enq.status || 'New'}
+                        </span>
+                      </td>
+                      <td className="px-4 py-3 text-on-surface-variant text-[11px]">{enq.represented_by || enq.assigned_executive || '—'}</td>
+                      <td className="px-4 py-3 text-right" onClick={(e) => e.stopPropagation()}>
+                        {isConverted ? (
+                          <span className="px-2.5 py-1 bg-surface-container text-secondary text-[10px] rounded font-medium border border-secondary/20">
+                            ✓ Project Active
+                          </span>
+                        ) : (
+                          <button
+                            onClick={() => handleConvertToWedding(enq.id)}
+                            className="px-2.5 py-1 bg-primary text-surface rounded text-[10px] uppercase tracking-wider font-semibold hover:bg-secondary-dark transition-colors shadow-sm"
+                          >
+                            Convert →
+                          </button>
+                        )}
+                      </td>
+                    </tr>
+                  );
+                })
+              )}
             </tbody>
           </table>
         </div>
       </div>
 
-      {/* 5. SLIDE-OUT DOSSIER DETAIL DRAWER */}
+      {/* 5. SLIDE-OUT ENQUIRY DETAIL DRAWER */}
       {selectedEnquiry && (
         <div className="fixed inset-0 z-50 bg-primary/40 backdrop-blur-sm flex justify-end">
           <div className="w-full max-w-xl h-full bg-surface-container-lowest shadow-2xl border-l border-secondary/20 flex flex-col justify-between overflow-y-auto animate-in slide-in-from-right duration-300">
@@ -238,7 +268,7 @@ export default function EnquiriesClients() {
             <div className="p-6 border-b border-secondary/20 flex items-start justify-between bg-surface-container-low/50">
               <div>
                 <span className="font-label-caps text-[10px] uppercase tracking-wider text-secondary font-semibold">
-                  Client Dossier #{selectedEnquiry.id}
+                  Client Details #{selectedEnquiry.id}
                 </span>
                 <h2 className="font-headline-sm text-2xl text-primary font-serif mt-1">
                   {selectedEnquiry.client_names}
@@ -269,10 +299,14 @@ export default function EnquiriesClients() {
                 </div>
                 <select
                   value={selectedEnquiry.status}
-                  onChange={(e) => {
+                  onChange={async (e) => {
                     const newStatus = e.target.value;
-                    updateEnquiryStatus(selectedEnquiry.id, newStatus);
-                    setSelectedEnquiry({ ...selectedEnquiry, status: newStatus });
+                    try {
+                      await updateEnquiryStatus(selectedEnquiry.id, newStatus);
+                      setSelectedEnquiry(prev => ({ ...prev, status: newStatus }));
+                    } catch (err) {
+                      alert(`Error updating status: ${err.message}`);
+                    }
                   }}
                   className="bg-surface-container-lowest p-2 border border-secondary/30 text-xs text-primary font-medium"
                 >

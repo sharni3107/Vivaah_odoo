@@ -7,7 +7,7 @@ export default function WorkspaceLayout() {
   const location = useLocation();
   const navigate = useNavigate();
   const { currentUser, logout, isAdmin, isPlanner, isCoordinator, isFinance, isEnquiryExec } = useAuth();
-  const { weddings, selectedWeddingId, setSelectedWeddingId, enquiries, tasks, createTask } = useData();
+  const { weddings, selectedWeddingId, setSelectedWeddingId, enquiries, tasks, createTask, connectionStatus, isDemoMode } = useData();
 
   const [showQuickCreate, setShowQuickCreate] = useState(false);
   const [quickTaskTitle, setQuickTaskTitle] = useState('');
@@ -17,23 +17,27 @@ export default function WorkspaceLayout() {
   const pendingEnquiriesCount = enquiries.filter(e => e.status === 'New' || e.status === 'Contacted').length;
   const overdueTasksCount = tasks.filter(t => t.status !== 'Done' && new Date(t.due_date) < new Date()).length;
 
-  const handleQuickCreateTask = (e) => {
+  const handleQuickCreateTask = async (e) => {
     e.preventDefault();
-    if (!quickTaskTitle) return;
-    createTask({
-      title: quickTaskTitle,
-      category: quickTaskCategory,
-      priority: quickTaskPriority,
-      wedding_id: selectedWeddingId
-    });
-    setQuickTaskTitle('');
-    setShowQuickCreate(false);
-    navigate('/workspace/tasks');
+    if (!quickTaskTitle.trim()) return;
+    try {
+      await createTask({
+        title: quickTaskTitle,
+        category: quickTaskCategory,
+        priority: quickTaskPriority,
+        wedding_id: selectedWeddingId
+      });
+      setQuickTaskTitle('');
+      setShowQuickCreate(false);
+      navigate('/workspace/tasks');
+    } catch (err) {
+      alert(`Error creating task: ${err.message}`);
+    }
   };
 
-  const handleSignOut = () => {
-    logout();
-    navigate('/agency/login');
+  const handleSignOut = async () => {
+    await logout();
+    navigate('/login');
   };
 
   // Exactly 9 approved modules
@@ -74,9 +78,15 @@ export default function WorkspaceLayout() {
       allowed: isAdmin || isPlanner
     },
     {
-      label: 'Guests & Events',
-      path: '/workspace/guests-events',
-      icon: 'diversity_1',
+      label: 'Guest Management',
+      path: '/workspace/guests',
+      icon: 'group',
+      allowed: isAdmin || isPlanner || isCoordinator
+    },
+    {
+      label: 'Event Management',
+      path: '/workspace/events',
+      icon: 'calendar_month',
       allowed: isAdmin || isPlanner || isCoordinator
     },
     {
@@ -100,7 +110,7 @@ export default function WorkspaceLayout() {
   ];
 
   return (
-    <div className="min-h-screen bg-surface font-body-md text-on-surface antialiased flex">
+    <div className="min-h-screen bg-surface workspace-root font-inter text-on-surface antialiased flex">
       {/* 1. FIXED SIDEBAR (w-72 / 288px) */}
       <aside className="fixed left-0 top-0 h-screen w-72 bg-surface-container-lowest shadow-[0_1px_8px_rgba(0,0,0,0.04)] z-50 flex flex-col justify-between overflow-y-auto border-r border-secondary/20">
         <div className="flex flex-col">
@@ -215,10 +225,17 @@ export default function WorkspaceLayout() {
           </div>
 
           <div className="px-2 py-1 flex items-center justify-between text-[10px] text-on-surface-variant">
-            <span>Vivaah Workspace v2.0</span>
-            <span className="flex items-center gap-1 text-emerald-700 font-medium">
-              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600 animate-pulse" />
-              Connected
+            <span>{isDemoMode ? 'Demo Workspace' : 'Production'}</span>
+            <span className={`flex items-center gap-1 font-medium ${
+              connectionStatus === 'connected' ? 'text-emerald-700' :
+              connectionStatus === 'error' ? 'text-amber-700' : 'text-slate-500'
+            }`}>
+              <span className={`w-1.5 h-1.5 rounded-full ${
+                connectionStatus === 'connected' ? 'bg-emerald-600 animate-pulse' :
+                connectionStatus === 'error' ? 'bg-amber-600' : 'bg-slate-400'
+              }`} />
+              {connectionStatus === 'connected' ? 'Supabase Live' :
+               connectionStatus === 'error' ? 'Sync Notice' : 'Offline Mode'}
             </span>
           </div>
         </div>
@@ -245,11 +262,8 @@ export default function WorkspaceLayout() {
               <input
                 type="text"
                 placeholder="Search weddings, clients, vendors, tasks..."
-                className="w-80 h-9 pl-9 pr-10 rounded bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest border border-outline-variant/30 transition-colors"
+                className="w-80 h-9 pl-9 pr-3 rounded bg-surface-container-low text-xs text-on-surface placeholder:text-on-surface-variant focus:outline-none focus:bg-surface-container-lowest border border-outline-variant/30 transition-colors"
               />
-              <div className="absolute right-2.5 px-1.5 py-0.5 rounded bg-surface-container-highest text-[10px] text-on-surface-variant font-tabular-nums">
-                ⌘K
-              </div>
             </div>
           </div>
 

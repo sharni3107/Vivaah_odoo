@@ -16,7 +16,7 @@ const heroSlides = [
     title: "Every love story deserves an extraordinary beginning.",
     subtitle: "We turn your wedding vision into an unforgettable celebration.",
     location: "Lake Palace · Udaipur",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCsY2Go6YsM7GIM9-4npDToQdK0bxjb-7iemcbPiWbRhZN9NklHjS9JyrL9bpR5Ui5q9ptgOL1vzAs5d5I2-rs6rXsjVlp2ZZn4hXAyh5xUVNBcIAKMEkdWnSFnpLcip6pBnXij9NZ4A7TXdoxN5cxkuXa2AzgOpLV_25AMUEMG4p29juYfqNer9tsVZGLqjm6Ia3FFJQf4b_28iKbxwD3H2Hbncvsaa6G_gQKqT1iF",
+    image: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=1800&q=85",
     alt: "Udaipur Destination Wedding"
   },
   {
@@ -42,25 +42,25 @@ const destinations = [
     name: "Jaipur",
     state: "Rajasthan",
     description: "Centuries-old royal palaces, grand courtyards, and starlit open-air banquets with regal hospitality.",
-    image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1599661046289-e31897846e41?auto=format&fit=crop&w=1200&q=85"
   },
   {
     name: "Udaipur",
     state: "Rajasthan",
     description: "Romantic lakefront pavilions, illuminated island palaces, and tranquil sunset boat processions.",
-    image: "https://images.unsplash.com/photo-1582510003544-4d00b7f74220?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1615836245337-f5b9b2303f10?auto=format&fit=crop&w=1200&q=85"
   },
   {
     name: "Hyderabad",
     state: "Telangana",
     description: "Magnificent Nizami palaces, heritage banquet halls, and grand culinary banquets steeped in history.",
-    image: "https://images.unsplash.com/photo-1572435555646-7ad1b6417e47?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1609137144813-7d9921338f24?auto=format&fit=crop&w=1200&q=85"
   },
   {
     name: "Kerala",
     state: "South India",
     description: "Serene backwater resorts, private beachfront estates, and lush tropical coconut grove ceremonies.",
-    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=800&q=80"
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&w=1200&q=85"
   }
 ];
 
@@ -144,8 +144,15 @@ export default function HomePage() {
             </Link>
           </div>
 
-          {/* RIGHT: Compact "Enquire Now" Button */}
-          <div className="hidden md:flex items-center">
+          {/* RIGHT: Login & Enquire Now */}
+          <div className="hidden md:flex items-center gap-3">
+            <Link
+              to="/login"
+              className="text-on-surface-variant hover:text-primary font-sans text-xs uppercase tracking-wider px-4 py-2 rounded transition-colors font-medium border border-secondary/20 hover:border-secondary/50 flex items-center gap-1.5"
+            >
+              <span className="material-symbols-outlined text-[16px] text-secondary">lock</span>
+              <span>Login</span>
+            </Link>
             <Link
               to="/enquire"
               className="bg-primary text-on-primary px-5 py-2 font-sans text-xs uppercase tracking-wider rounded font-medium hover:bg-secondary-dark transition-all duration-200 shadow-sm border border-secondary/30"
@@ -196,6 +203,19 @@ export default function HomePage() {
             >
               Enquire Us
             </Link>
+            <div className="pt-2 border-t border-secondary/15 flex flex-col gap-2">
+              <Link
+                to="/login"
+                onClick={() => setMobileMenuOpen(false)}
+                className="py-1.5 text-on-surface-variant hover:text-primary font-medium flex items-center justify-between"
+              >
+                <div className="flex items-center gap-2">
+                  <span className="material-symbols-outlined text-[16px] text-secondary">lock</span>
+                  <span>Portal Login</span>
+                </div>
+                <span className="material-symbols-outlined text-[16px] text-secondary">arrow_forward</span>
+              </Link>
+            </div>
           </div>
         )}
       </nav>
@@ -385,12 +405,12 @@ export default function HomePage() {
               </div>
             </div>
 
-            {/* Right Column: High Quality Photography */}
+            {/* Right Column: High Quality Authentic Indian Wedding Photography */}
             <div className="lg:col-span-5 relative">
               <div className="relative rounded-lg overflow-hidden shadow-xl border border-secondary/25 aspect-[4/5]">
                 <img
-                  src="https://images.unsplash.com/photo-1583939003579-730e3918a45a?auto=format&fit=crop&w=1000&q=80"
-                  alt="Couple during wedding celebration"
+                  src="https://images.unsplash.com/photo-1606216794074-735e91aa2c92?auto=format&fit=crop&w=1200&q=85"
+                  alt="Authentic traditional Indian royal wedding ceremony"
                   className="w-full h-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-primary/70 via-transparent to-transparent flex items-end p-6">
@@ -475,9 +495,10 @@ export default function HomePage() {
               <div className="pt-4">
                 <Link
                   to="/enquire?package=Full-Service+Wedding+Planning"
-                  className="w-full inline-flex items-center justify-center bg-primary text-on-primary py-3 rounded font-sans text-xs uppercase tracking-wider font-semibold hover:bg-secondary-dark transition-colors shadow-sm"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-on-primary py-3.5 px-6 rounded font-sans text-xs uppercase tracking-wider font-semibold hover:bg-secondary-dark transition-all duration-200 shadow-md border border-secondary/30 group"
                 >
-                  Enquire Now
+                  <span>Plan Your Wedding</span>
+                  <span className="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
                 </Link>
               </div>
             </div>
@@ -533,9 +554,10 @@ export default function HomePage() {
               <div className="pt-4">
                 <Link
                   to="/enquire?package=Partial+/+Day-of+Coordination"
-                  className="w-full inline-flex items-center justify-center bg-surface-container-high text-primary py-3 rounded font-sans text-xs uppercase tracking-wider font-semibold hover:bg-primary hover:text-on-primary transition-colors shadow-sm border border-secondary/30"
+                  className="w-full inline-flex items-center justify-center gap-2 bg-primary text-on-primary py-3.5 px-6 rounded font-sans text-xs uppercase tracking-wider font-semibold hover:bg-secondary-dark transition-all duration-200 shadow-md border border-secondary/30 group"
                 >
-                  Enquire Now
+                  <span>Plan Your Wedding</span>
+                  <span className="material-symbols-outlined text-[15px] group-hover:translate-x-0.5 transition-transform">arrow_forward</span>
                 </Link>
               </div>
             </div>
@@ -623,7 +645,7 @@ export default function HomePage() {
 
       {/* 8. FOOTER (CLEAN, NO PUBLIC PORTAL SWITCHING / INTERNAL LINKS) */}
       <footer className="w-full py-12 px-6 lg:px-12 bg-surface-container-high border-t border-secondary/20 font-sans text-xs text-on-surface-variant mt-auto">
-        <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8 mb-8">
+        <div className="max-w-7xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-8 mb-8">
           <div className="space-y-3">
             <div className="flex items-center gap-2">
               <span className="font-serif text-xl tracking-[0.16em] uppercase text-primary font-medium">
@@ -668,6 +690,20 @@ export default function HomePage() {
             <p className="text-secondary font-medium">
               hello@vivaahweddings.com · +91 98200 44123
             </p>
+          </div>
+
+          <div className="space-y-2">
+            <h4 className="font-sans uppercase text-[11px] text-primary font-semibold tracking-wider">
+              Portal Access
+            </h4>
+            <ul className="space-y-1.5">
+              <li>
+                <Link to="/login" className="hover:text-primary transition-colors flex items-center gap-1.5">
+                  <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
+                  <span>Portal Login</span>
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
 

@@ -1,5 +1,5 @@
 // Vivaah — Comprehensive Seed Data
-// Aligned with the Stitch Haute Atelier design system and project requirements
+// Aligned with the Vivaah Luxury design system and project requirements
 
 export const initialUsers = [
   {
@@ -7,7 +7,7 @@ export const initialUsers = [
     name: "Pooja Singhania",
     email: "pooja@vivaahateliers.com",
     role: "admin",
-    designation: "Managing Director & Atelier Head",
+    designation: "Managing Director & Agency Head",
     avatar: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&w=200&q=80"
   },
   {
@@ -39,7 +39,7 @@ export const initialUsers = [
     name: "Siddharth Goenka",
     email: "siddharth@vivaahateliers.com",
     role: "finance_executive",
-    designation: "Commercial Escrow & Finance Director",
+    designation: "Finance Director",
     avatar: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?auto=format&fit=crop&w=200&q=80"
   },
   {
@@ -72,7 +72,7 @@ export const initialWeddings = [
     dates: "18–20 December 2026",
     start_date: "2026-12-18",
     end_date: "2026-12-20",
-    package_tier: "Full-Service Royal Atelier",
+    package_tier: "Full-Service Wedding Planning",
     expected_guests: 400,
     actual_checkins: 412,
     contract_amount: 18000000, // ₹1.8 Crore
@@ -95,7 +95,7 @@ export const initialWeddings = [
     dates: "12–14 January 2027",
     start_date: "2027-01-12",
     end_date: "2027-01-14",
-    package_tier: "Destination Bespoke",
+    package_tier: "Destination Wedding",
     expected_guests: 180,
     actual_checkins: 0,
     contract_amount: 25000000, // ₹2.5 Crore
@@ -118,7 +118,7 @@ export const initialWeddings = [
     dates: "04–06 February 2027",
     start_date: "2027-02-04",
     end_date: "2027-02-06",
-    package_tier: "Full-Service Royal Atelier",
+    package_tier: "Full-Service Wedding Planning",
     expected_guests: 320,
     actual_checkins: 0,
     contract_amount: 21000000,
@@ -142,7 +142,7 @@ export const initialEnquiries = [
     wedding_date: "2026-12-18",
     destination: "Jaipur, Rajasthan",
     expected_guests: 400,
-    package_type: "Full-Service Royal Atelier",
+    package_type: "Full-Service Wedding Planning",
     estimated_budget: 18000000,
     preferred_theme: "Mughal Opulence meets Contemporary Architectural Romance",
     additional_requirements: "Helicopter petal drop, multi-cuisine silver thali feast, 400 VIP hospitality desk.",
@@ -165,7 +165,7 @@ export const initialEnquiries = [
     wedding_date: "2027-01-12",
     destination: "Lake Como, Italy",
     expected_guests: 180,
-    package_type: "Destination Bespoke",
+    package_type: "Destination Wedding",
     estimated_budget: 25000000,
     preferred_theme: "Alpine Waterfront Belle Époque",
     additional_requirements: "Private yacht transfers for guests from Bellagio to Villa Balbiano, Michelin star catering.",
@@ -186,7 +186,7 @@ export const initialEnquiries = [
     wedding_date: "2027-02-04",
     destination: "Udaipur, Rajasthan",
     expected_guests: 320,
-    package_type: "Full-Service Royal Atelier",
+    package_type: "Full-Service Wedding Planning",
     estimated_budget: 21000000,
     preferred_theme: "Royal Rajputana Grandeur & Candlelit Lake Courtyards",
     additional_requirements: "Jagmandir Island illuminated reception, Rajasthani royal folk musicians, private chartered jets.",
@@ -207,14 +207,14 @@ export const initialEnquiries = [
     wedding_date: "2027-03-22",
     destination: "South Goa Coastal Estate",
     expected_guests: 250,
-    package_type: "Partial Production",
+    package_type: "Partial / Day-of Coordination",
     estimated_budget: 12000000,
     preferred_theme: "Tropical Modernist Sunset Soirée",
     additional_requirements: "Boho chic beach mandap, electronic music DJ setup for afterparty till dawn.",
     status: "Contacted",
     assigned_executive: "Vikram Sen",
     notes: [
-      { date: "2026-10-26", author: "Vikram Sen", text: "Shared introductory Atelier brochure. Follow-up call booked for Nov 4." }
+      { date: "2026-10-26", author: "Vikram Sen", text: "Shared introductory agency brochure. Follow-up call booked for Nov 4." }
     ],
     converted_wedding_id: null,
     created_at: "2026-10-24T16:00:00Z"
@@ -228,7 +228,7 @@ export const initialEnquiries = [
     wedding_date: "2027-04-10",
     destination: "Jodhpur Umaid Bhawan",
     expected_guests: 450,
-    package_type: "Full-Service Royal Atelier",
+    package_type: "Full-Service Wedding Planning",
     estimated_budget: 28000000,
     preferred_theme: "Art Deco Fortified Monarchy",
     additional_requirements: "Grand royal elephant procession with police escort clearance, 5-night stay buyout.",
@@ -247,7 +247,7 @@ export const initialEnquiries = [
     wedding_date: "2027-05-18",
     destination: "French Riviera, Cannes",
     expected_guests: 150,
-    package_type: "Destination Bespoke",
+    package_type: "Destination Wedding",
     estimated_budget: 22000000,
     preferred_theme: "Côte d'Azur Champagne & White Floral Arch",
     additional_requirements: "Luxury catamaran welcome cruise, fireworks over Cannes bay.",
@@ -265,7 +265,7 @@ export const initialTasks = [
   {
     id: "task-001",
     wedding_id: "wed-001",
-    title: "Draft Executive Design Dossier & Budget Allocation Matrix",
+    title: "Draft Wedding Plan & Budget Allocation Matrix",
     category: "Initial Planning",
     assigned_member: "Priya Sharma",
     due_date: "2026-09-25",
@@ -276,13 +276,13 @@ export const initialTasks = [
   {
     id: "task-002",
     wedding_id: "wed-001",
-    title: "Establish Escrow Account & Schedule Milestone Invoicing",
+    title: "Set Up Payment Schedule & Schedule Milestone Invoicing",
     category: "Initial Planning",
     assigned_member: "Siddharth Goenka",
     due_date: "2026-09-30",
     priority: "High",
     status: "Done",
-    notes: "Bank escrow initialized with HDFC Special Accounts branch."
+    notes: "Payment schedule initialized with HDFC Special Accounts branch."
   },
   {
     id: "task-003",
@@ -381,7 +381,7 @@ export const initialTasks = [
   {
     id: "task-011",
     wedding_id: "wed-001",
-    title: "Schedule Formal Food Tasting Session in Mumbai Atelier",
+    title: "Schedule Formal Food Tasting Session in Mumbai Office",
     category: "Catering",
     assigned_member: "Priya Sharma",
     due_date: "2026-11-08",
@@ -547,7 +547,7 @@ export const initialTasks = [
   {
     id: "task-025",
     wedding_id: "wed-001",
-    title: "Dispatch Digital QR Invitations & Activate Concierge Portal",
+    title: "Dispatch Digital QR Invitations & Activate Guest Portal",
     category: "Guest Coordination",
     assigned_member: "Arjun Verma",
     due_date: "2026-11-01",
@@ -615,7 +615,7 @@ export const initialVendors = [
     contact_person: "Armaan Lamba",
     phone: "+91 98300 12345",
     email: "info@thegrandplatter.com",
-    services: "Bespoke Experiential Food Stations & Global Street Gourmet",
+    services: "Luxury Experiential Food Stations & Global Street Gourmet",
     location: "Delhi & Udaipur",
     status: "Active",
     rating: 4.80,
@@ -1041,7 +1041,7 @@ export const initialEvents = [
     start_time: "15:00",
     end_time: "19:00",
     location: "Zenana Garden Courtyard, City Palace",
-    description: "Traditional afternoon high tea, Rajasthani folk music, bespoke mehendi artists and marigold floral swings.",
+    description: "Traditional afternoon high tea, Rajasthani folk music, traditional mehendi artists and marigold floral swings.",
     dress_code: "Regal Pastels & Chanderi Silks"
   },
   {
@@ -1154,7 +1154,7 @@ export const initialClientPayments = [
     due_date: "2026-09-15",
     paid_date: "2026-09-15",
     status: "Received",
-    payment_method: "Escrow Wire Transfer",
+    payment_method: "Direct Wire Transfer",
     reference_no: "HDFC-ESC-908122",
     notes: "Booking confirmed, project created."
   },

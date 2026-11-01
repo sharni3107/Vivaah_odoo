@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
+import { downloadFinancialReportPdf } from '../../lib/pdfHelper';
 
 export default function AgencyOverview() {
   const navigate = useNavigate();
@@ -16,6 +17,7 @@ export default function AgencyOverview() {
   } = useData();
 
   const [filterType, setFilterType] = useState('All');
+  const [isGeneratingPdf, setIsGeneratingPdf] = useState(false);
 
   // Compute metrics from actual data
   const activeWeddingsCount = weddings.length;
@@ -55,9 +57,7 @@ export default function AgencyOverview() {
           <h1 className="font-headline-lg text-3xl sm:text-4xl text-on-surface font-serif tracking-tight">
             Good morning, Welcome to Vivaah.
           </h1>
-          <p className="font-body-md text-sm text-on-surface-variant max-w-2xl">
-            Here’s what’s happening across your high-touch luxury wedding portfolio today.
-          </p>
+          
         </div>
 
         {/* Action Cluster */}
@@ -71,13 +71,23 @@ export default function AgencyOverview() {
             </span>
           </div>
 
-          <Link
-            to="/workspace/reports"
-            className="h-9 px-4 rounded bg-surface-container-lowest text-on-surface font-title-md text-xs flex items-center gap-1.5 border border-secondary/20 shadow-sm hover:bg-surface-container-low transition-colors"
+          <button
+            onClick={() => {
+              setIsGeneratingPdf(true);
+              setTimeout(() => {
+                downloadFinancialReportPdf(financials, weddings, clientPayments, vendorPayments);
+                setIsGeneratingPdf(false);
+              }, 250);
+            }}
+            disabled={isGeneratingPdf}
+            className="h-9 px-4 rounded bg-surface-container-lowest text-on-surface font-title-md text-xs flex items-center gap-1.5 border border-secondary/20 shadow-sm hover:bg-surface-container-low transition-colors disabled:opacity-50"
+            title="Download Official Financial Report PDF"
           >
-            <span className="material-symbols-outlined text-secondary text-[16px]">file_download</span>
-            <span>Financial Report</span>
-          </Link>
+            <span className="material-symbols-outlined text-secondary text-[16px]">
+              {isGeneratingPdf ? 'hourglass_top' : 'file_download'}
+            </span>
+            <span>{isGeneratingPdf ? 'Generating PDF...' : 'Financial Report'}</span>
+          </button>
 
           <Link
             to="/workspace/enquiries"
@@ -89,162 +99,17 @@ export default function AgencyOverview() {
         </div>
       </div>
 
-      {/* 2. TOP SUMMARY METRICS REGISTER (6 Columns) */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-4">
-        {/* Metric 1: Active Weddings */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
-              Active Weddings
-            </span>
-            <div className="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-secondary">
-              <span className="material-symbols-outlined text-[16px]">diamond</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-display-md text-2xl font-serif text-primary font-tabular-nums">
-              {activeWeddingsCount}
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Live sovereign accounts</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="text-secondary font-tabular-nums font-semibold flex items-center gap-0.5">
-              <span className="material-symbols-outlined text-[12px]">trending_up</span> +2 this quarter
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
-          </div>
-        </div>
-
-        {/* Metric 2: New Enquiries */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
-              New Enquiries
-            </span>
-            <div className="w-7 h-7 rounded-full bg-secondary-container/40 flex items-center justify-center text-on-secondary-container">
-              <span className="material-symbols-outlined text-[16px]">mark_email_unread</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-display-md text-2xl font-serif text-primary font-tabular-nums">
-              {newEnquiriesCount}
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Awaiting consultation</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="text-secondary font-tabular-nums font-semibold flex items-center gap-0.5">
-              <span className="material-symbols-outlined text-[12px]">arrow_upward</span> +18% intake
-            </span>
-            <span className="px-1.5 py-0.2 rounded font-label-sm bg-secondary-container text-on-secondary-container">
-              Registry
-            </span>
-          </div>
-        </div>
-
-        {/* Metric 3: Upcoming Horizon */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
-              Near Horizon
-            </span>
-            <div className="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-secondary">
-              <span className="material-symbols-outlined text-[16px]">celebration</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-display-md text-2xl font-serif text-primary font-tabular-nums">
-              {upcomingWeddingsCount}
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Executions in 60 days</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="text-secondary font-tabular-nums font-semibold">Next: 18 Dec (Jaipur)</span>
-            <span className="material-symbols-outlined text-secondary text-[14px]">event</span>
-          </div>
-        </div>
-
-        {/* Metric 4: Tasks Overdue */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-error font-semibold">
-              Tasks Overdue
-            </span>
-            <div className="w-7 h-7 rounded-full bg-error-container flex items-center justify-center text-on-error-container">
-              <span className="material-symbols-outlined text-[16px]">notification_important</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-display-md text-2xl font-serif text-error font-tabular-nums">
-              {overdueTasksCount}
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Immediate follow-up</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="px-1.5 py-0.5 rounded font-label-sm bg-error-container text-on-error-container font-semibold">
-              Action Required
-            </span>
-            <span className="w-1.5 h-1.5 rounded-full bg-error" />
-          </div>
-        </div>
-
-        {/* Metric 5: Client Payments Pending */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
-              Client Inbound
-            </span>
-            <div className="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-secondary">
-              <span className="material-symbols-outlined text-[16px]">receipt_long</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-headline-lg text-lg text-primary font-tabular-nums font-semibold tracking-tight">
-              ₹{(pendingClientAmount / 100000).toFixed(1)} Lakhs
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Milestone invoices open</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="text-secondary font-tabular-nums font-semibold">Pending settlement</span>
-            <span className="material-symbols-outlined text-outline-variant text-[14px]">hourglass_top</span>
-          </div>
-        </div>
-
-        {/* Metric 6: Vendor Payments Due */}
-        <div className="p-4 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 flex flex-col justify-between hover:shadow-md transition-shadow relative overflow-hidden group">
-          <div className="flex items-center justify-between mb-2">
-            <span className="font-label-sm text-[10px] uppercase tracking-wider text-on-surface-variant font-semibold">
-              Vendor Outbound
-            </span>
-            <div className="w-7 h-7 rounded-full bg-surface-container flex items-center justify-center text-secondary">
-              <span className="material-symbols-outlined text-[16px]">account_balance</span>
-            </div>
-          </div>
-          <div className="space-y-0.5">
-            <div className="font-headline-lg text-lg text-primary font-tabular-nums font-semibold tracking-tight">
-              ₹{(pendingVendorAmount / 100000).toFixed(1)} Lakhs
-            </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">Contract balances due</p>
-          </div>
-          <div className="mt-3 pt-2 border-t border-secondary/15 flex items-center justify-between text-[10px]">
-            <span className="text-secondary font-tabular-nums font-semibold">Production vendors</span>
-            <span className="material-symbols-outlined text-secondary text-[14px]">schedule</span>
-          </div>
-        </div>
-      </div>
-
-      {/* 3. WEDDING PROJECTS REGISTER TABLE */}
+      {/* 2. WEDDING PROJECTS REGISTER TABLE */}
       <div className="p-6 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 space-y-4">
         <div className="flex flex-col md:flex-row md:items-center justify-between gap-4">
           <div className="space-y-0.5">
             <div className="flex items-center gap-2">
               <h2 className="font-headline-md text-xl text-primary font-serif">Active Wedding Projects</h2>
               <span className="px-2 py-0.5 rounded-full font-label-sm text-[10px] bg-surface-container text-on-surface font-tabular-nums">
-                {weddings.length} Dossiers
+                {weddings.length} Weddings
               </span>
             </div>
-            <p className="font-body-sm text-xs text-on-surface-variant">
-              Real-time milestone tracking, budget allocation, and lead planner across ongoing accounts.
-            </p>
+            
           </div>
 
           {/* Filter Pills */}
@@ -270,8 +135,8 @@ export default function AgencyOverview() {
           <table className="w-full text-left text-xs">
             <thead>
               <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
-                <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Couple &amp; Sanctuary</th>
-                <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Festivity Timeline</th>
+                <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Couple &amp; Destination</th>
+                <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Event Schedule</th>
                 <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Package Tier</th>
                 <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Guests &amp; Check-ins</th>
                 <th className="px-4 py-2 font-label-sm uppercase tracking-wider font-semibold">Contract Budget</th>
@@ -324,7 +189,7 @@ export default function AgencyOverview() {
                       }}
                       className="px-3 py-1 bg-surface-container text-primary hover:bg-primary-container hover:text-on-primary rounded text-xs transition-colors border border-secondary/20 font-medium"
                     >
-                      Open Dossier →
+                      View Wedding →
                     </button>
                   </td>
                 </tr>
@@ -334,7 +199,7 @@ export default function AgencyOverview() {
         </div>
       </div>
 
-      {/* 4. SPLIT BOTTOM SECTIONS: DEADLINES, RECENT ACTIVITY, FINANCIAL ESCROW */}
+      {/* 4. SPLIT BOTTOM SECTIONS: DEADLINES, RECENT ACTIVITY, FINANCIAL SUMMARY */}
       <div className="grid grid-cols-1 lg:grid-cols-12 gap-6">
         {/* Upcoming Deadlines (4 cols) */}
         <div className="lg:col-span-4 p-6 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 space-y-4">
@@ -369,7 +234,7 @@ export default function AgencyOverview() {
           </div>
         </div>
 
-        {/* Financial Escrow Summary (4 cols) */}
+        {/* Financial Summary (4 cols) */}
         <div className="lg:col-span-4 p-6 rounded-lg bg-surface-container-lowest shadow-sm border border-secondary/20 space-y-4">
           <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
             <div className="space-y-0.5">

@@ -1,5 +1,6 @@
 import React from 'react';
 import { useData } from '../../context/DataContext';
+import { downloadDocumentPdf } from '../../lib/pdfHelper';
 import {
   BarChart,
   Bar,
@@ -72,12 +73,16 @@ export default function ReportsAnalytics() {
             Reports &amp; Financial Analytics
           </h1>
           <p className="font-body-md text-xs text-on-surface-variant max-w-2xl mt-0.5">
-            Consolidated portfolio metrics, escrow collections, vendor liability ledgers, and operational margins.
+            Consolidated portfolio metrics, client collections, vendor liability ledgers, and operational margins.
           </p>
         </div>
 
         <button
-          onClick={() => alert('Exporting Consolidated PDF Financial Statement...')}
+          onClick={() => downloadDocumentPdf({
+            file_name: 'Executive_Financial_Summary_Q4_2026.pdf',
+            category: 'Financial Statement',
+            uploaded_at: new Date().toISOString().split('T')[0]
+          })}
           className="px-4 py-2 bg-primary text-surface rounded text-xs font-label-caps uppercase hover:bg-secondary-dark transition-colors flex items-center gap-1.5 shadow-sm font-semibold"
         >
           <span className="material-symbols-outlined text-[16px]">print</span>
@@ -106,7 +111,7 @@ export default function ReportsAnalytics() {
           <div className="text-xl font-bold font-serif text-secondary font-tabular-nums">
             ₹{(totalClientReceived / 100000).toFixed(1)} L
           </div>
-          <span className="text-[10px] text-secondary">In bank escrow</span>
+          <span className="text-[10px] text-secondary">Received in account</span>
         </div>
 
         <div className="p-3 bg-surface-container-lowest rounded-lg border border-secondary/20 shadow-sm space-y-0.5">
@@ -215,7 +220,7 @@ export default function ReportsAnalytics() {
         </div>
       </div>
 
-      {/* 4. Guild Vendor Performance Matrix */}
+      {/* 4. Vendor Performance Matrix */}
       <div className="p-6 bg-surface-container-lowest rounded-lg border border-secondary/20 shadow-sm space-y-4">
         <div className="flex items-center justify-between border-b border-secondary/15 pb-3">
           <div>
@@ -230,7 +235,7 @@ export default function ReportsAnalytics() {
             <thead>
               <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
                 <th className="px-4 py-2 font-label-sm uppercase font-semibold">Vendor Partner</th>
-                <th className="px-4 py-2 font-label-sm uppercase font-semibold">Guild Category</th>
+                <th className="px-4 py-2 font-label-sm uppercase font-semibold">Vendor Category</th>
                 <th className="px-4 py-2 font-label-sm uppercase font-semibold">Client Satisfaction Rating</th>
                 <th className="px-4 py-2 font-label-sm uppercase font-semibold">Active Assignments</th>
                 <th className="px-4 py-2 font-label-sm uppercase font-semibold">On-Time Reliability</th>

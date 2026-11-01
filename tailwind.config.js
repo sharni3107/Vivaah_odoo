@@ -68,6 +68,7 @@ export default {
       fontFamily: {
         serif: ["EB Garamond", "serif"],
         sans: ["Manrope", "sans-serif"],
+        inter: ["Inter", "sans-serif"],
         "display-hero": ["EB Garamond", "serif"],
         "headline-lg": ["EB Garamond", "serif"],
         "headline-md": ["EB Garamond", "serif"],

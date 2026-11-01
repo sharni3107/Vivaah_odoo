@@ -20,3 +20,4 @@ class EnquiryUpdate(BaseModel):
 
 class EnquiryConvert(BaseModel):
     assigned_planner: Optional[str] = "Priya Sharma"
+    deposit_received: Optional[float] = None

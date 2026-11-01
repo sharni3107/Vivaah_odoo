@@ -34,7 +34,7 @@ export default function FinancePayments() {
   const [vendorForm, setVendorForm] = useState({
     vendor_payment_id: '',
     amount: 500000,
-    payment_method: 'RTGS Commercial Escrow',
+    payment_method: 'RTGS Bank Transfer',
     reference_no: `VENDOR-DISB-${Date.now().toString().slice(-6)}`
   });
 
@@ -48,11 +48,11 @@ export default function FinancePayments() {
   const weddingVendorPayments = vendorPayments.filter(p => p.wedding_id === selectedWeddingId);
   const weddingExpenses = expenses.filter(e => e.wedding_id === selectedWeddingId);
 
-  const handleRecordClientPayment = (e) => {
+  const handleRecordClientPayment = async (e) => {
     e.preventDefault();
     setErrorMessage(null);
     try {
-      recordClientPayment({
+      await recordClientPayment({
         ...clientForm,
         wedding_id: selectedWeddingId
       });
@@ -62,22 +62,32 @@ export default function FinancePayments() {
     }
   };
 
-  const handleRecordVendorPayment = (e) => {
+  const handleRecordVendorPayment = async (e) => {
     e.preventDefault();
-    recordVendorPayment({
-      vendor_payment_id: vendorForm.vendor_payment_id || weddingVendorPayments[0]?.id,
-      amount: vendorForm.amount
-    });
-    setShowVendorModal(false);
+    setErrorMessage(null);
+    try {
+      await recordVendorPayment({
+        vendor_payment_id: vendorForm.vendor_payment_id || weddingVendorPayments[0]?.id,
+        amount: vendorForm.amount
+      });
+      setShowVendorModal(false);
+    } catch (err) {
+      setErrorMessage(err.message);
+    }
   };
 
-  const handleAddExpense = (e) => {
+  const handleAddExpense = async (e) => {
     e.preventDefault();
-    addExpense({
-      ...expenseForm,
-      wedding_id: selectedWeddingId
-    });
-    setShowExpenseModal(false);
+    setErrorMessage(null);
+    try {
+      await addExpense({
+        ...expenseForm,
+        wedding_id: selectedWeddingId
+      });
+      setShowExpenseModal(false);
+    } catch (err) {
+      setErrorMessage(err.message);
+    }
   };
 
   return (
@@ -87,7 +97,7 @@ export default function FinancePayments() {
         <div>
           <div className="flex items-center gap-2">
             <span className="font-label-sm text-[10px] uppercase tracking-widest text-secondary font-semibold">
-              Commercial Escrow &amp; Balance Reconciliation
+              Payments &amp; Balance Reconciliation
             </span>
             <span className="w-1.5 h-1.5 rounded-full bg-secondary" />
             <span className="font-label-sm text-[10px] uppercase tracking-widest text-on-surface-variant">
@@ -95,7 +105,7 @@ export default function FinancePayments() {
             </span>
           </div>
           <h1 className="font-headline-lg text-3xl text-primary font-serif tracking-tight mt-1">
-            Finance &amp; Escrow Payments
+            Finance &amp; Client Payments
           </h1>
           <p className="font-body-md text-xs text-on-surface-variant max-w-2xl mt-0.5">
             Real-time tracking of client installment milestones, vendor contract advances, operating expenses, and live net profitability.
@@ -152,11 +162,25 @@ export default function FinancePayments() {
           </select>
         </div>
         <span className="text-secondary font-semibold font-tabular-nums">
-          Contract: ₹{(selectedWedding.contract_amount / 10000000).toFixed(2)} Crore
+          Contract: ₹{(((selectedWedding?.contract_amount || 0) / 10000000)).toFixed(2)} Crore
         </span>
       </div>
 
-      {/* 3. Escrow Summary Cards (5 Metrics) */}
+      {!selectedWedding ? (
+        <div className="p-12 text-center bg-surface-container-lowest border border-secondary/20 rounded-xl space-y-4">
+          <div className="w-16 h-16 mx-auto rounded-full bg-surface-container flex items-center justify-center border border-secondary/30 text-secondary">
+            <span className="material-symbols-outlined text-3xl">payments</span>
+          </div>
+          <h2 className="text-xl font-serif text-primary">No Wedding Project Selected for Finance</h2>
+          <p className="text-xs text-on-surface-variant max-w-md mx-auto leading-relaxed">
+            {weddings.length === 0
+              ? 'No wedding project financial ledgers were found. In demo mode, initial records will be hydrated automatically.'
+              : 'Please select a wedding account from the selector above to reconcile client payments, vendor advances, and operational expenses.'}
+          </p>
+        </div>
+      ) : (
+        <>
+      {/* 3. Payment Summary Cards (5 Metrics) */}
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-4">
         {/* Total Contract Revenue */}
         <div className="p-4 bg-surface-container-lowest rounded-lg border border-secondary/20 shadow-sm space-y-1">
@@ -169,7 +193,7 @@ export default function FinancePayments() {
           <span className="text-[10px] text-on-surface-variant">Approved agreement</span>
         </div>
 
-        {/* Client Received In Escrow */}
+        {/* Client Payments Received */}
         <div className="p-4 bg-surface-container-lowest rounded-lg border border-secondary/20 shadow-sm space-y-1">
           <span className="text-[10px] uppercase font-label-caps text-on-surface-variant block font-semibold">
             Client Inbound Settled
@@ -423,6 +447,8 @@ export default function FinancePayments() {
           </div>
         </div>
       )}
+      </>
+      )}
 
       {/* RECORD CLIENT PAYMENT MODAL */}
       {showClientModal && (
@@ -476,7 +502,7 @@ export default function FinancePayments() {
                     className="w-full p-2 bg-surface-container-low border border-secondary/20 rounded text-xs mt-1"
                   >
                     <option value="RTGS Wire Transfer">RTGS Wire</option>
-                    <option value="Escrow Wire Transfer">Escrow Wire</option>
+                    <option value="Direct Wire Transfer">Wire Transfer</option>
                     <option value="Bank Draft">Bank Draft</option>
                   </select>
                 </div>

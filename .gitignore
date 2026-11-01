@@ -11,6 +11,8 @@ node_modules
 dist
 dist-ssr
 *.local
+scratch/
+scratch_*
 
 # Environment variables
 .env
@@ -41,6 +43,7 @@ downloads/
 eggs/
 .eggs/
 lib/
+!src/lib/
 lib64/
 parts/
 sdist/

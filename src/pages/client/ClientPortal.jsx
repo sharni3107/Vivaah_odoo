@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { useData } from '../../context/DataContext';
 import { useAuth } from '../../context/AuthContext';
+import PdfPreviewModal from '../../components/common/PdfPreviewModal';
+import { downloadDocumentPdf } from '../../lib/pdfHelper';
 
 export default function ClientPortal() {
   const navigate = useNavigate();
@@ -35,35 +37,68 @@ export default function ClientPortal() {
   const [selectedProposalForFeedback, setSelectedProposalForFeedback] = useState(null);
   const [actionSuccessMsg, setActionSuccessMsg] = useState(null);
 
-  const handleApprove = (quoteId) => {
-    clientApproveQuotation(quoteId, "Approved by Aarav & Meera. Proceed with tasting and agreement lock.");
-    setActionSuccessMsg("Proposal Approved! Status has been updated in the Agency Workspace.");
-    setTimeout(() => setActionSuccessMsg(null), 3000);
+  // State for PDF preview modal
+  const [previewDoc, setPreviewDoc] = useState(null);
+
+  const [actionErrMsg, setActionErrMsg] = useState(null);
+
+  const handleApprove = async (quoteId) => {
+    setActionErrMsg(null);
+    try {
+      await clientApproveQuotation(quoteId, "Approved by Aarav & Meera. Proceed with tasting and agreement lock.");
+      setActionSuccessMsg("Proposal Approved! Status has been updated in the Agency Workspace.");
+      setTimeout(() => setActionSuccessMsg(null), 3000);
+    } catch (err) {
+      setActionErrMsg(err.message);
+    }
   };
 
-  const handleReject = (e) => {
+  const handleReject = async (e) => {
     e.preventDefault();
     if (!selectedProposalForFeedback) return;
-    clientRejectQuotation(selectedProposalForFeedback.id, feedbackInput || "Requesting adjustments to menu courses.");
-    setSelectedProposalForFeedback(null);
-    setFeedbackInput('');
-    setActionSuccessMsg("Revisions requested. Your Lead Planner Priya Sharma has been notified.");
-    setTimeout(() => setActionSuccessMsg(null), 3000);
+    setActionErrMsg(null);
+    try {
+      await clientRejectQuotation(selectedProposalForFeedback.id, feedbackInput || "Requesting adjustments to menu courses.");
+      setSelectedProposalForFeedback(null);
+      setFeedbackInput('');
+      setActionSuccessMsg("Revisions requested. Your Lead Planner Priya Sharma has been notified.");
+      setTimeout(() => setActionSuccessMsg(null), 3000);
+    } catch (err) {
+      setActionErrMsg(err.message);
+    }
+  };
+
+  const handleViewPdf = (title, category) => {
+    setPreviewDoc({
+      documentTitle: title,
+      category: category,
+      weddingTitle: coupleWedding.title || 'Aarav & Meera — Royal Jaipur Wedding',
+      uploadedBy: 'Priya Sharma (Assigned Planner)'
+    });
+  };
+
+  const handleDownloadPdf = (title, category) => {
+    downloadDocumentPdf(
+      title,
+      category,
+      coupleWedding.title || 'Aarav & Meera — Royal Jaipur Wedding',
+      'Priya Sharma (Assigned Planner)'
+    );
   };
 
   return (
-    <div className="w-full min-h-screen bg-surface text-on-surface">
+    <div className="w-full min-h-screen bg-[#F5EFE7] text-[#241820] portal-root font-inter antialiased">
       {/* 1. Client Top Navigation */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-surface-container-lowest/95 backdrop-blur-md border-b border-secondary/20 h-20 flex items-center justify-between px-6 lg:px-12">
-        <Link to="/" className="flex items-center gap-3">
-          <div className="w-9 h-9 rounded-full bg-primary-container text-secondary flex items-center justify-center border border-secondary/30">
+      <header className="fixed top-0 left-0 right-0 z-50 bg-white/95 backdrop-blur-md border-b border-[#B99A72]/20 h-20 flex items-center justify-between px-6 lg:px-12">
+        <Link to="/" className="flex items-center gap-3 group">
+          <div className="w-9 h-9 rounded-full bg-[#241820] text-[#B99A72] flex items-center justify-center border border-[#B99A72]/30 shadow-xs transition-transform group-hover:scale-105">
             <span className="material-symbols-outlined text-[18px]">favorite</span>
           </div>
-          <div className="flex flex-col">
-            <span className="font-headline-sm text-lg tracking-wider uppercase text-primary font-serif font-medium leading-none">
+          <div className="flex flex-col text-left">
+            <span className="font-serif text-lg tracking-[0.16em] uppercase text-[#241820] font-medium leading-none">
               VIVAAH
             </span>
-            <span className="font-label-caps text-[9px] uppercase tracking-widest text-secondary mt-0.5">
+            <span className="text-[9.5px] uppercase tracking-widest text-[#B99A72] mt-1 font-semibold">
               Client Portal
             </span>
           </div>
@@ -71,19 +106,19 @@ export default function ClientPortal() {
 
         {/* Client Profile & Sign Out */}
         <div className="flex items-center gap-4">
-          <span className="hidden sm:inline-flex items-center gap-2 px-3 py-1 bg-surface-container-low rounded text-xs border border-secondary/20">
-            <span className="w-2 h-2 rounded-full bg-secondary" />
-            <span className="font-medium text-primary">Aarav Singhania &amp; Meera Kapoor</span>
+          <span className="hidden sm:inline-flex items-center gap-2 px-3 py-1 bg-[#FAF7F2] rounded-lg text-xs border border-[#B99A72]/30 text-[#241820]">
+            <span className="w-2 h-2 rounded-full bg-[#B99A72]" />
+            <span className="font-semibold">Aarav Singhania &amp; Meera Kapoor</span>
           </span>
 
           <button
-            onClick={() => {
-              logout();
-              navigate('/client/login');
+            onClick={async () => {
+              await logout();
+              navigate('/login');
             }}
-            className="px-3.5 py-1.5 bg-surface-container hover:bg-surface-container-high rounded text-xs text-primary font-semibold border border-secondary/20 flex items-center gap-1.5 transition-colors"
+            className="px-3.5 py-1.5 bg-[#FAF7F2] hover:bg-[#241820] text-[#241820] hover:text-[#F5EFE7] rounded-lg text-xs font-semibold border border-[#B99A72]/30 flex items-center gap-1.5 transition-colors shadow-2xs"
           >
-            <span className="material-symbols-outlined text-[16px] text-secondary">logout</span>
+            <span className="material-symbols-outlined text-[16px]">logout</span>
             <span>Sign Out</span>
           </button>
         </div>
@@ -91,50 +126,50 @@ export default function ClientPortal() {
 
       {/* 2. Client Hero Welcome Card */}
       <main className="pt-28 pb-16 px-6 lg:px-12 max-w-6xl mx-auto space-y-8">
-        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-secondary/30 bg-primary-container text-surface p-8 sm:p-12">
+        <div className="relative rounded-2xl overflow-hidden shadow-xl border border-[#B99A72]/30 bg-[#241820] text-[#F5EFE7] p-8 sm:p-12">
           <div className="absolute inset-0 opacity-20">
             <img src={coupleWedding.cover_image} alt="Jaipur Palace" className="w-full h-full object-cover" />
           </div>
-          <div className="absolute inset-0 bg-gradient-to-r from-primary-container via-primary-container/95 to-primary-container/80" />
+          <div className="absolute inset-0 bg-gradient-to-r from-[#241820] via-[#241820]/95 to-[#241820]/80" />
 
           <div className="relative z-10 space-y-6">
             <div className="flex flex-wrap items-center justify-between gap-3">
-              <span className="font-label-caps uppercase text-secondary-fixed tracking-[0.2em] text-xs font-semibold">
+              <span className="text-[10px] uppercase text-[#B99A72] tracking-[0.2em] font-bold">
                 Private Wedding Suite
               </span>
-              <span className="px-3 py-1 rounded bg-secondary-container/20 text-secondary-fixed text-xs border border-secondary-fixed/30 font-tabular-nums">
+              <span className="px-3 py-1 rounded bg-[#B99A72]/20 text-[#B99A72] text-xs border border-[#B99A72]/40 font-tabular-nums font-semibold">
                 {coupleWedding.dates} · {coupleWedding.destination}
               </span>
             </div>
 
             <div>
-              <h1 className="font-display-lg text-3xl sm:text-5xl text-surface-bright font-serif">
+              <h1 className="text-3xl sm:text-5xl text-white font-serif font-normal">
                 Welcome, Aarav &amp; Meera
               </h1>
-              <p className="font-body-lg text-surface-container text-sm sm:text-base max-w-xl font-light mt-1">
-                Your private wedding dossier is currently 74% finalized. Here you can review proposals shared by your planner Priya Sharma, approve vendor menus, view event itineraries, and manage guests.
+              <p className="text-[#F5EFE7]/80 text-sm sm:text-base max-w-xl font-light mt-1.5 leading-relaxed">
+                Your wedding celebration is currently 74% planned. Here you can review proposals shared by your assigned planner Priya Sharma, approve catering menus, view event schedules, and manage guests.
               </p>
             </div>
 
             {/* Quick Contact Planner Strip */}
-            <div className="pt-4 border-t border-surface/15 flex flex-wrap items-center justify-between gap-4 text-xs">
+            <div className="pt-4 border-t border-white/15 flex flex-wrap items-center justify-between gap-4 text-xs">
               <div className="flex items-center gap-3">
-                <div className="w-8 h-8 rounded-full bg-surface-container text-primary font-bold flex items-center justify-center text-xs">
+                <div className="w-8 h-8 rounded-full bg-[#B99A72] text-[#241820] font-bold flex items-center justify-center text-xs">
                   PS
                 </div>
                 <div>
-                  <span className="text-secondary-fixed text-[10px] uppercase font-label-caps block">Your Lead Architect</span>
-                  <span className="font-semibold text-surface">{coupleWedding.assigned_planner} (Senior Director)</span>
+                  <span className="text-[#B99A72] text-[10px] uppercase font-semibold block">Your Assigned Planner</span>
+                  <span className="font-semibold text-white">{coupleWedding.assigned_planner} (Lead Planner)</span>
                 </div>
               </div>
 
-              <div className="flex items-center gap-4 text-secondary-fixed font-medium">
-                <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px]">call</span> +91 98200 44123
+              <div className="flex items-center gap-4 text-[#B99A72] font-medium">
+                <span className="flex items-center gap-1 text-[#F5EFE7]">
+                  <span className="material-symbols-outlined text-[16px] text-[#B99A72]">call</span> +91 98200 44123
                 </span>
                 <span>•</span>
-                <span className="flex items-center gap-1">
-                  <span className="material-symbols-outlined text-[16px]">mail</span> priya@vivaahateliers.com
+                <span className="flex items-center gap-1 text-[#F5EFE7]">
+                  <span className="material-symbols-outlined text-[16px] text-[#B99A72]">mail</span> priya@vivaahweddings.com
                 </span>
               </div>
             </div>
@@ -142,20 +177,30 @@ export default function ClientPortal() {
         </div>
 
         {actionSuccessMsg && (
-          <div className="p-4 bg-secondary-container/40 border border-secondary text-primary rounded-lg flex items-center gap-2 text-xs font-medium animate-bounce shadow-sm">
-            <span className="material-symbols-outlined text-secondary text-[20px]">verified</span>
+          <div className="p-4 bg-emerald-50 border border-emerald-300 text-emerald-800 rounded-xl flex items-center gap-2 text-xs font-semibold shadow-sm animate-fadeIn">
+            <span className="material-symbols-outlined text-emerald-600 text-[20px]">verified</span>
             <span>{actionSuccessMsg}</span>
           </div>
         )}
 
+        {actionErrMsg && (
+          <div className="p-4 bg-red-50 border border-red-300 text-red-800 rounded-xl flex items-center justify-between text-xs font-semibold shadow-sm animate-fadeIn">
+            <div className="flex items-center gap-2">
+              <span className="material-symbols-outlined text-red-600 text-[20px]">error</span>
+              <span>{actionErrMsg}</span>
+            </div>
+            <button onClick={() => setActionErrMsg(null)} className="text-red-700 font-bold ml-2">✕</button>
+          </div>
+        )}
+
         {/* 3. Client Navigation Tabs */}
-        <div className="border-b border-secondary/20 flex gap-2 overflow-x-auto text-xs">
+        <div className="border-b border-[#B99A72]/20 flex gap-2 overflow-x-auto text-xs">
           <button
             onClick={() => setActivePortalTab('proposals')}
-            className={`px-5 py-2.5 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
+            className={`px-5 py-2.5 font-semibold uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
               activePortalTab === 'proposals'
-                ? 'border-primary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
+                ? 'border-[#241820] text-[#241820]'
+                : 'border-transparent text-[#343A35]/70 hover:text-[#241820]'
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">verified_user</span>
@@ -164,162 +209,164 @@ export default function ClientPortal() {
 
           <button
             onClick={() => setActivePortalTab('itinerary')}
-            className={`px-5 py-2.5 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
+            className={`px-5 py-2.5 font-semibold uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
               activePortalTab === 'itinerary'
-                ? 'border-primary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
+                ? 'border-[#241820] text-[#241820]'
+                : 'border-transparent text-[#343A35]/70 hover:text-[#241820]'
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">calendar_today</span>
-            <span>Celebration Schedule</span>
+            <span>Event Schedule</span>
           </button>
 
           <button
             onClick={() => setActivePortalTab('finances')}
-            className={`px-5 py-2.5 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
+            className={`px-5 py-2.5 font-semibold uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
               activePortalTab === 'finances'
-                ? 'border-primary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
+                ? 'border-[#241820] text-[#241820]'
+                : 'border-transparent text-[#343A35]/70 hover:text-[#241820]'
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">payments</span>
-            <span>Escrow &amp; Invoices</span>
+            <span>Payments &amp; Invoices</span>
           </button>
 
           <button
             onClick={() => setActivePortalTab('guests')}
-            className={`px-5 py-2.5 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
+            className={`px-5 py-2.5 font-semibold uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
               activePortalTab === 'guests'
-                ? 'border-primary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
+                ? 'border-[#241820] text-[#241820]'
+                : 'border-transparent text-[#343A35]/70 hover:text-[#241820]'
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">groups</span>
-            <span>Guest Roster &amp; RSVPs</span>
+            <span>Guest List &amp; RSVPs</span>
           </button>
 
           <button
             onClick={() => setActivePortalTab('documents')}
-            className={`px-5 py-2.5 font-title-md uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
+            className={`px-5 py-2.5 font-semibold uppercase tracking-wider text-xs border-b-2 transition-all flex items-center gap-1.5 ${
               activePortalTab === 'documents'
-                ? 'border-primary text-primary font-bold'
-                : 'border-transparent text-on-surface-variant hover:text-primary'
+                ? 'border-[#241820] text-[#241820]'
+                : 'border-transparent text-[#343A35]/70 hover:text-[#241820]'
             }`}
           >
             <span className="material-symbols-outlined text-[16px]">description</span>
-            <span>Agreements &amp; Receipts</span>
+            <span>Documents ({coupleDocs.length})</span>
           </button>
         </div>
 
-        {/* 4. TAB 1: SHARED VENDOR PROPOSALS (CRITICAL WORKFLOW E) */}
+        {/* 4. TAB 1: SHARED PROPOSALS */}
         {activePortalTab === 'proposals' && (
           <div className="space-y-6">
-            <div className="p-4 bg-surface-container-low rounded border border-secondary/20 flex items-center justify-between text-xs">
-              <span className="text-on-surface-variant">
-                Below are the proposals vetted and curated specifically for you by Priya Sharma. Approved selections are directly locked into your master production schedule.
-              </span>
-              <span className="font-label-caps uppercase text-[10px] text-secondary font-semibold shrink-0">
-                Discretion Protocol Protected
-              </span>
+            <div className="flex items-center justify-between">
+              <div>
+                <h2 className="text-2xl text-[#241820] font-serif font-normal">
+                  Vendor Proposals for Your Review
+                </h2>
+                <p className="text-xs text-[#343A35]/80 mt-0.5">
+                  Proposals selected and shared by your planner Priya Sharma. You can approve your selection or request revisions.
+                </p>
+              </div>
             </div>
 
             {sharedProposals.length === 0 ? (
-              <div className="p-12 text-center bg-surface-container-lowest border border-secondary/20 rounded-lg space-y-2">
-                <span className="material-symbols-outlined text-[36px] text-secondary">hourglass_empty</span>
-                <h3 className="font-headline-sm text-lg text-primary">No proposals pending review</h3>
-                <p className="text-xs text-on-surface-variant">Your planner is currently vetting proposals from guild artisans.</p>
+              <div className="p-12 text-center bg-white rounded-2xl border border-[#B99A72]/20">
+                <span className="material-symbols-outlined text-4xl text-[#B99A72]">storefront</span>
+                <h4 className="font-serif text-lg text-[#241820] mt-2">No Proposals Shared Yet</h4>
+                <p className="text-xs text-[#343A35]/70">Your planner is currently vetting proposals from trusted vendors.</p>
               </div>
             ) : (
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 {sharedProposals.map((quote) => (
                   <div
                     key={quote.id}
-                    className="p-6 bg-surface-container-lowest rounded-xl border border-secondary/30 shadow-md space-y-5 text-xs flex flex-col justify-between"
+                    className={`bg-white rounded-2xl border p-6 flex flex-col justify-between space-y-6 transition-all shadow-sm ${
+                      quote.status === 'Client Approved' || quote.status === 'Confirmed'
+                        ? 'border-emerald-600 ring-1 ring-emerald-500'
+                        : 'border-[#B99A72]/30 hover:shadow-md'
+                    }`}
                   >
-                    <div className="space-y-3">
+                    <div className="space-y-4">
                       <div className="flex items-start justify-between">
                         <div>
-                          <span className="text-[10px] font-label-caps uppercase text-secondary font-semibold">
-                            Recommended Catering Partner
+                          <span className="text-[10px] uppercase font-semibold text-[#B99A72] tracking-wider block">
+                            Catering &amp; Banquet Bid
                           </span>
-                          <h3 className="font-headline-sm text-2xl text-primary font-serif font-bold mt-0.5">
+                          <h3 className="font-serif text-xl font-medium text-[#241820] mt-0.5">
                             {quote.vendor_name}
                           </h3>
                         </div>
-                        <span className={`px-2.5 py-0.5 rounded text-[10px] font-semibold uppercase ${
+                        <span className={`px-2.5 py-0.5 rounded-full text-[10.5px] font-semibold uppercase tracking-wider ${
                           quote.status === 'Client Approved' || quote.status === 'Confirmed'
-                            ? 'bg-secondary-container text-on-secondary-container'
-                            : quote.status === 'Client Rejected'
-                            ? 'bg-error-container text-on-error-container'
-                            : 'bg-primary-container text-on-primary'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : 'bg-[#B99A72]/20 text-[#241820]'
                         }`}>
                           {quote.status}
                         </span>
                       </div>
 
-                      <div className="p-4 bg-surface-container-low rounded border border-secondary/15 space-y-1">
-                        <div className="flex justify-between items-baseline">
-                          <span className="text-[10px] font-label-caps uppercase text-on-surface-variant font-semibold">
-                            Full 3-Day Banquet Package
-                          </span>
-                          <span className="text-2xl font-bold font-serif text-primary font-tabular-nums">
-                            ₹{quote.total_quoted_amount.toLocaleString('en-IN')}
-                          </span>
+                      <div className="p-4 bg-[#FAF7F2] rounded-xl border border-[#B99A72]/20 space-y-1">
+                        <span className="text-xs text-[#343A35]/80 block">Total Quoted Package</span>
+                        <div className="text-2xl font-bold font-serif text-[#241820] font-tabular-nums">
+                          ₹{quote.total_quoted_amount.toLocaleString('en-IN')}
                         </div>
-                        <span className="text-[11px] text-on-surface-variant block font-tabular-nums">
+                        <span className="text-[11px] text-[#B99A72] block font-medium">
                           ₹{quote.price_per_plate_or_service} per guest · All banquets included
                         </span>
                       </div>
 
-                      <div className="space-y-2 text-xs">
-                        <span className="font-semibold text-primary block">Included Experience Highlights:</span>
-                        <p className="text-on-surface-variant leading-relaxed text-[11px]">
+                      <div className="space-y-1.5 text-xs">
+                        <span className="font-semibold text-[#241820] block">Included Highlights:</span>
+                        <p className="text-[#343A35]/80 leading-relaxed text-xs">
                           {quote.service_inclusions}
                         </p>
                       </div>
 
                       {quote.client_feedback && (
-                        <div className="p-3 bg-surface-container rounded border border-secondary/20 space-y-0.5 text-[11px]">
-                          <span className="font-semibold text-primary">Your Stored Decision:</span>
-                          <p className="text-on-surface-variant italic">{quote.client_feedback}</p>
+                        <div className="p-3 bg-white rounded-lg border border-[#B99A72]/20 space-y-0.5 text-xs">
+                          <span className="font-semibold text-[#241820]">Your Stored Decision:</span>
+                          <p className="text-[#343A35] italic">{quote.client_feedback}</p>
                         </div>
                       )}
                     </div>
 
                     {/* Action Buttons */}
-                    <div className="pt-4 border-t border-secondary/20 space-y-3">
+                    <div className="pt-4 border-t border-[#B99A72]/20 space-y-3">
                       <div className="flex items-center justify-between text-xs">
-                        <span className="text-on-surface-variant text-[11px]">Includes Chef Ranveer live oversight</span>
-                        <a
-                          href={quote.proposal_pdf_url}
-                          onClick={(e) => { e.preventDefault(); alert(`Opening PDF Proposal for ${quote.vendor_name}`); }}
-                          className="text-primary hover:underline font-semibold flex items-center gap-1"
+                        <span className="text-[#343A35]/70 text-[11px]">Verified wedding vendor</span>
+                        <button
+                          onClick={() => handleViewPdf(
+                            `${quote.vendor_name.replace(/\s+/g, '_')}_Quotation.pdf`,
+                            'Vendor Quotation'
+                          )}
+                          className="text-[#241820] hover:text-[#B99A72] font-semibold flex items-center gap-1 transition-colors"
                         >
+                          <span className="material-symbols-outlined text-[15px] text-[#B99A72]">picture_as_pdf</span>
                           <span>Review Full PDF Menu</span>
-                          <span className="material-symbols-outlined text-[14px]">open_in_new</span>
-                        </a>
+                        </button>
                       </div>
 
                       {quote.status !== 'Client Approved' && quote.status !== 'Confirmed' ? (
                         <div className="grid grid-cols-2 gap-3 pt-1">
                           <button
                             onClick={() => setSelectedProposalForFeedback(quote)}
-                            className="py-2.5 bg-surface-container-high hover:bg-surface-container-highest text-primary rounded font-label-caps uppercase text-xs font-semibold transition-colors"
+                            className="py-2.5 bg-[#FAF7F2] hover:bg-[#F5EFE7] text-[#241820] rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors border border-[#B99A72]/30"
                           >
                             Request Revisions
                           </button>
                           <button
                             onClick={() => handleApprove(quote.id)}
-                            className="py-2.5 bg-primary text-surface hover:bg-secondary-dark rounded font-label-caps uppercase text-xs font-semibold transition-colors shadow-md flex items-center justify-center gap-1"
+                            className="py-2.5 bg-[#241820] text-[#F5EFE7] hover:bg-[#34242e] rounded-lg text-xs font-semibold uppercase tracking-wider transition-colors shadow-sm flex items-center justify-center gap-1.5"
                           >
-                            <span className="material-symbols-outlined text-[16px] text-secondary">check_circle</span>
+                            <span className="material-symbols-outlined text-[16px] text-[#B99A72]">check_circle</span>
                             <span>Approve Proposal</span>
                           </button>
                         </div>
                       ) : (
-                        <div className="p-2.5 bg-secondary-container/40 border border-secondary rounded text-center text-xs font-semibold text-primary flex items-center justify-center gap-2">
-                          <span className="material-symbols-outlined text-secondary text-[18px]">verified</span>
-                          <span>Proposal Approved by You — Locked in Atelier Production!</span>
+                        <div className="p-3 bg-emerald-50 border border-emerald-300 rounded-xl text-center text-xs font-semibold text-emerald-800 flex items-center justify-center gap-2">
+                          <span className="material-symbols-outlined text-emerald-600 text-[18px]">verified</span>
+                          <span>Proposal Approved by You — Confirmed in Wedding Schedule!</span>
                         </div>
                       )}
                     </div>
@@ -332,34 +379,29 @@ export default function ClientPortal() {
 
         {/* 5. TAB 2: ITINERARY */}
         {activePortalTab === 'itinerary' && (
-          <div className="bg-surface-container-lowest p-8 rounded-xl border border-secondary/20 shadow-sm space-y-6">
+          <div className="bg-white p-8 rounded-2xl border border-[#B99A72]/25 shadow-sm space-y-6">
             <div>
-              <h3 className="font-headline-sm text-2xl text-primary font-serif">
-                Three-Day Royal Celebration Run-of-Show
-              </h3>
-              <p className="text-xs text-on-surface-variant mt-0.5">
-                Detailed itinerary for you and your family across City Palace and Rambagh Palace.
-              </p>
+              <h3 className="text-2xl text-[#241820] font-serif font-normal">3-Day Wedding Itinerary</h3>
+              <p className="text-xs text-[#343A35]/80 mt-0.5">Run-of-show schedule for your family and guests</p>
             </div>
 
-            <div className="space-y-4 text-xs">
-              {coupleEvents.map((evt, idx) => (
-                <div key={evt.id} className="p-4 bg-surface-container-low rounded-lg border border-secondary/15 flex flex-col md:flex-row md:items-center justify-between gap-4">
+            <div className="space-y-4">
+              {coupleEvents.map((evt) => (
+                <div key={evt.id} className="p-5 bg-[#FAF7F2] rounded-xl border border-[#B99A72]/25 flex flex-col md:flex-row md:items-center justify-between gap-4">
                   <div className="space-y-1">
-                    <span className="text-[10px] font-label-caps uppercase text-secondary font-semibold">
-                      Ritual 0{idx + 1} · {evt.date}
+                    <span className="text-[10.5px] uppercase font-bold text-[#B99A72] tracking-wider">
+                      {new Date(evt.date).toLocaleDateString('en-IN', { weekday: 'long', day: 'numeric', month: 'short', year: 'numeric' })} · {evt.start_time} - {evt.end_time}
                     </span>
-                    <h4 className="font-headline-sm text-lg text-primary font-semibold">{evt.event_name}</h4>
-                    <p className="text-on-surface-variant text-[11px] max-w-xl">{evt.description}</p>
-                    <div className="flex gap-4 text-[11px] text-secondary font-medium pt-1">
-                      <span>Venue: {evt.location}</span>
-                      <span>•</span>
-                      <span>Suggested Attire: {evt.dress_code}</span>
-                    </div>
+                    <h4 className="font-serif text-xl font-medium text-[#241820]">{evt.event_name}</h4>
+                    <p className="text-xs text-[#343A35] flex items-center gap-1">
+                      <span className="material-symbols-outlined text-[16px] text-[#B99A72]">location_on</span>
+                      <span>{evt.location}</span>
+                    </p>
                   </div>
-                  <div className="text-right shrink-0 font-tabular-nums text-xs">
-                    <span className="font-bold text-primary block">{evt.start_time} – {evt.end_time}</span>
-                    <span className="text-[10px] text-on-surface-variant">Personal shadow assigned</span>
+                  <div className="text-right">
+                    <span className="px-3 py-1 bg-white rounded-full text-xs font-medium text-[#241820] border border-[#B99A72]/30 inline-block">
+                      Dress Code: {evt.dress_code}
+                    </span>
                   </div>
                 </div>
               ))}
@@ -367,43 +409,51 @@ export default function ClientPortal() {
           </div>
         )}
 
-        {/* 6. TAB 3: FINANCES & ESCROW */}
+        {/* 6. TAB 3: PAYMENTS & INVOICES */}
         {activePortalTab === 'finances' && (
-          <div className="bg-surface-container-lowest p-8 rounded-xl border border-secondary/20 shadow-sm space-y-6 text-xs">
+          <div className="bg-white p-8 rounded-2xl border border-[#B99A72]/25 shadow-sm space-y-6 text-xs">
             <div>
-              <h3 className="font-headline-sm text-2xl text-primary font-serif">Escrow Schedule &amp; Invoices</h3>
-              <p className="text-xs text-on-surface-variant mt-0.5">Transparent milestone schedule protected under legal escrow</p>
+              <h3 className="text-2xl text-[#241820] font-serif font-normal">Payment Schedule &amp; Invoices</h3>
+              <p className="text-xs text-[#343A35]/80 mt-0.5">Transparent milestone payment schedule and official receipts</p>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Milestone</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Scheduled Amount</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Due Date</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Status</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Official Receipt</th>
+                  <tr className="bg-[#FAF7F2] text-[#343A35] h-10 border-b border-[#B99A72]/20 font-semibold uppercase text-[10.5px] tracking-wider">
+                    <th className="px-4 py-2">Milestone</th>
+                    <th className="px-4 py-2">Scheduled Amount</th>
+                    <th className="px-4 py-2">Due Date</th>
+                    <th className="px-4 py-2">Status</th>
+                    <th className="px-4 py-2 text-right">Official Receipt</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-secondary/10">
+                <tbody className="divide-y divide-[#B99A72]/15">
                   {couplePayments.map((p) => (
                     <tr key={p.id}>
-                      <td className="px-4 py-3 font-semibold text-primary">{p.milestone_name}</td>
-                      <td className="px-4 py-3 font-bold text-primary font-tabular-nums">₹{p.amount.toLocaleString('en-IN')}</td>
-                      <td className="px-4 py-3 font-tabular-nums text-on-surface">{p.due_date}</td>
+                      <td className="px-4 py-3 font-semibold text-[#241820]">{p.milestone_name}</td>
+                      <td className="px-4 py-3 font-bold text-[#241820] font-tabular-nums">₹{p.amount.toLocaleString('en-IN')}</td>
+                      <td className="px-4 py-3 font-tabular-nums text-[#343A35]">{p.due_date}</td>
                       <td className="px-4 py-3">
-                        <span className={`px-2 py-0.5 rounded text-[10px] font-semibold uppercase ${
-                          p.status === 'Received' ? 'bg-secondary-container text-on-secondary-container' : 'bg-surface-container-high'
+                        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold uppercase ${
+                          p.status === 'Paid' || p.status === 'Received'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : 'bg-[#FAF7F2] text-[#343A35] border border-[#B99A72]/30'
                         }`}>
                           {p.status}
                         </span>
                       </td>
-                      <td className="px-4 py-3">
-                        {p.status === 'Received' ? (
-                          <span className="font-mono text-[10px] text-secondary font-medium">Receipt #{p.reference_no}</span>
+                      <td className="px-4 py-3 text-right">
+                        {p.status === 'Paid' || p.status === 'Received' ? (
+                          <button
+                            onClick={() => handleViewPdf(`Receipt_${p.reference_no || p.id}.pdf`, 'Receipts')}
+                            className="text-[#241820] hover:text-[#B99A72] font-semibold text-[11px] underline flex items-center gap-1 justify-end"
+                          >
+                            <span className="material-symbols-outlined text-[14px]">receipt_long</span>
+                            <span>Receipt #{p.reference_no || 'RTGS-99021'}</span>
+                          </button>
                         ) : (
-                          <span className="text-on-surface-variant text-[10px]">Awaiting Settlement</span>
+                          <span className="text-[#343A35]/60 text-[11px]">Scheduled</span>
                         )}
                       </td>
                     </tr>
@@ -416,30 +466,34 @@ export default function ClientPortal() {
 
         {/* 7. TAB 4: GUEST ROSTER */}
         {activePortalTab === 'guests' && (
-          <div className="bg-surface-container-lowest p-8 rounded-xl border border-secondary/20 shadow-sm space-y-6 text-xs">
+          <div className="bg-white p-8 rounded-2xl border border-[#B99A72]/25 shadow-sm space-y-6 text-xs">
             <div>
-              <h3 className="font-headline-sm text-2xl text-primary font-serif">Invited Guest Directory ({coupleGuests.length})</h3>
-              <p className="text-xs text-on-surface-variant mt-0.5">Your family seating plan and digital RSVP status</p>
+              <h3 className="text-2xl text-[#241820] font-serif font-normal">Guest Directory &amp; RSVPs ({coupleGuests.length})</h3>
+              <p className="text-xs text-[#343A35]/80 mt-0.5">Family seating assignments and digital RSVP status</p>
             </div>
 
             <div className="overflow-x-auto">
               <table className="w-full text-left">
                 <thead>
-                  <tr className="bg-surface-container-low text-on-surface-variant h-9 border-b border-secondary/15">
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Guest</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Family Delegation</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">Table Seating</th>
-                    <th className="px-4 py-2 font-label-sm uppercase font-semibold">RSVP</th>
+                  <tr className="bg-[#FAF7F2] text-[#343A35] h-10 border-b border-[#B99A72]/20 font-semibold uppercase text-[10.5px] tracking-wider">
+                    <th className="px-4 py-2">Guest Name</th>
+                    <th className="px-4 py-2">Family Group</th>
+                    <th className="px-4 py-2">Table Assigned</th>
+                    <th className="px-4 py-2">RSVP Status</th>
                   </tr>
                 </thead>
-                <tbody className="divide-y divide-secondary/10">
-                  {coupleGuests.slice(0, 10).map((g) => (
+                <tbody className="divide-y divide-[#B99A72]/15">
+                  {coupleGuests.map((g) => (
                     <tr key={g.id}>
-                      <td className="px-4 py-2.5 font-semibold text-primary">{g.name} (+{g.plus_ones})</td>
-                      <td className="px-4 py-2.5 text-on-surface-variant">{g.family_group}</td>
-                      <td className="px-4 py-2.5 text-on-surface">{g.table_assigned}</td>
-                      <td className="px-4 py-2.5">
-                        <span className="px-2 py-0.5 rounded text-[10px] bg-secondary-container/40 text-on-secondary-container font-semibold">
+                      <td className="px-4 py-3 font-semibold text-[#241820]">{g.name} (+{g.plus_ones})</td>
+                      <td className="px-4 py-3 text-[#343A35]">{g.family_group}</td>
+                      <td className="px-4 py-3 text-[#343A35]">{g.table_assigned || 'Table Royal 1'}</td>
+                      <td className="px-4 py-3">
+                        <span className={`px-2.5 py-0.5 rounded-full text-[10px] font-semibold ${
+                          g.rsvp_status === 'Attending'
+                            ? 'bg-emerald-100 text-emerald-800'
+                            : 'bg-amber-100 text-amber-800'
+                        }`}>
                           {g.rsvp_status}
                         </span>
                       </td>
@@ -453,28 +507,36 @@ export default function ClientPortal() {
 
         {/* 8. TAB 5: DOCUMENTS */}
         {activePortalTab === 'documents' && (
-          <div className="bg-surface-container-lowest p-8 rounded-xl border border-secondary/20 shadow-sm space-y-6 text-xs">
+          <div className="bg-white p-8 rounded-2xl border border-[#B99A72]/25 shadow-sm space-y-6 text-xs">
             <div>
-              <h3 className="font-headline-sm text-2xl text-primary font-serif">Shared Contracts &amp; Blueprints</h3>
-              <p className="text-xs text-on-surface-variant mt-0.5">Official executed contracts available for download</p>
+              <h3 className="text-2xl text-[#241820] font-serif font-normal">Wedding Documents &amp; Contracts</h3>
+              <p className="text-xs text-[#343A35]/80 mt-0.5">Official executed agreements and invoices available for viewing and download</p>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
               {coupleDocs.map((doc) => (
-                <div key={doc.id} className="p-4 bg-surface-container-low rounded border border-secondary/15 flex items-center justify-between">
-                  <div className="flex items-center gap-3">
-                    <span className="material-symbols-outlined text-secondary text-[24px]">picture_as_pdf</span>
-                    <div>
-                      <span className="font-semibold text-primary block">{doc.file_name}</span>
-                      <span className="text-[10px] text-on-surface-variant">{doc.category} • {doc.file_size}</span>
+                <div key={doc.id} className="p-4 bg-[#FAF7F2] rounded-xl border border-[#B99A72]/20 flex items-center justify-between">
+                  <div className="flex items-center gap-3 min-w-0">
+                    <span className="material-symbols-outlined text-[#B99A72] text-[24px] shrink-0">picture_as_pdf</span>
+                    <div className="truncate">
+                      <span className="font-semibold text-[#241820] block truncate">{doc.file_name}</span>
+                      <span className="text-[10px] text-[#343A35]/70">{doc.category} • {doc.file_size}</span>
                     </div>
                   </div>
-                  <button
-                    onClick={() => alert(`Downloading ${doc.file_name}`)}
-                    className="px-3 py-1 bg-surface-container-lowest text-primary rounded border border-secondary/20 hover:bg-primary hover:text-surface transition-colors"
-                  >
-                    Download ↓
-                  </button>
+                  <div className="flex items-center gap-2 shrink-0">
+                    <button
+                      onClick={() => handleViewPdf(doc.file_name, doc.category)}
+                      className="px-2.5 py-1 bg-white text-[#241820] rounded-lg border border-[#B99A72]/40 hover:bg-[#241820] hover:text-[#F5EFE7] transition-colors text-[11px] font-semibold shadow-2xs"
+                    >
+                      View PDF
+                    </button>
+                    <button
+                      onClick={() => handleDownloadPdf(doc.file_name, doc.category)}
+                      className="px-2.5 py-1 bg-[#241820] text-[#F5EFE7] rounded-lg hover:bg-[#34242e] transition-colors text-[11px] font-semibold shadow-2xs"
+                    >
+                      Download
+                    </button>
+                  </div>
                 </div>
               ))}
             </div>
@@ -484,9 +546,9 @@ export default function ClientPortal() {
 
       {/* REQUEST REVISIONS MODAL */}
       {selectedProposalForFeedback && (
-        <div className="fixed inset-0 z-50 bg-primary/60 backdrop-blur-sm flex items-center justify-center p-4">
-          <div className="bg-surface-container-lowest max-w-md w-full p-6 rounded-lg border border-secondary/30 shadow-2xl space-y-4 text-xs">
-            <h3 className="font-headline-sm text-lg text-primary font-serif">
+        <div className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm flex items-center justify-center p-4">
+          <div className="bg-white max-w-md w-full p-6 rounded-2xl border border-[#B99A72]/30 shadow-2xl space-y-4 text-xs">
+            <h3 className="text-lg text-[#241820] font-serif font-normal">
               Request Changes for {selectedProposalForFeedback.vendor_name}
             </h3>
             <form onSubmit={handleReject} className="space-y-3">
@@ -496,19 +558,19 @@ export default function ClientPortal() {
                 placeholder="Share your feedback, dietary preferences, or menu adjustments..."
                 value={feedbackInput}
                 onChange={(e) => setFeedbackInput(e.target.value)}
-                className="w-full p-2.5 bg-surface-container-low border border-secondary/20 rounded text-xs focus:outline-none"
+                className="w-full p-2.5 bg-[#FAF7F2] border border-[#B99A72]/30 rounded-lg text-xs text-[#241820] focus:outline-none focus:border-[#241820]"
               />
-              <div className="flex justify-end gap-2">
+              <div className="flex justify-end gap-2.5 pt-2 border-t border-[#B99A72]/20">
                 <button
                   type="button"
                   onClick={() => setSelectedProposalForFeedback(null)}
-                  className="px-3 py-1.5 bg-surface-container text-on-surface-variant font-label-caps uppercase text-xs"
+                  className="px-3.5 py-1.5 bg-[#FAF7F2] text-[#343A35] rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-[#F5EFE7]"
                 >
                   Cancel
                 </button>
                 <button
                   type="submit"
-                  className="px-4 py-1.5 bg-primary text-surface rounded font-label-caps uppercase text-xs font-semibold hover:bg-secondary-dark"
+                  className="px-4 py-1.5 bg-[#241820] text-[#F5EFE7] rounded-lg text-xs font-semibold uppercase tracking-wider hover:bg-[#34242e]"
                 >
                   Send to Planner
                 </button>
@@ -516,6 +578,18 @@ export default function ClientPortal() {
             </form>
           </div>
         </div>
+      )}
+
+      {/* PDF PREVIEW MODAL */}
+      {previewDoc && (
+        <PdfPreviewModal
+          isOpen={Boolean(previewDoc)}
+          onClose={() => setPreviewDoc(null)}
+          documentTitle={previewDoc.documentTitle}
+          category={previewDoc.category}
+          weddingTitle={previewDoc.weddingTitle}
+          uploadedBy={previewDoc.uploadedBy}
+        />
       )}
     </div>
   );

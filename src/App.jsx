@@ -7,10 +7,8 @@ import { DataProvider } from './context/DataContext';
 import HomePage from './pages/public/HomePage';
 import EnquiryPage from './pages/public/EnquiryPage';
 
-// Authenticated Login Pages (Dedicated Role Routes)
-import AgencyLoginPage from './pages/auth/AgencyLoginPage';
-import ClientLoginPage from './pages/auth/ClientLoginPage';
-import VendorLoginPage from './pages/auth/VendorLoginPage';
+// Consolidated Common Login Page
+import LoginPage from './pages/auth/LoginPage';
 
 // Protected Route Guards
 import { AgencyRoute, ClientRoute, VendorRoute } from './components/auth/ProtectedRoutes';
@@ -26,6 +24,8 @@ import GuestEventOperations from './pages/workspace/GuestEventOperations';
 import FinancePayments from './pages/workspace/FinancePayments';
 import DocumentsAgreements from './pages/workspace/DocumentsAgreements';
 import ReportsAnalytics from './pages/workspace/ReportsAnalytics';
+import GuestManagement from './pages/workspace/GuestManagement';
+import EventManagement from './pages/workspace/EventManagement';
 
 // Dedicated Portals
 import ClientPortal from './pages/client/ClientPortal';
@@ -41,21 +41,22 @@ export default function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/enquire" element={<EnquiryPage />} />
 
-            {/* 2. Dedicated Authenticated Role Logins */}
-            <Route path="/agency/login" element={<AgencyLoginPage />} />
-            <Route path="/client/login" element={<ClientLoginPage />} />
-            <Route path="/vendor/login" element={<VendorLoginPage />} />
-            {/* Fallback login route defaults to agency login */}
-            <Route path="/login" element={<Navigate to="/agency/login" replace />} />
+            {/* 2. Common Unified Login Route & Legacy Redirects */}
+            <Route path="/login" element={<LoginPage />} />
+            <Route path="/agency/login" element={<Navigate to="/login" replace />} />
+            <Route path="/client/login" element={<Navigate to="/login" replace />} />
+            <Route path="/vendor/login" element={<Navigate to="/login" replace />} />
 
             {/* 3. Protected Client Portal (Couples only) */}
             <Route element={<ClientRoute />}>
               <Route path="/client" element={<ClientPortal />} />
+              <Route path="/client/portal" element={<Navigate to="/client" replace />} />
             </Route>
 
             {/* 4. Protected Vendor Portal (Partners only) */}
             <Route element={<VendorRoute />}>
               <Route path="/vendor" element={<VendorPortal />} />
+              <Route path="/vendor/portal" element={<Navigate to="/vendor" replace />} />
             </Route>
 
             {/* 5. Protected Agency Workspace (9 Approved Modules) */}
@@ -66,7 +67,9 @@ export default function App() {
                 <Route path="weddings" element={<WeddingProjects />} />
                 <Route path="tasks" element={<TasksCalendar />} />
                 <Route path="vendors" element={<VendorsQuotations />} />
-                <Route path="guests-events" element={<GuestEventOperations />} />
+                <Route path="guests" element={<GuestManagement />} />
+                <Route path="events" element={<EventManagement />} />
+                <Route path="guests-events" element={<Navigate to="/workspace/guests" replace />} />
                 <Route path="finance" element={<FinancePayments />} />
                 <Route path="documents" element={<DocumentsAgreements />} />
                 <Route path="reports" element={<ReportsAnalytics />} />

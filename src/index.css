@@ -25,6 +25,18 @@
   }
 }
 
+/* Business Ergonomic Typography for Workspace and Portals */
+.workspace-root, .portal-root {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
+.workspace-root h1, .workspace-root h2, .workspace-root h3, .workspace-root h4,
+.workspace-root button, .workspace-root input, .workspace-root select, .workspace-root table,
+.portal-root h1, .portal-root h2, .portal-root h3, .portal-root h4,
+.portal-root button, .portal-root input, .portal-root select, .portal-root table {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif !important;
+}
+
 /* Tabular figures for monetary and numeric accuracy */
 .font-tabular-nums {
   font-variant-numeric: tabular-nums;
